@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 1 Control Estadistico de la Calidad | Control Estadístico de la Calidad</title>
+  <meta name="description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 1 Control Estadistico de la Calidad | Control Estadístico de la Calidad" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 1 Control Estadistico de la Calidad | Control Estadístico de la Calidad" />
+  
+  <meta name="twitter:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+<meta name="author" content="Miguel Flores Sánchez (miguel.flores@epn.edu.ec)" />
+
+
+<meta name="date" content="2019-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="practica-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Control Estadistico de la Calidad </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Teoria</b></span></li>
+<li class="chapter" data-level="1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html"><i class="fa fa-check"></i><b>1</b> Control Estadistico de la Calidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-y-seis-sigma-alternativas-en-r"><i class="fa fa-check"></i><b>1.1</b> CEC y seis Sigma: Alternativas en <em>R</em></a></li>
+<li class="chapter" data-level="1.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-definir"><i class="fa fa-check"></i><b>1.2</b> Etapa <strong>DEFINIR</strong></a><ul>
+<li class="chapter" data-level="1.2.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#mapa-de-procesos"><i class="fa fa-check"></i><b>1.2.1</b> Mapa de Procesos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-ishikawa-o-espina-de-pescado"><i class="fa fa-check"></i><b>1.2.2</b> Diagrama de Ishikawa o espina de pescado</a></li>
+<li class="chapter" data-level="1.2.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-pareto"><i class="fa fa-check"></i><b>1.2.3</b> Diagrama de Pareto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#epata-analizar-anova"><i class="fa fa-check"></i><b>1.3</b> Epata <strong>ANALIZAR</strong>: ANOVA</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion"><i class="fa fa-check"></i><b>1.3.1</b> Introducción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-medir"><i class="fa fa-check"></i><b>1.4</b> Etapa <strong>MEDIR</strong></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-rr"><i class="fa fa-check"></i><b>1.4.1</b> Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-control"><i class="fa fa-check"></i><b>1.5</b> Etapa <strong>CONTROL</strong>:</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control"><i class="fa fa-check"></i><b>1.5.1</b> Gráficos de control</a></li>
+<li class="chapter" data-level="1.5.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-multivariantes"><i class="fa fa-check"></i><b>1.5.2</b> Gráficos de control multivariantes</a></li>
+<li class="chapter" data-level="1.5.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-por-variables"><i class="fa fa-check"></i><b>1.5.3</b> Graficos de control por variables</a></li>
+<li class="chapter" data-level="1.5.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-para-atributos"><i class="fa fa-check"></i><b>1.5.4</b> Gráficos de control para atributos</a></li>
+<li class="chapter" data-level="1.5.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#otros-graficos-de-control-univariante"><i class="fa fa-check"></i><b>1.5.5</b> Otros graficos de Control univariante</a></li>
+<li class="chapter" data-level="1.5.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#curvas-oc"><i class="fa fa-check"></i><b>1.5.6</b> Curvas OC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-analizar-analisis-de-capacidad"><i class="fa fa-check"></i><b>1.6</b> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-1"><i class="fa fa-check"></i><b>1.6.1</b> Introducción</a></li>
+<li class="chapter" data-level="1.6.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#indices-de-capacidad"><i class="fa fa-check"></i><b>1.6.2</b> Indices de capacidad</a></li>
+<li class="chapter" data-level="1.6.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-en-r"><i class="fa fa-check"></i><b>1.6.3</b> Analisis de capacidad en R</a></li>
+<li class="chapter" data-level="1.6.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>1.6.4</b> Análisis de capacidad con datos no normales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-controlar-y-analizar"><i class="fa fa-check"></i><b>1.7</b> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></a><ul>
+<li class="chapter" data-level="1.7.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-multivariante-reduccion-de-la-dimencion"><i class="fa fa-check"></i><b>1.7.1</b> CEC multivariante: Reducción de la Dimención</a></li>
+<li class="chapter" data-level="1.7.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-para-variables-autocorrelacionadas"><i class="fa fa-check"></i><b>1.7.2</b> CEC para variables autocorrelacionadas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-para-datos-autocorrelados"><i class="fa fa-check"></i><b>1.7.3</b> Análisis de capacidad para datos autocorrelados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-al-diseno-de-experimentos-con-r"><i class="fa fa-check"></i><b>1.8</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#ejemplos-de-contrastes-anova"><i class="fa fa-check"></i><b>1.8.1</b> Ejemplos de contrastes ANOVA</a></li>
+<li class="chapter" data-level="1.8.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factorial-2k"><i class="fa fa-check"></i><b>1.8.2</b> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factoriales-fraccionarios"><i class="fa fa-check"></i><b>1.8.3</b> Diseño de experimentos factoriales fraccionarios</a></li>
+<li class="chapter" data-level="1.8.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-interlaboratorios"><i class="fa fa-check"></i><b>1.8.4</b> Estudios Interlaboratorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Practicas</b></span></li>
+<li class="chapter" data-level="2" data-path="practica-1.html"><a href="practica-1.html"><i class="fa fa-check"></i><b>2</b> Práctica 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="practica-1.html"><a href="practica-1.html#cec-y-seis-signa-alternativas-en-r"><i class="fa fa-check"></i><b>2.1</b> CEC y Seis Signa: alternativas en R</a></li>
+<li class="chapter" data-level="2.2" data-path="practica-1.html"><a href="practica-1.html#etapa-definir-mapas-de-procesos-ishikawa-pareto"><i class="fa fa-check"></i><b>2.2</b> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-1.html"><a href="practica-1.html#pizza"><i class="fa fa-check"></i><b>2.2.1</b> Mapas de procesos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-1.html"><a href="practica-1.html#ishikawa"><i class="fa fa-check"></i><b>2.2.2</b> DIAGRAMA DE ISHIKAWA</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-1.html"><a href="practica-1.html#par"><i class="fa fa-check"></i><b>2.2.3</b> DIAGRAMA DE PARETO</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="practica-1.html"><a href="practica-1.html#anova"><i class="fa fa-check"></i><b>2.3</b> Etapa <em>ANALIZAR</em>: ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="practica-1.html"><a href="practica-1.html#RyR"><i class="fa fa-check"></i><b>2.4</b> Etapa <em>MEDIR</em>: Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="practica-2.html"><a href="practica-2.html"><i class="fa fa-check"></i><b>3</b> Práctica 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-1"><i class="fa fa-check"></i><b>3.1</b> Gráficos de Control</a></li>
+<li class="chapter" data-level="3.2" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-variables-1"><i class="fa fa-check"></i><b>3.2</b> Gráficos de Control por variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-2.html"><a href="practica-2.html#gqcc"><i class="fa fa-check"></i><b>3.2.1</b> Gráficos qcc para variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-2.html"><a href="practica-2.html#grafico-de-control-para-el-rango-y-la-media-datos-plates"><i class="fa fa-check"></i><b>3.2.2</b> Gráfico de control para el RANGO y la MEDIA: datos “plates”</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-2.html"><a href="practica-2.html#renderizado"><i class="fa fa-check"></i><b>3.2.3</b> Grafico de control para valores individuales de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-atributos"><i class="fa fa-check"></i><b>3.3</b> Gráficos de control por atributos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="practica-2.html"><a href="practica-2.html#P"><i class="fa fa-check"></i><b>3.3.1</b> Gráficos p</a></li>
+<li class="chapter" data-level="3.3.2" data-path="practica-2.html"><a href="practica-2.html#np"><i class="fa fa-check"></i><b>3.3.2</b> Gráfico tipo np</a></li>
+<li class="chapter" data-level="3.3.3" data-path="practica-2.html"><a href="practica-2.html#gc"><i class="fa fa-check"></i><b>3.3.3</b> Gráficos C</a></li>
+<li class="chapter" data-level="3.3.4" data-path="practica-2.html"><a href="practica-2.html#gu"><i class="fa fa-check"></i><b>3.3.4</b> Gráficos U</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="practica-2.html"><a href="practica-2.html#otros-graficos-de-control-cusum-y-ewma"><i class="fa fa-check"></i><b>3.4</b> Otros gráficos de Control: CUSUM y EWMA</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="practica-2.html"><a href="practica-2.html#cusum"><i class="fa fa-check"></i><b>3.4.1</b> GRÀFICOS CUSUM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="practica-2.html"><a href="practica-2.html#ewma"><i class="fa fa-check"></i><b>3.4.2</b> GRÁFICOS EWMA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="practica-2.html"><a href="practica-2.html#oc"><i class="fa fa-check"></i><b>3.5</b> CURVAS OC</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="practica-2.html"><a href="practica-2.html#curvas-oc-para-grafica-de-variables"><i class="fa fa-check"></i><b>3.5.1</b> Curvas OC para gráfica de variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practica-3.html"><a href="practica-3.html"><i class="fa fa-check"></i><b>4</b> Práctica 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="practica-3.html"><a href="practica-3.html#etapa-analizar-analisis-de-la-capacidad"><i class="fa fa-check"></i><b>4.1</b> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="practica-3.html"><a href="practica-3.html#analisis-de-capacidad-con-r"><i class="fa fa-check"></i><b>4.1.1</b> Análisis de capacidad con R:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="practica-3.html"><a href="practica-3.html#analisis-de-la-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>4.1.2</b> Análisis de la capacidad con datos no normales</a></li>
+<li class="chapter" data-level="4.1.3" data-path="practica-3.html"><a href="practica-3.html#Piedra"><i class="fa fa-check"></i><b>4.1.3</b> Caso Práctico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practica-4.html"><a href="practica-4.html"><i class="fa fa-check"></i><b>5</b> Práctica 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="practica-4.html"><a href="practica-4.html#etapa-controlar-y-analizar-1"><i class="fa fa-check"></i><b>5.1</b> Etapa Controlar y Analizar</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="practica-4.html"><a href="practica-4.html#control-estadistico-de-calidad-multivariante"><i class="fa fa-check"></i><b>5.1.1</b> Control Estadistico de Calidad Multivariante:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="practica-4.html"><a href="practica-4.html#control-de-calidad-de-variables-autocorreladas"><i class="fa fa-check"></i><b>5.1.2</b> Control de Calidad de variables autocorreladas</a></li>
+<li class="chapter" data-level="5.1.3" data-path="practica-4.html"><a href="practica-4.html#autocorr"><i class="fa fa-check"></i><b>5.1.3</b> Análisis de capacidad con datos autocorrelados.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practica-5.html"><a href="practica-5.html"><i class="fa fa-check"></i><b>6</b> Práctica 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="practica-5.html"><a href="practica-5.html#introduccion-al-diseno-de-experimentos-con-r-1"><i class="fa fa-check"></i><b>6.1</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="practica-5.html"><a href="practica-5.html#ejemplos-de-pruebas-anova"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplos de Pruebas ANOVA</a></li>
+<li class="chapter" data-level="6.1.2" data-path="practica-5.html"><a href="practica-5.html#disenos-factoriales"><i class="fa fa-check"></i><b>6.1.2</b> DISEÑOS FACTORIALES</a></li>
+<li class="chapter" data-level="6.1.3" data-path="practica-5.html"><a href="practica-5.html#disenos-de-experimentos-factoriales-fraccionados"><i class="fa fa-check"></i><b>6.1.3</b> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</a></li>
+<li class="chapter" data-level="6.1.4" data-path="practica-5.html"><a href="practica-5.html#ilab"><i class="fa fa-check"></i><b>6.1.4</b> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Control Estadístico de la Calidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="control-estadistico-de-la-calidad" class="section level1">
+<h1><span class="header-section-number">Capítulo 1</span> Control Estadistico de la Calidad</h1>
+<div id="cec-y-seis-sigma-alternativas-en-r" class="section level2">
+<h2><span class="header-section-number">1.1</span> CEC y seis Sigma: Alternativas en <em>R</em></h2>
+<p>La calidad se ha convertido en uno de los factores de decisión del consumidor más importantes en la selección de productos y servicios competidores. Esto se ha extendido, independientemente de si el consumidor es un individuo, una organización industrial, una tienda minorista, una institución financiera, o un programa de defensa militar. Consencuentemente, entender y mejorar la calidad es un factor clave para el éxito comercial, el crecimiento y la mejora de la competitividad. Se define calidad como adecuación para uso (calidad de diseño y calidad de conformidad). Ésta es inversamente proporcional a la variabilidad y el objetivo principal es intentar reducir la variabilidad en procesos y productos a través de la mejora de calidad. Este concepto se relaciona con una o más características deseables que debería poseer un producto o servicio. Es uno de los factores de decisión más importantes y por lo tanto entender y mejorar la calidad es un factor clave que lleva al éxito en los negocios, al crecimiento y a una posición competitiva fortalecida.</p>
+<p><strong>Control estadístico de procesos</strong></p>
+<p>Para diseñar los gráficos de control propuestos en la presente tesis, se hace uso de la aplicación de técnicas pertenecientes al control estadístico de la calidad (CEC) el cual se define como el uso de herramientas basadas en la estadística y técnicas principalmente diseñadas para la administración y mejora de procesos. Una de las claves cruciales para comprender la medición del rendimiento, y por lo tanto, el control estadístico de procesos es la variación, se distingue entre dos causas de variación dentro de un proceso; aquellas que no pueden ser identificadas y corregidas que se denominan “causas fortuitas o no asignables”, y otras que pueden ser identificadas y se deben al proceso en si, denominadas “causas asignables”</p>
+<p><strong>Metodología Seis Sigma</strong></p>
+<p>Seis Sigma es un enfoque revolucionario de gestión que mide y mejora la calidad, ha llegado a ser un método de referencia para satisfacer las necesidades del cliente y al mismo tiempo, lograrlo en niveles próximos a la perfección. [GestioPolis, 2001]. Dicho en pocas palabras, es una metodología de mejora de procesos que busca la reducción de la variación, defectos y otros tipos de errores para así, llegar a un máximo de 3.4 defectos por millón. Este término fue acuñado por Motorola en los años 80 para denominar su iniciativa de reducción radial de defectos en productos. Renació, a medidados de los años 90, con un gran impulso, gracias a la acertividad con la que General Electric la aplicó en su organización (fabricación y servicios) y, sobre todo, por sus resultados económicos espectaculares.</p>
+<p>La figura muestra una distribución de probabilidad normal como modelo de una característica de calidad con límites de especificación de tres desviaciones estándar en cada lado de la media. [Montgomery, 2007] De acuerdo al gráfico, la probabilidad de producir un producto dentro de estas</p>
+<p><img src="6_sigma.png" /></p>
+<p>Figura: Variable normal centrada en µ = T, porcentaje de elementos no conformes segun el criterio Seis Sigma (capacidad de procesos). Se muestran los defectos,por millon (ppm Defective) esperados para cada nivel de calidad del producto o capacidad de proceso.</p>
+<p>especificaciones es de 0.9973, que corresponde a 2700 partes por millón (ppm). Esto se conoce como <em>rendimiento de calidad Tres Sigma</em>. Sin embargo, supongamos que
+consiste del ensamblaje de 100 componentes independientes las cuales deben ser no defectuosas para que el producto funcione satisfactoriamente. La probabilidad de que una unidad de producto específica sea no defectuosa es</p>
+<p><span class="math display">\[0.9973 × 0.9973 × · · · × 0.9973 = (0.9973)^{100} = 0.7631\]</span></p>
+<p>Esto es, alrededor del 23.7 % de productos elaborados bajo la calidad Tres Sigma serán defectuosos.Tomando en cuenta que muchos productos usados por la sociedad de hoy están compuestos de muchas partes, estos niveles de calidad son inaceptables. En la actualidad, Seis Sigma ha evolucionado desde su aplicación meramente como herramienta de calidad a incluirse dentro de los valores claves de algunas
+empresas, como parte de su filosofía de actuación.</p>
+<p>Seguidamente, en la <em>Figura 1</em>, se encuentra los paquetes existentes en R con aplicaciones directas al Control Estadistico de la Calidad (CEC), asi como las herramientas que proporcionan.
+<img src="Figura_1.PNG" /></p>
+<p>En esta práctica se relacionarán las herramientas de control estadístico de calidad con la metodología Seis Sigma. Seis Sigma es una metodología de mejora de procesos que persigue la reducción de la variación, los defectos y otros tipos de errores para alcanzar objetivos como aumentar la cuota de mercado, minimizar los costes, incrementar la ganancia, la eficiencia, la imagen de marca, etc. Aun teniendo un claro enfoque empresarial e industrial, sus procedimientos pueden aplicarse a campos como la investigación o la administración pública.</p>
+<p><img src="Figura_2.PNG" /></p>
+<p>En la Figura 2 se muestran las distintas etapas del proceso, su objetivo y la relación entre ellas.</p>
+<p>Hoy en día, Seis Sigma puede verse como un conjunto de métodos y procedimientos de aplicación de la estadística para la mejora y control de procesos productivos, de servicios o de I+D+I, desde un enfoque de CEC. Por esto último, en esta práctica se ha decidido presentar las diversas técnicas de CEC dentro de las etapas de la metodología Seis Sigma correspondientes. En la Figura 3 se enumeran las técnicas estadísticas de control de calidad susceptibles de aplicarse en cada una de las etapas del procedimiento Seis Sigma.</p>
+<p><img src="Figura_3.png" /></p>
+</div>
+<div id="etapa-definir" class="section level2">
+<h2><span class="header-section-number">1.2</span> Etapa <strong>DEFINIR</strong></h2>
+<p>En esta estapa se identifica el problema, se establecen los objetivos y las prioridades para subsanarlo y, finalmente , se lanza el proyecto.</p>
+<p>En la fase definir se identifican los posible proyectos Seis Sigma que deben ser evaluados por la dirreción para obtimizar los recursos. Habiendo identificado, seleccionado, estandarizado y documentado el proyecto, asi como sus puntos de medición y fuentes de varación, se prepara y selecciona el equipo más adecuado para ejecutarlo, asignándole la prioridad adecuada.</p>
+<p>El objetivo de la fase <em>DEFINIR</em> es reunir a todas las partes interesadas, captar sus conocimientos y puntos de vista acerca de los procesos involucrados, fijar un objetivo común y definir como contribuye cada parte ( o el papel que cada parte tiene) a la solución del problema (reducción de defectos, coste, consumo eléctrico,…) La contribución de cada parte, los hitos y responsabilidades deben escribirse en lo que se conoce como un <strong>Mapa de Procesos</strong></p>
+<div id="mapa-de-procesos" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Mapa de Procesos</h3>
+<p>El mapa de procesos es una representación gráfica que identifica todos los procesos que existen en una empresa, laboratorio o proyecto en particular, además de mostrar la interrelación entre ellos.</p>
+<p>Pasos para construir un mapa de procesos</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><em>Identificación de las entradas y salidas:</em>
+Las entradas y salidas del proceso constituyen el mapa de procesos de alto nivel. Las entradas del proceso aparecen identificadas mediante las <em>X</em> mayúsculas dentro del mapa de procesos. Las <strong>entradas</strong> <em>X</em> suelen relacionarse con las <strong>6 M</strong>: Además de las seis <strong>M</strong>: <code>machines</code>, <code>methods</code>, <code>materials</code>, <code>measurements</code>, <code>mother nature</code> (medio ambiente), y <code>manpower</code> (mano de obra). Aparte de estas últimas, las entradas pueden identificarse con aspectos como la energía, las regulaciones, etc. Las <strong>salidas</strong> se corresponden con <strong>características de producto o servicio</strong>. Las características <strong>CTQ</strong> (variables críticas para la calidad, “Critical To Quality”) de la salida son las <strong>Y</strong> del proceso.</p></li>
+<li><p><em>Identificación y listado de los pasos o etapas del proyecto</em>
+Cuanto más detallada sea la división del proceso, más preciso será el análisis posterior. Hay dos tipos de etapas: las que implican un valor añadido al producto y las que no (como el transporte, el almacenamiento, la inspección, etc.).</p></li>
+<li><p><em>Identificación de las caracteristicas o salidas de cada etapa</em>
+Son las <strong>y</strong> (en minúscula) del mapa de procesos. Pueden ser de un producto en proceso, materiales, datos… o mismo características del producto final, que pueden sufrir cambios de una etapa a otra.</p></li>
+<li><p><em>Identificar los parámetros correspondientes a cada etapa</em>
+Los parámetros que afectan al proceso en una etapa determinada se conocen como las <strong>x</strong> (en minúscula) de cada etapa. Estos parámetros condicionan en el coste, calidad u otros aspectos importantes de las salidas o características del producto.</p></li>
+<li><p><em>La clasificación de los Parámetros</em>
+Es necesario evaluar la influencia de los parámetros en las características. Los parámetros pueden pertenecer a los siguientes grupos según su tipo de influencia:
+<strong>N</strong> (de ruido): los factores no controlables.
+<strong>C</strong> (factores controlables): se pueden modificar durante el proceso.
+<strong>P</strong> (de procedimiento): factores controlables a través de un procedimiento estándar.
+<strong>Cr</strong> (críticos): los que tienen más influencia en el proceso.</p></li>
+</ol>
+<div id="caso-practico-ejemplo-pizza" class="section level4">
+<h4><span class="header-section-number">1.2.1.1</span> Caso Práctico: Ejemplo PIZZA</h4>
+<p>(Ver Práctica 1.- Ejemplo 1: Pizza) <a href="practica-1.html#pizza">2.2.1</a></p>
+</div>
+</div>
+<div id="diagrama-de-ishikawa-o-espina-de-pescado" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Diagrama de Ishikawa o espina de pescado</h3>
+<p>Los diagramas causa efecto, también llamados diagramas de ISHIKAWA o de espina de pescado, están indicados para asociar multiples causasa a un solo efecto.</p>
+<div id="caso-practico-retrasos-en-la-construccion-de-obras" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Caso Práctico: Retrasos en la construcción de obras</h4>
+<p>(Ver Práctica 1.- Ejemplo 2: Ishikawa) <a href="practica-1.html#ishikawa">2.2.2</a></p>
+</div>
+</div>
+<div id="diagrama-de-pareto" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Diagrama de Pareto</h3>
+<p>Una técnica clásica de visualización que se utiliza en la fase DEFINIR y disponible en los paquetes <code>qcc</code> y <code>qualityTools</code> es el diagrama de Pareto. Los diagramas de Pareto son un caso especial de los gráficos de barras que ayudan a separar las pocas causas que son vitales de las muchas que son triviales para un problema o un efecto dado. De esta manera los diagramas de Pareto nos permiten visualizar cuánto contribuye cada causa de un problema específico al efecto estudiado.</p>
+<div id="caso-practico-retrasos-en-la-construccion-de-obras-1" class="section level4">
+<h4><span class="header-section-number">1.2.3.1</span> Caso Práctico: retrasos en la construcción de obras</h4>
+<p>(Ver Práctica 1.- Ejemplo 3: Pareto) <a href="practica-1.html#par">2.2.3</a></p>
+</div>
+</div>
+</div>
+<div id="epata-analizar-anova" class="section level2">
+<h2><span class="header-section-number">1.3</span> Epata <strong>ANALIZAR</strong>: ANOVA</h2>
+<div id="introduccion" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Introducción</h3>
+<ul>
+<li>Planteamiento del problema</li>
+</ul>
+<p>El análisis de la varianza (ANOVA) es un método estadístico que permite estudiar la relación entre una variable dependiente <strong>cuantitativa</strong> y una o varias variables independientes <strong>cualitativas</strong>.</p>
+<ul>
+<li><strong>Objetivo</strong></li>
+</ul>
+<p>Determinar si varias (k) muestras de una variable proceden de la misma población o de poblaciones distintas; es decir, contrastar simultáneamente la homogeneidad de las mismas.</p>
+<ul>
+<li><p><strong>Conceptos básicos</strong></p>
+<ul>
+<li><p>Factores: cada una de las variables independientes, causas de la posible heterogeneidad de las muestras.</p></li>
+<li><p>Niveles del factor: cada uno de los valores posibles del factor.</p></li>
+<li><p>Efectos: medida de la influencia de los factores en la variable dependiente.</p></li>
+<li><p>Error muestral: debido a la aleatoriedad en la selección de las muestras.</p></li>
+</ul></li>
+<li><p><strong>Clasificación de los modelos </strong></p>
+<ul>
+<li><p>Según el número de factores; modelo con un único factor (modelo simple), modelo con varios factores (modelo múltiple)</p></li>
+<li><p>Por la forma de disponer la información: modelo completamente aleatoriazado (se puede recoger la información de forma completamente aleatoria); modelo aleatorizado en bloques.</p></li>
+<li><p>Por el tipo de efectos: modelo de efectos fijos (se fijan a priori los k niveles del factor y el contraste y las conclusiones del mismo se aplican a todos ellos).</p></li>
+</ul></li>
+</ul>
+<p><strong>PROYECTO: Análisis de la varianza de un factor, efectos fijos e información completamente aleatorizada</strong></p>
+<ul>
+<li><p>Planteamiento Se trata de estudiar la relación
+entre:</p>
+<ul>
+<li><p><span class="math inline">\(Y\)</span>: variable dependiente (respuesta) cuantitativa</p></li>
+<li><p><span class="math inline">\(A\)</span>: variable independiente o factor cualitativa, cada uno de sus k niveles define un grupo</p></li>
+</ul></li>
+<li><p>Modelo probabilístico</p></li>
+</ul>
+<p>Hipótesis a establecer sobre el modelo:</p>
+<ul>
+<li><p>Existen <span class="math inline">\(k\)</span> niveles (grupos) del factor A: <span class="math inline">\(i=1, 2, \dots, k\)</span>; a cada grupo <span class="math inline">\(i\)</span> le corresponde un valor de <span class="math inline">\(Y\)</span> dado por <span class="math inline">\(Y_i\)</span></p></li>
+<li><p>Homoscedasticidad:</p></li>
+</ul>
+<p><span class="math display">\[Var(Y_i)= \sigma^2 \ \ \ \forall i=1, 2, \dots, k \]</span></p>
+<ul>
+<li><p><span class="math inline">\(\epsilon_i \mapsto N(0,\sigma^2) \ \)</span>: <span class="math inline">\(Y_i \mapsto N(\mu_i,\sigma)\)</span></p></li>
+<li><p>En el modelo (b),
+<span class="math inline">\(\delta_i \mapsto N(0,\sigma_b)\)</span></p></li>
+</ul>
+<p>Modelo: puede expresarse alternativamente como</p>
+<p><span class="math display">\[ \mu_i= \mu + \epsilon_i;\quad i=1,2,\dots,k \]</span>
+<span class="math display">\[\mu_i= \mu + \delta_i + \epsilon_i; \quad  i=1,2,\dots,k;\quad \sum_{i=1}^k \delta_i = 0 \]</span></p>
+<p>Las observaciones de <span class="math inline">\(Y\)</span> se podrian representar como</p>
+<table>
+<thead>
+<tr class="header">
+<th>Grupo</th>
+<th>Observaciones del factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(y_{11}\)</span> <span class="math inline">\(y_{11}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{1j}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{1n}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\dots\)</span></td>
+<td><span class="math inline">\(\dots\)</span></td>
+</tr>
+<tr class="odd">
+<td>i</td>
+<td><span class="math inline">\(y_{i1}\)</span> <span class="math inline">\(y_{i2}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{ij1}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{in}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\dots\)</span></td>
+<td><span class="math inline">\(\dots\)</span></td>
+</tr>
+<tr class="odd">
+<td>k</td>
+<td><span class="math inline">\(y_{k1}\)</span> <span class="math inline">\(y_{k2}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{kj}\)</span> <span class="math inline">\(\dots\)</span> <span class="math inline">\(y_{kn}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="etapa-medir" class="section level2">
+<h2><span class="header-section-number">1.4</span> Etapa <strong>MEDIR</strong></h2>
+<p>En la fase medir se identifican las características clave del producto (variables resultado) y los parámetros que afectan al funcionamiento del proceso (variables de entrada). Esta caracterización nos llevará a definir el sistema de medición (de materia prima e insumos, de las variables críticas del proceso, de los productos terminados, de las no conformidades, de la satisfacción del cliente, de la eficacia de los proveedores, de la eficiencia y/o eficacia de la organización) para así poder evaluar la calidad del proceso.</p>
+<ul>
+<li><p>Completar la identificación de características clave del proceso y completar el mapa de proceso.</p></li>
+<li><p>Desarrollar el plan de recolección de datos.</p></li>
+<li><p>Validar el sistema de medición (evaluación R &amp; R).</p></li>
+<li><p>Toma de datos.</p></li>
+<li><p>Comenzar a relacionar las características o salidas con las causas o entradas.</p></li>
+</ul>
+<p>Es propio de esta etapa la caracterización de la distribución de probabilidad de cada variable o característica de estudio (por ejemplo, la evaluación de la normalidad de los datos).</p>
+<div id="caso-practico-etapa-analizar-anova" class="section level4">
+<h4><span class="header-section-number">1.4.0.1</span> Caso Práctico: Etapa <em>ANALIZAR</em>: ANOVA</h4>
+<p>(Ver Práctica 1.- Anova) <a href="practica-1.html#anova">2.3</a></p>
+</div>
+<div id="estudios-rr" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Estudios R&amp;R</h3>
+<p>Es un procedimiento muy común en estudio de procesos industriales que consiste en la evaluación de la repetitividad y la reproducibilidad de un sistema de medición. Llamamos <strong>REPETITIVIDAD</strong> a la precisión de un sistema de medición (también llamado “Gage”), estimada mediante la desviación estándar de las mediciones realizadas sobre una misma pieza, por el mismo operario y la misma máquina. La <strong>REPRODUCIBILIDAD</strong> es la parte de la varianza global debida al factor operador o máquina y a la interacción de operador o máquina con el factor pieza o unidad medida. El modelo general está dado por:</p>
+<p><span class="math display">\[ \sigma_{total}^2= \sigma_{piezas}^2+\sigma_{\text{operador o  máquina}}^2+\sigma_{\text{operador o máquina x piezas}}^2 + \sigma_{error}^2 \]</span></p>
+<p>Donde</p>
+<p><span class="math display">\[ \sigma_{Reproducibilidad}^2= \sigma_{\text{operador o  máquina}}^2+\sigma_{\text{operador o máquina x piezas}}^2 \]</span></p>
+<p><span class="math display">\[ \sigma_{Repititividad}^2= \sigma_{error}^2 \]</span>
+<span class="math display">\[ \sigma_{RR}^2= \sigma_{Reproducibilidad}^2+ \sigma_{Repititividad}^2\]</span></p>
+<p>El procedimiento para evaluar si un sistema de medida es adecuado es el siguiente:</p>
+<ol style="list-style-type: decimal">
+<li><p>Aplicar un análisis de la varianza con dos factores y su interacción (máquina u operador, pieza -unidad en general- y su interacción). Si el factor operador y su interacción con piezas son significativos, el sistema de medida no es el adecuado. Han de completarse los resultados con los parámetros calculados en el punto 3.</p></li>
+<li><p>Calcular las varianzas relativas a la repetitividad y reproducibilidad.</p></li>
+<li><p>Calcular parámetros derivados de estas dos varianzas que son indicadores de la bondad del sistema de medida y complementan los resultados del ANOVA. Estos indicadores se expresan como % o tanto por uno de la varianza total, de 6· desv. típ., etc.</p></li>
+</ol>
+<p>En un estudio R &amp; R, los resultados finales se dan en porcentaje de la variación de la repetitividad.</p>
+<p>Antes de recolectar datos de su proceso (por ejemplo, para controlar o analizar la capacidad del proceso), se deben utilizar estudios R &amp; R para confirmar que el sistema de medición mide de forma uniforme y exacta, y que discrimina adecuadamente entre partes.</p>
+<div id="caso-practico-gage-r-r-tecnologia-mecanica-sistema-de-medida-del-diametro-de-una-junta-torica-de-caucho" class="section level4">
+<h4><span class="header-section-number">1.4.1.1</span> Caso práctico Gage R &amp; R: tecnología mecánica-sistema de medida del diámetro de una junta tórica de caucho</h4>
+<p>(Ver Práctica 1.- R&amp;R) <a href="practica-1.html#RyR">2.4</a></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="etapa-control" class="section level2">
+<h2><span class="header-section-number">1.5</span> Etapa <strong>CONTROL</strong>:</h2>
+<p>En la fase de control deben monitorizarse o someter a vigilancia los logros conseguidos en etapas anteriores, así como documentar las nuevas condiciones o especificaciones del proceso de estudio. Esta etapa está caracterizada por el empleo de herramientas basadas en la detección de errores y su corrección: las más representativas son los gráficos de control.</p>
+<p>El objetivo último de la mejora de la calidad no es sólo ofrecer productos de buena calidad, sino también mejorar la productividad y la satisfacción de los clientes (que permitirá afrontar el gasto del proceso de mejora). Una forma de mejorar la productividad es a través de la reducción de los defectos y las revisiones, por inspección y control de los procesos en curso antes de que se generen productos o servicios defectuosos.</p>
+<p>Las variaciones de las características medidas son desviaciones de los objetivos prefijados. Aparecen independientemente de que el proceso esté o no bajo control. Las causas que originan la variaciones se dividen en dos categorías: <strong>comunes</strong> (E. Deming) o <strong>aleatorias</strong> (W. Shewhart), cuando son inherentes al proceso de producción, y <strong>especiales</strong> (E. Deming) o <strong>asignables</strong> (W. Shewhart ) cuando no son atribuibles al proceso de producción (por ejemplo, un operador que tiene sueño). Importante: para ser capaz de predecir el nivel de calidad de los productos o servicios, los procesos que los generan han de ser <strong>estables</strong>, es decir, con total ausencia de causas especiales de variación.</p>
+<div id="graficos-de-control" class="section level3">
+<h3><span class="header-section-number">1.5.1</span> Gráficos de control</h3>
+<p>El gráfico de control es la herramienta más usada en el análisis de variaciones con el fin de evaluar, monitorear y controlar el redimiento de los procesos de producción o servicios; mediante el uso de los gráficos de control se pretende identificar variaciones en el proceso debido a causas comunes y causas especiales. A través de los años, los gráficos de control se han posicionado entre los medios de control operativo más importantes, hasta adquirir tanta importancia como los controles de costos y materiales. La tecnología moderna de los ordenadores ha facilitado la implementación de los gráficos de control para cualquier tipo de proceso, ya que es posible obtener y analizar los datos en tiempo real y en línea en el centro de trabajo. [Scepi and Acconcia, 1996]</p>
+<p>Un gráfico de control es un gráfico de dos dimensiones cuyo eje y representa la variable que estamos monitorizando. Los valores de la característica a medir se representan secuencialmente con respecto al tiempo. Los valores de la variable pueden ser individuales o, más comúnmente, los promedios referidos a grupos de tamaño 4, 5, etc., llamados muestras racionales. El eje x de la gráfica muestra los números de identificación para el conjunto de ítems (individuales o grupos). Los valores de la variable se representan con puntos unidos mediante líneas rectas, para poder identificar patrones indicadores de cambios significativos en el rendimiento del proceso. Gráficamente, se caracterizan por:</p>
+<p>• Una línea central (CL). Media de las variables incluidas en la muestra. Los valores monitorizados varían en torno a esta media.</p>
+<p>• Límite de control inferior (LCL), por debajo del cual es muy poco probable que se produzcan realizaciones de la variable.</p>
+<p>• Límite de control superior (UCL). El LCL y UCL son simétricos si la distribución de probabilidad de la variable es simétrica (se suele utilizar la normal).</p>
+<p>Utilidades de los gráficos de control:</p>
+<p>• Evitar que el proceso esté fuera de control, detectando las causas asignables a cada variación de la característica medida y tomando las medidas al respecto.</p>
+<p>• Para no hacer ajustes cuando no se necesitan. La mayoría de los procesos de producción dan a los operadores margen de maniobra para hacer ajustes en los equipos que están utilizando. Los gráficos de control pueden indicar cuando los ajustes son necesarios y cuando no lo son.</p>
+<p>• Para determinar el rango natural (límites de control) de un proceso y para comparar este rango con sus límites especificados. Si el rango de los límites de control es más amplio que el de los límites especificados, el proceso va a generar productos defectuosos y tendrá que ser ajustado.</p>
+<p>• Dar a conocer la capacidad y estabilidad del proceso, entendiendo como capacidad de proceso a su adecuación para ofrecer productos dentro de los límites especificados continuamente en el tiempo.</p>
+<p>• Para llevar a cabo el proceso de monitorizado del proceso y así evitar los defectos en el producto final.</p>
+<p>• Para facilitar la planificación de la asignación de recursos de producción. Las variaciones de una característica de calidad determinan la cantidad de defectos. Tener información para predecir estas variaciones ayuda a asignar los recursos.</p>
+<p>Entre las varias razones para el uso de los gráficos de control, Montgomery [2007]
+destaca las siguientes:</p>
+<ul>
+<li>Son una técnica comprobada para reducir la variabilidad</li>
+<li>Son efectivos en la prevención de defectos</li>
+<li>Previenen ajustes innecesarios en el proceso</li>
+<li>Proveen información de diagnóstico__</li>
+<li>Proveen información acerca de la capacidad del proceso</li>
+</ul>
+<p><strong>Los gráficos de control se construyen en dos fases</strong></p>
+<p>El uso del gráfico de control estándar implica aplicaciones de fase I y fase II, con
+dos objetivos diferentes y distintos.</p>
+<p>En la fase I, un conjunto de datos históricos procesados es recolectado y analizado a la vez en un análisis retrospectivo, usando esta muestra preliminar se estiman los límites de control. En esta fase se identifican las principales causas de variación asignables y se toman las medidas para corregirlas, hasta lograr la estimación de los límites de control de la variable CTQ correspondiente al proceso bajo control. Los límites de control se calculan como un intervalo de confianza. Se suelen tomar aquellos que distan de la media en tres desviaciones típicas <span class="math inline">\((\mu \pm 3\sigma)\)</span>. Al conjunto de datos históricos se lo denomina muestra de calibrado, siendo el contraste de hipótesis <span class="math inline">\((H_0)\)</span> sobre una misma población F. Así, en la fase I comparamos una colección de m puntos contra un conjunto de límites de control calculados a partir de esos puntos. Se recomienda que los límites de control naturales se estimen a partir de una muestra de calibrado constituida por
+20 o más observaciones. [Montgomery, 2007]</p>
+<p>Es bastante usual suponer que en la fase I el proceso está inicialmente fuera de control, por lo que el objetivo del analista es llevar el proceso a un estado de control estadístico. Los límites de control se calculan en función de los m subgrupos y los datos graficados en los gráficos de control. Se investigan los puntos que están fuera de los límites de control, en busca de posibles causas asignables. Los puntos fuera de los límites de control se excluyen y se calcula un nuevo conjunto de límites de control revisados. Luego se recopilan nuevos datos y se comparan con estos límites revisados. En ocasiones, este tipo de análisis requerirá varios ciclos en los que se emplee el gráfico de control, se detecten y corrijan las causas asignables, se calculen los límites de control revisados y se actualize y amplíe el plan de acción fuera de control.</p>
+<p>Los tipos de causas asignables que usualmente ocurren en la fase I resultan en cambios de proceso bastante grandes. La longitud de corrida promedio (ARL) no es un buen indicador de rendimiento para esta fase, dado que se busca la probabilidad de que se detecte una causa asignable en lugar de la aparición de falsas alarmas.</p>
+<p>En la fase II, las muestras tomadas posteriormente se representan en un gráfico con los límites de control anteriores. Cuando las observaciones individuales de la variable de estudio <strong>X</strong> están dentro de los límites de control, se dice que el proceso está estadísticamente bajo control. Los límites de control son completamente diferentes de los límites de especificación (aquellos aceptados por el cliente o fijados por los ingenieros, que representan la consigna o target).</p>
+<p><img src="Figura_4.png" /></p>
+<p>La <strong>Figura 1</strong> muestra el proceso estándar de monitorización de una variable CTQ (critical to quality).</p>
+<p><em>Nota</em>: Las hipótesis de partida para los gráficos de control que a continuación se muestran son la normalidad e independencia de las observaciones. Existen gráficos de control para medidas dependientes y variables no normales (por ejemplo Weibull). Sin embargo, los gráficos EWMA son insensibles a la no normalidad de los datos (Montgomery, 2005), caso completamente contrario a los gráficos de medidas individuales.</p>
+<p><strong>Ventajas de los gráficos de control de atributos:</strong></p>
+<p>Los gráficos de control de atributos tienen la ventaja de resumir rápidamente los diversos aspectos de la calidad de un producto, es decir, el ingeniero puede simplemente clasificar los productos como aceptables o inaceptables, basándose en diversos criterios de calidad. Por tanto, la elaboración de gráficos de atributos no requiere procedimientos especialmente costosos en tiempo ni necesitan el empleo de precisos dispositivos de medición. Además, este tipo de gráfico tiende a ser más fácil de entender por los gerentes que no están familiarizados con los procedimientos de control de calidad.</p>
+<p><strong>Ventajas de los gráficos de control de variables:</strong></p>
+<p>Gráficos de control de variables son más sensibles que los gráficos de control de atributos. De hecho, los gráficos de control de variables nos pueden alertar de problemas de calidad antes de que se produzca cualquier “fuera de control” o “inaceptable” real que pudiera ser detectado por el diagrama de atributos.</p>
+<p><strong>Reglas para la detección de procesos fuera de control (Western Electric Handbook, 1956):</strong></p>
+<ol style="list-style-type: decimal">
+<li>Un punto fuera de los límites de control <span class="math inline">\(3\sigma\)</span>.</li>
+<li>Dos puntos de tres consecutivos más allá de los límites de aviso <span class="math inline">\(2\sigma\)</span>.</li>
+<li>Cuatro de cinco puntos consecutivos a una distancia de <span class="math inline">\(\sigma\)</span> o más de la línea central.</li>
+<li>Ocho puntos consecutivos a un lado de la línea central.</li>
+</ol>
+<p>No se suelen utilizar más de 3 reglas a la vez para evitar incurrir en falsos rechazos de la <span class="math inline">\(H_0\)</span> (proceso bajo control). La librería R <code>qcc</code> emplea la regla 1 y otra regla que detecta como estado fuera de control la situación donde más de 6 medidas seguidas están a un lado de la CL.</p>
+</div>
+<div id="graficos-de-control-multivariantes" class="section level3">
+<h3><span class="header-section-number">1.5.2</span> Gráficos de control multivariantes</h3>
+<p>Cuando varias variables aleatorias caracterizan la calidad de un proceso/servi- cio, es necesario aplicar técnicas estadísticas de control de calidad multivariante. Existen dos retos formidables en el análisis de procesos de datos multivariantes. Primero, los datos se vuelven más dispersos mientras aumenta la dimensión. Re- querimientos de tamaños de muestras son formidables y una muestra de referencia de cientos de miles de observaciones puede ser necesitada para caracterizar por completo un proceso en control si tres o más variables de calidad (que no siguen una distribución normal multivariante) son medidas. Usar gráficos de control indi- viduales para monitorear las p características independientes separadamente puede ser muy engañoso. Si una de las variables está fuera de control, el sistema resultaría fuera de control. Si P(Error Tipo I) = <span class="math inline">\(\alpha\)</span>, entonces el error Tipo I para el control con- junto de las p medidas independientes, puede ser muy grande para un valor grande de p, <span class="math inline">\(\alpha´\)</span> = 1 − (1 − <span class="math inline">\(\alpha)^{p}\)</span>. De igual forma, si todas las variables están fuera de control, todo el sistema estaría fuera de control. Si P(Error Tipo II) = <span class="math inline">\(\beta\)</span>, entonces el error Tipo II para el control conjunto de las p medidas independientes, puede ser muy grande para un valor grande de p, <span class="math inline">\(\beta ´\)</span> = 1 − (1 − <span class="math inline">\(\beta)^p\)</span>.
+Por lo tanto, los límites de control son diferentes a los construidos; si las varia- bles son dependientes, el cálculo del nivel de significancia, α, se vuelve complicado. Este tema es particularmente importante hoy en día, ya que los procedimientos de inspección automáticos hacen que sea relativamente fácil medir muchos parámetros</p>
+<p>en cada unidad de producto fabricado.[Montgomery, 2007]
+Más aún, existen cambios en la localización o escala mientras no sea posible con- trolar la estructura de correlación entre dos (o más) variables. En este sentido, es posible tener dos variables las cuales estén ambas en control cuando son consideras por separado en un sentido univariante, pero fuera de control cuando son conside- radas en conjunto bajo un esquema multivariante [Wierda, 1994].</p>
+<p><img src="1_12.png" /></p>
+<p>Figura 1.12: Clasificación de gráficos de control de acuerdo al tipo de muestra y distribución de las observaciones</p>
+<p>En la figura 1.12 se muestran los distintos tipos de gráficos de control estándar dependiendo si el proceso está definido para uno o más variables y de si se asume o no una distribución paramétrica para las observaciones.</p>
+</div>
+<div id="graficos-de-control-por-variables" class="section level3">
+<h3><span class="header-section-number">1.5.3</span> Graficos de control por variables</h3>
+<p>Para el control de una característica medible y representada por una variable aleatoria <strong>X</strong>, existen dos tipos de gráficos, por una parte aquellos que nos ayudan a controlar las medidas de posición (de la media o mediana) y, por otra, los que controlan la dispersión de la variable (gráficos de desviaciones, varianzas o recorridos). Este tipo de gráficos son más informativos que los gráficos de atributos; aparte de darnos una idea de la conformidad o no conformidad del proceso, nos dan información acerca del nivel o magnitud.</p>
+<p>En este curso se trabajará fundamentalmente con dos paquetes: el paquete qcc y la librería qcr (desarrollada por Miguel Flores).</p>
+<p><strong>Librería qcc</strong></p>
+<p>El paquete R <code>qcc</code> sirve principalmente para generar gráficos de control. Primero se crea un objeto <code>qcc.groups</code>, utilizando la función con el mismo nombre, con los siguientes argumentos: las medidas en formato de vector y la identificación de las mismas como pertenecientes a un grupo. A continuación, se crea un objeto <code>qcc</code> con el objeto <code>qcc.groups</code> como argumento, indicando el tipo de gráfico de control. Una vez creado el objeto <code>qcc</code>, podemos realizar dos acciones sobre él: un resumen y un gráfico.</p>
+<p>Para trabajar con casi todas las funciones y aplicaciones que existen dentro de este paquete estadístico, debemos crear un objeto <code>qcc</code>.</p>
+<p>Necesitamos básicamente dos cosas: unos datos (un data frame, una matriz, un vector,..) y un “string value” especificando el tipo de control que deseamos hacer (por atributos o por variables).</p>
+<p>También, opcionalmente, se pueden modificar el tamaño (sizes), el tipo de estimación de la desviación estándar (std.dev), los límites de control (limits), el valor objetivo del proceso (target)…</p>
+<p>La única diferencia que existe a la hora de trabajar con variables o con atributos radica en “type”. Para variables podemos optar por elegir entre “xbar”, “xbar.one”, “R” o “S” y para atributos tenemos “p”, “np”, “c”, “u” o “g”.</p>
+<p><strong>EJEMPLO 2.1</strong> : Gráficos qcc para variables <a href="practica-2.html#gqcc">3.2.1</a></p>
+<p><strong>Librería qcr</strong></p>
+<p>Es una librería creada fundamentalmente para obtener gráficos de control univariantes (“xbar.one”, “R” o “S” y “p”, “np”, “c”, “u” o “g”) y multivariantes (MEWMA, MCUSUM y T2). Presenta algunas mejoras en el proceso de obtención de los límites de control naturales de una variable CTQ.</p>
+<p>En esta sección se utilizará como ejemplo el siguiente caso práctico:</p>
+<p>Una conocida empresa química está desarrollando la patente de una nueva variante de piedra artificial, compuesta en su mayor parte por cuarzo (93 wt%) y resina de poliéster. Esta compañía pone en marcha una planta piloto donde se comienzan a producir planchas de este material a escala industrial. Con el fin de medir el grado de homogeneidad del producto, se toman 50 submuestras, realizándose 5 medidas por plancha de la dureza Vickers correspondiente a distintas zonas de la piedra artificial (Ejercicio1.r). ¿Qué tipo de gráficos de control serían los más adecuados para controlar el nivel y la dispersión? Hallar los límites de control natural 3σ con una muestra de calibrado y, seguidamente, monitorizar las muestras restantes. Comentar los resultados, identificar patrones e identificar sus posibles causas.</p>
+<p>(ver <strong>Practica 2</strong>)</p>
+<p><strong>Ejemplo 2.2</strong>: tiempos de renderizado <a href="practica-2.html#renderizado">3.2.3</a></p>
+<div id="graficos-de-control-hatx-y-r-hatx-y-s" class="section level4">
+<h4><span class="header-section-number">1.5.3.1</span> Gráficos de control <span class="math inline">\(\hat{x}\)</span> y R, <span class="math inline">\(\hat{x}\)</span> y S</h4>
+<p><strong><span class="math inline">\(\hat{x}\)</span> y R</strong></p>
+<p>Cuando una característica de calidad es una variable, es necesario controlar tanto el valor medio de la característica como su variabilidad. El gráfico <span class="math inline">\(\bar{x}\)</span> se usa para controlar la media del proceso, mientras que la variabilidad se puede monitorear con un gráfico de control para el rango denominado gráfico de control R.</p>
+<p>Para construir límites de control, debemos calcular la media y el rango de cada muestra <span class="math inline">\(\bar{x}_i\)</span> y <span class="math inline">\(R_i\)</span>, respectivamente <span class="math inline">\(i = 1, \dots, n\)</span>. La media global y el rango se calcularán
+como:
+<span class="math display">\[ \bar{R}=\frac{\sum_i R_i}{ k} \quad \text{y} \quad \bar{\bar{x}}=\frac{\sum_i \bar{x}_i}{k}\]</span>
+Puesto que <span class="math inline">\(\frac{R_i}{d_2}\)</span> es un estimador insesgado, donde <span class="math inline">\(d_2\)</span> es un estadístico de rango que representa la media del rango relativo dado por <span class="math inline">\(W = \frac{R}{\sigma}\)</span>, luego, $ =$ se usará como estimador centrado de la desviación estándar teórica. A partir de eso hay que contrastar si cada valor <span class="math inline">\(\bar{x}_i\)</span> está en el intervalo
+<span class="math display">\[ \left[ \bar{\bar{x}}-\frac{3\bar{R}}{\sqrt{n} d_2}; \bar{\bar{x}}+\frac{3\bar{R}}{\sqrt{n} d_2} \right] \]</span>
+con una probabilidad aproximada al $ 97,73%$</p>
+<p>Entonces los límites de control son:
+<span class="math display">\[ LCI = \bar{\bar{x}}-\frac{3\bar{R}}{\sqrt{n} d_2}\]</span>
+<span class="math display">\[ LCS = \bar{\bar{x}}+\frac{3\bar{R}}{\sqrt{n} d_2}\]</span></p>
+<p><strong><span class="math inline">\(\hat{X}\)</span> y R</strong></p>
+<p>A veces es deseable estimar la desviación estándar del proceso directamente en lugar de indirectamente mediante el uso del rango R, esto lleva a gráficos de control para <span class="math inline">\(\bar{x}\)</span> y S, donde s es la desviación estándar de la muestra.
+Para la construcción de los límites de control, la media y la desviación deben calcularse para cada muestra <span class="math inline">\(\bar{x}_i\)</span> y <span class="math inline">\(s_i\)</span>, respectivamente <span class="math inline">\(i = 1, . . . , n\)</span>. La media global es un estimador insesgado de la media teórica, mientras que la desviación estándar muestral es un estimador sesgado de la desviación estándar teórica, luego</p>
+<p><span class="math display">\[ \hat{\sigma} = \frac{\bar{s}}{c_2}= \frac{\sum_i s_i}{c_2 k }\]</span>
+se usara como un estimador centrado de la desviación estándar téorica, donde <span class="math inline">\(c_2\)</span> es una constante que depende del tamaño de muestra n.
+Cada valor <span class="math inline">\(\bar{x}_i\)</span> debe estar en el intervalo
+<span class="math display">\[ \left[ \bar{\bar{x}}-\frac{3\bar{s}}{\sqrt{n} c_2}; \bar{\bar{x}}+\frac{3\bar{s}}{\sqrt{n} c_2} \right] \]</span>
+con una probabilidad aproximada al $ 97,73%$
+Entonces los límites de control para la media son:
+<span class="math display">\[ LCI = \bar{\bar{x}}-\frac{3\bar{s}}{\sqrt{n} d_2}\]</span></p>
+<p><span class="math display">\[ LCS = \bar{\bar{x}}+\frac{3\bar{s}}{\sqrt{n} d_2}\]</span>
+La desviación estándar se debe estimar mediante el análisis de datos pasados.</p>
+<p>Primero se procede a cargar la librería <code>qcc</code>, suponiendo que ya haya sido instalada a través del CRAN de R.</p>
+<p>Veamos el código en R para el caso de la base de datos <code>Ejercicio1:</code></p>
+</div>
+<div id="graficos-de-control-para-medidas-individuales" class="section level4">
+<h4><span class="header-section-number">1.5.3.2</span> Gráficos de control para medidas individuales</h4>
+<p>También se pueden construir gráficos de control por variables para las observaciones individuales tomadas en una línea de producción. Este tipo de gráficos se hacen imprescindibles cuando el coste de cada observación es muy alto y, por tanto un sistema de muestreo como el anteriormente descrito es inasumible. Ejemplos: el número de quejas de los clientes o devoluciones de productos que sólo está disponible una vez al mes, los casos en los se lleva a cabo una inspección automática de cada unidad de producto, etc. En ese último caso, el interés radica en detectar pequeños cambios en la calidad del producto (por ejemplo, el deterioro gradual de la calidad debido al desgaste de la máquina). Aparte de los gráficos para muestras individuales y rangos medios, los gráficos CUSUM y EWMA pueden ser alternativas más adecuadas en estas situaciones.</p>
+<p>En el siguiente ejemplo se simula el caso particular de una empresa de animación por ordenador (Bran Entertaiment) que dispone de 3 operarios para realizar operaciones de renderizado de imágenes. Hasta hace relativamente poco sólo una persona se dedicaba a este trabajo, siendo especialista. Debido a su periodo de vacaciones, otro operario de la empresa, el de más antigüedad, se ocupó del proceso hasta el momento en que pidió una baja. A partir de ese momento, un becario fue el encargado del proceso. Se pretende obtener los límites de control natural del proceso e identificar las causas asignables de aquellos valores fuera de control.</p>
+<p><strong>NOTA</strong>: el proceso de renderizado se desarrolla con el fin de generar en un espacio espacio 3D formado por estructuras poligonales una simulación realista del comportamiento tanto de luces, texturas y materiales (agua, madera, metal, plástico, tela, etcétera) como también de los comportamientos físicos. Este es el caso de la simulación de colisiones y fluidos, ambientes y estructuras físicas verosímiles.`</p>
+</div>
+<div id="interpretacion-de-los-graficos-r-barx" class="section level4">
+<h4><span class="header-section-number">1.5.3.3</span> Interpretación de los gráficos <span class="math inline">\(R-\bar{x}\)</span></h4>
+<p>Seguidamente se muestran una serie de patrones que suelen aparecer en el estudio de este tipo de gráficos de control, a modo de guía para una interpretación de los mismos:</p>
+<p><strong>Gráfico 1.1:</strong> Un patrón natural es aquel en el que no existe ninguna relación identificable entre los puntos trazados. No hay puntos que caigan fuera de los límites de control, la mayoría de los puntos están cerca de la línea central, y algunos puntos están cerca de los límites de control. Los patrones naturales son indicativos de un proceso que está en control.</p>
+<p><img src="Grafico_1_1.png" /></p>
+<p><strong>Gráfico 1.2:</strong> Muchas causas pueden provocar un cambio repentino en el nivel en un gráfico de la media. Los cambios bruscos se producen debido a los cambios en las configuraciones de proceso como temperatura, presión o la profundidad del corte. Un ejemplo de cambio repentino podría ser un cambio en el tiempo de espera del cliente en un supermercado porque el número de cajeros disponibles ha cambiado. Nuevos operadores, nuevos equipos, nuevos instrumentos de medición, nuevos proveedores y nuevos métodos de procesamiento son otras razones para los cambios repentinos en los gráficos media y rango.</p>
+<p><img src="Grafico_1_2.png" /></p>
+<p><strong>Gráfico 2.1:</strong> Se producen Cambios graduales en el nivel cuando un parámetro de proceso cambia gradualmente durante un período de tiempo. Después, el proceso se estabiliza. Un gráfico de la media puede exhibir ese cambio, porque la calidad de entrada de materias primas o componentes cambió con el tiempo, porque se modificó el programa de mantenimiento o el estilo de supervisión. En cuanto al gráfico R, ese cambio puede surgir a causa de un nuevo operador, una disminución de la habilidad de los trabajadores debido a la fatiga o la monotonía, o una mejora gradual de la calidad de entrada de las materias primas (debido por ejemplo a que un proveedor ha desarrollado un sistema de control estadístico de procesos).</p>
+<p><img src="Grafico_2_1.png" /></p>
+<p><strong>Gráfico 2.2:</strong> Las tendencias se diferencian de los cambios graduales en que las tendencias no se estabilizan o atenúan. Las tendencias representan cambios, incrementos o decrementos, de pendiente constante. Un diagrama x ̅ puede exhibir una tendencia debido al desgaste progresivo de una herramienta que afecta al proceso productivo, deterioro gradual de equipos, acumulaciones de suciedad en moldes y accesorios, a un cambio gradual en la temperatura o mismo el aumento del consumo eléctrico debido a la contratación creciente de personal. Un gráfico R puede mostrar una tendencia debido a una mejora gradual de la habilidad del operador como resultado de la formación en el puesto de trabajo o a una disminución de la habilidad del operario debido a la fatiga.</p>
+<p><img src="Grafico_2_2.png" /></p>
+<p><strong>Gráfico 3.1:</strong> Los patrones cíclicos se caracterizan por un comportamiento periódico repetitivo en el sistema. Un gráfico x ̅ puede mostrar un comportamiento cíclico debido a la rotación de los operadores, cambios periódicos en la temperatura y la humedad (por ejemplo, un inicio en frío por la mañana), la periodicidad de las propiedades mecánicas y químicas de un material determinado, o la variación estacional de las materias primas recibidas (p. ej., alimentos). Un gráfico R puede presentar patrones cíclicos debido a la fatiga del operador y su posterior activación después de las pausas, la diferencia entre los turnos, o el mantenimiento periódico de los equipos, etc. Si se toman muestras con muy poca frecuencia, se corre el riesgo de sólo representar los puntos de mayor o menor nivel del ciclo. Por eso se deberían tomar muestras de referencia si se sospecha algún comportamiento cíclico en el proceso.</p>
+<p><img src="Grafico_3_1.png" /></p>
+<p><strong>Gráfico 3.2:</strong> Wild patterns o patrones salvajes se refieren a puntos que son estadísticamente diferentes al resto. Se clasifican en Freaks y Bunches (o grupos). Los freaks se deben a perturbaciones externas que influyen en una o más muestras. Son puntos demasiado pequeños o demasiado grandes con respecto a los límites de control. Algunas de las causas especiales de los freaks incluyen, fallos repentinos de energía en una instalación, el uso de una nueva herramienta de prueba para un breve período de tiempo, el fallo de un componente, etc.</p>
+<p><img src="Grafico_3_2.png" /></p>
+<p><strong>Gráfico 4.1:</strong> Los bunches o grupos, son agrupaciones de varias observaciones que son decididamente diferentes de los demás puntos de la trama. La aparición de un nuevo proveedor por un corto período de tiempo, el uso de una máquina diferente de forma puntual y el trabajo de un operario contratado por unas horas o un día pueden causar la aparición de estos patrones.</p>
+<p><img src="Grafico_4_1.png" /></p>
+<p><strong>Gráfico 4.2:</strong> Los patrones de mezcla se deben a la presencia de dos o más poblaciones en los datos estudiados y se caracterizan porque los puntos del gráfico caen cerca de los límites de control, estando ausentes del área cerca de la línea central. La existencia de un conjunto de valores demasiado altos y demasiado bajos puede ser debida a las diferencias en la calidad de las materias primas proporcionadas por dos proveedores diferentes. La opción correctora indicada es la elaboración de un gráfico diferente para cada proveedor. Estos patrones pueden aparecer al no separar los resultados obtenidos por dos o más máquinas, operadores, sistemas de medición, métodos de producción, fábricas, establecimientos, etc.</p>
+<p><img src="Grafico_4_2.png" /></p>
+<p><strong>Gráfico 5.1:</strong> Los patrones de estratificación aparecen cuando dos o más distribuciones poblacionales de la misma característica de calidad están presentes en el mismo gráfico. En este caso, las dos poblaciones aparecen mezcladas en cada submuestra. Este patrón se caracteriza por el hecho de que la mayoría de los puntos están muy cerca de la línea central, con casi ningún punto cerca de los límites de control. Podría llevarnos erróneamente a la conclusión de que el proceso está bajo control. Por ejemplo, tenemos datos obtenidos en turnos, cada uno diferente con diferente rendimiento. Para impedir la aparición de estos patrones, se deberían tener gráficos de control independientes para cada turno. Se puede evitar este fenómeno eligiendo cuidadosamente las submuestras, con el objeto de no mezclar poblaciones.</p>
+<p><img src="Grafico_5_1.png" /></p>
+<p><strong>Gráfico 5.2:</strong> Se produce un patrón de interacción cuando el nivel de una variable afecta al comportamiento de otras variables asociadas con la característica de calidad de interés. Por otra parte, el efecto combinado de dos o más variables sobre la característica de calidad de salida puede ser diferente del efecto individual de cada variable. Ejemplo: supongamos que en un proceso químico, la temperatura y la presión son dos variables controlables importantes que afectan a la característica de calidad (salida) de interés. Una baja presión y una temperatura elevadas pueden producir un efecto muy deseable en la característica de salida, mientras que una presión baja por sí misma no tiene en absoluto ese efecto. Un método de muestreo efectivo implicaría el control de la temperatura a varios valores altos de la misma, para luego determinar el efecto de la presión sobre la característica de salida y para cada valor de temperatura.</p>
+<p><img src="Grafico_5_2.png" /></p>
+</div>
+</div>
+<div id="graficos-de-control-para-atributos" class="section level3">
+<h3><span class="header-section-number">1.5.4</span> Gráficos de control para atributos</h3>
+<p>En ocasiones una característica de calidad no puede o no interesa medirse numéricamente y tan solo se observa si presenta o no determinada propiedad (un producto es defectuoso o no, una pieza encaja o no en otra, un mecanismo funciona o no funciona, etc.). En control de calidad suele emplearse el término conformidad o no conformidad en lugar de éxito o fracaso (defecto).</p>
+<div id="graficos-de-control-p" class="section level4">
+<h4><span class="header-section-number">1.5.4.1</span> Gráficos de Control p</h4>
+<p>Proporción de disconformidades. Si <strong>p</strong> es la proporción poblacional de unidades no conformes:</p>
+<p><span class="math display">\[ UCL = \bar{p} + 3\frac{\sqrt{\bar{p}(1-\bar{p})}}{\sqrt{n}} \quad \text{y} \quad UCL = \bar{p} - 3\frac{\sqrt{\bar{p}(1-\bar{p})}}{\sqrt{n}} \]</span>
+En este tipo de gráfico, se muestra el porcentaje de unidades defectuosas (por lotes, por día, por cada máquina, etc.) como en el gráfico U. Sin embargo, los límites de control de este gráfico no se construyen utilizando la distribución de eventos poco frecuentes, sino la distribución binomial (de proporciones), que por el Teorema central del límite se aproxima a una normal <span class="math inline">\((np&gt;5\)</span> y <span class="math inline">\(n(1-p)&gt;5\)</span>, siempre que <strong>p</strong> no sea excesivamente próximo a 0 o 1). Por lo tanto, este gráfico es adecuado en situaciones donde la ocurrencia de unidades defectuosas no es poco común (por ejemplo, donde el porcentaje de unidades defectuosas pueda ser más del <span class="math inline">\(5 \%\)</span> del número total de unidades producidas).</p>
+<p><strong>Nota</strong>: El número de no conformidades se distribuye como una <span class="math inline">\(B(n,p)\)</span>, que, si se cumplen las condiciones, se puede aproximar a una <span class="math inline">\(N(n·p, \sqrt{(n·p·(1-p))}\)</span>. Entonces, la proporción media <span class="math inline">\(\bar{p}\)</span> se distribuirá como una <span class="math inline">\(N(\mu,\frac{\sigma}{\sqrt{n}})\)</span>.</p>
+</div>
+<div id="graficos-de-control-np" class="section level4">
+<h4><span class="header-section-number">1.5.4.2</span> Gráficos de control np</h4>
+<p>Número de disconformidades. Si p es la proporción poblacional de unidades no conformes:</p>
+<p><span class="math display">\[UCL=n\bar{p}+3·\sqrt{n\bar{p}(1-\bar{p})} \quad \text{y}   \quad LCL=n\bar{p}-3·\sqrt{n\bar{p}(1-\bar{p} )} \]</span></p>
+<p>Es la versión en número de no conformes del gráfico p (multiplicando los sus límites por n). Se representa el número de unidades defectuosas (por lotes, por día, por cada máquina) como en el gráfico C. Sin embargo, los límites de control en esta tabla no se basan en la distribución de eventos raros, sino en la distribución binomial, al igual que en el gráfico p. Por lo tanto, este gráfico debe utilizarse si la ocurrencia de unidades defectuosas no es poco común (más del <span class="math inline">\(5 \%\)</span> de las unidades revisadas). Por ejemplo, se podrá usar este gráfico para controlar el número de unidades producidas con defectos de menor importancia.</p>
+</div>
+<div id="graficos-de-control-c" class="section level4">
+<h4><span class="header-section-number">1.5.4.3</span> Gráficos de Control c</h4>
+<p>Número de disconformidades por unidad. Siendo c la media y la varianza de una distribución de Poisson (del número de defectos), que se puede aproximar a una normal cuando <span class="math inline">\(c &gt; 5\)</span>:</p>
+<p><span class="math display">\[UCL=\bar{c}+3·\sqrt{(\bar{c} )} \quad \text{y} \quad    LCL=\bar{c}-3·\sqrt{(\bar{c} )} \]</span></p>
+<p>En este gráfico, se muestra el número de unidades defectuosas (por lotes, por día, por equipo, por cada 100 metros de tubería, etc.). Los límites de control en este gráfico se calculan a partir de la distribución de Poisson (distribución de los eventos poco frecuentes).</p>
+</div>
+<div id="graficos-de-control-u" class="section level4">
+<h4><span class="header-section-number">1.5.4.4</span> Gráficos de control u</h4>
+<p>Número medio de disconformidades por unidad de control. Si u=x/n , siendo x el número de no conformidades en una muestra y n el número de unidades inspeccionadas:</p>
+<p><span class="math display">\[UCL=\bar{c}+3·\sqrt{\frac{\bar{c}}{n}} \quad \text{y} \quad    LCL=\bar{c}-3·\sqrt{\frac{\bar{c}}{n}} \]</span></p>
+<p>En este gráfico, se representa la tasa de unidades defectuosas, es decir, el número de unidades defectuosas dividido por el número de unidades de inspección (la n puede ser, por ejemplo, metros de tubería, número de lotes, etc.). A diferencia del gráfico C, no se requiere un número constante de unidades, por lo tanto, el gráfico U se puede utilizar cuando las muestras-lotes son de diferentes tamaños.</p>
+</div>
+<div id="ejemplo-grafico-p" class="section level4">
+<h4><span class="header-section-number">1.5.4.5</span> Ejemplo Gráfico p</h4>
+<p>Datos Zumo de naranja <code>(orangejuice)</code>:</p>
+<p><strong>Ejemplo 2.4</strong>: Gráficos tipo P <a href="practica-2.html#P">3.3.1</a></p>
+</div>
+<div id="ejemplo-grafico-np" class="section level4">
+<h4><span class="header-section-number">1.5.4.6</span> Ejemplo Gráfico np</h4>
+<p>Datos Zumo de naranja <code>(orangejuice)</code>:</p>
+<p><strong>Ejemplo 2.5</strong>: Gráficos tipo NP <a href="practica-2.html#np">3.3.2</a></p>
+</div>
+<div id="ejemplo-grafico-c" class="section level4">
+<h4><span class="header-section-number">1.5.4.7</span> Ejemplo Gráfico C</h4>
+<p>Datos Placas impresas <code>(Circuit boards data)</code>:</p>
+<p><strong>Ejemplo 2.6</strong>: Gráficos tipo C <a href="practica-2.html#gc">3.3.3</a></p>
+</div>
+<div id="ejemplo-grafico-u" class="section level4">
+<h4><span class="header-section-number">1.5.4.8</span> Ejemplo Gráfico U</h4>
+<p>Datos del fabricante de ordenadores personales <code>(Personal computer manufacturer data)</code>:</p>
+<p><strong>Ejemplo 2.7</strong>: Gráficos tipo U <a href="practica-2.html#gu">3.3.4</a></p>
+</div>
+</div>
+<div id="otros-graficos-de-control-univariante" class="section level3">
+<h3><span class="header-section-number">1.5.5</span> Otros graficos de Control univariante</h3>
+<p>Si estamos interesados en detector pequeñas tendencias o desplazamientos a lo largo de las sucesivas submuestras, podemos construir dos tipos de gráficos más sensibles que los tradicionales. Estos son los gráficos CUSUM y los gráficos EWMA. Sin embargo, ambos gráficos funcionan peor que el gráfico de medias cuando se trata de detectar grandes cambios. El gráfico CUSUM se introdujo por primera vez por Page (1954); los principios matemáticos involucrados en su construcción se discuten en Ewan (1963), Johnson (1961), y Johnson y Leone (1962). En el caso de los gráficos EWMA, se puede consultar Montgomery (2001).</p>
+<p>Tienen mejor rendimiento cuando se aplican a muestras individuales.</p>
+<div id="grafico-cusum" class="section level4">
+<h4><span class="header-section-number">1.5.5.1</span> Gráfico CUSUM</h4>
+<p>Si se representa la suma acumulada de las desviaciones de las medias de las sucesivas submuestras con respecto a la media del proceso, desplazamientos permanentes, incluso los cambios menores, con respecto a dicha media darán lugar a una considerable suma acumulada de desviaciones. Por lo tanto, este gráfico es muy adecuado para la detección de esos pequeños cambios permanentes que pueden pasar desapercibidos utilizando el gráfico de <span class="math inline">\(\bar{X}\)</span>. Ejemplo: debido al desgaste de la máquina, un proceso poco a poco “se desliza” hacia el fuera de control, produciendo resultados por encima de las especificaciones. El uso de este gráfico podría dejar patente el incremento o decremento continuado de la suma de las desviaciones respecto a las especificaciones.</p>
+<p>Se contabilizan las desviaciones acumuladas negativas y positivas:</p>
+<p><span class="math display">\[ C_i^{-} = \max{( 0,(C_{i-1}^- - (x_i - \mu))-K)}, \quad C_i^{+} = \max{( 0,(C_{i-1}^+ + (x_i - \mu))-K)}\]</span></p>
+<p>Donde. <span class="math inline">\(C_0^{-}=C_0^{+}=0\)</span>, <span class="math inline">\(K\)</span> es el valor a partir del cual la desviación acumulada es significativa. Si la suma acumulada hasta la observación i-ésima es menor que cierto umbral <span class="math inline">\(K=k·\sigma\)</span>, se considera que la desviación acumulada es cero. El valor de <strong>K</strong> se suele elegir según la desviación que se quiera detectar. Los valores <span class="math inline">\(\pm H\)</span> son los límites de control de este gráfico (<span class="math inline">\(H = h·\sigma = 5·\sigma\)</span>).</p>
+<p>El estadistico <span class="math inline">\(s_r\)</span> se usará para determinar si el proceso esta bajo control o no
+<span class="math display">\[ s_r = \sum_{i=1}^r(\bar{x}_i - \mu_0) \sim N \left(r(\mu-\mu_0), \frac{r\sigma_0^2}{n}\right) \]</span></p>
+<p><strong>Ejemplo práctico con los datos pistonrings y el paquete qcc:</strong></p>
+<p>bajo los supuestos de normalidad, donde <span class="math inline">\(\mu_0\)</span> es el objetivo para el promedio del proceso</p>
+<p><strong>Ejemplo 2.8</strong>: Gráficos CUSUM <a href="practica-2.html#cusum">3.4.1</a></p>
+</div>
+<div id="graficos-ewma-de-medias-moviles-ponderadas-de-forma-exponencial" class="section level4">
+<h4><span class="header-section-number">1.5.5.2</span> Gráficos EWMA de medias móviles ponderadas de forma exponencial</h4>
+<p>Los gráficos EWMA son un gráfico de medias móviles ponderadas, donde las muestras más cercanas tienen un mayor peso en el cálculo de la media para un punto dado. Para este tipo de gráficos se toman normalmente datos individuales. Las observaciones individuales pueden ser medias (cuando las observaciones individuales de las que provienen las medias no están disponibles), lecturas individuales, cocientes, proporciones o medidas similares.</p>
+<p>La idea de construir un gráfico de medias móviles se puede generalizar del siguiente modo. En vez de calcular una media aritmética móvil, se puede calcular una media móvil geométrica, dando lugar al gráfico del mismo nombre (Montgomery, 1985, 1991).</p>
+<p><span class="math display">\[ z_t = \lambda x_t+(1-\lambda)z_{t-1}\]</span>
+donde <span class="math inline">\(0&lt;\lambda \leq 1\)</span> y el valor inicial <span class="math inline">\((z_0=\mu_0)\)</span> es el objetivo del proceso</p>
+<p>Este método especifica que la ponderación correspondiente a la media de una muestra vieja irá decreciendo geométricamente según continuamos a dibujar muestras. El gráfico EWMA nos permite detectar pequeños sesgos o desplazamientos en, por ejemplo, la media de la característica medida y, por tanto, en la calidad del proceso de producción.</p>
+<p>La línea central y los limites de control para la tabla de control EWMA son los siguientes
+<span class="math display">\[LCI = \mu_0 - 3\sigma \sqrt{\frac{\lambda(1-(1-\lambda)^{2i})}{2-\lambda}}\]</span>
+<span class="math display">\[LC = \mu_0\]</span>
+<span class="math display">\[LCS = \mu_0 + 3\sigma \sqrt{\frac{\lambda(1-(1-\lambda)^{2i})}{2-\lambda}}\]</span>
+Si el valor de <span class="math inline">\(i\)</span> es alto, los limites de control son:
+<span class="math display">\[LCI = \mu_0 - 3\sigma \sqrt{\frac{\lambda}{2-\lambda}}\]</span>
+<span class="math display">\[LC = \mu_0 \]</span>
+<span class="math display">\[LCS = \mu_0 + 3\sigma \sqrt{\frac{\lambda}{2-\lambda}}\]</span></p>
+<p>Ejemplo práctico con los datos pistonrings y el paquete qcc:</p>
+<p><strong>Ejemplo 2.9</strong>: Gráficos EWMA <a href="practica-2.html#ewma">3.4.2</a></p>
+</div>
+</div>
+<div id="curvas-oc" class="section level3">
+<h3><span class="header-section-number">1.5.6</span> Curvas OC</h3>
+<p>Una curva característica de operación (CO) proporciona información acerca de la probabilidad de no detectar un cambio en el proceso cuando este ocurre de verdad. Esto se conoce generalmente como el error de tipo II, es decir, la probabilidad de aceptar erróneamente un proceso como en control.</p>
+<p>Realizaremos a continuación las <strong>curvas OC</strong> para desviaciones de la media. La probabilidad de error de tipo II de no detectar un desplazamiento (medido en <span class="math inline">\(nº\)</span> de desviaciones típicas del proceso) con respecto a la media bajo control, tiene la forma:</p>
+<p>Las <strong>curvas CO</strong> se pueden obtener fácilmente a partir de un objeto de la clase <code>qcc</code>. La opción más sencilla es crear un objeto <code>qcc</code> (por variables o por atributos).</p>
+<p>En el caso de gráficos por variables, utilizamos como ejemplo los datos <code>pistonrings</code>:</p>
+<p><strong>Ejemplo 2.9</strong>: CURVAS OC <a href="practica-2.html#oc">3.5</a></p>
+<hr />
+</div>
+</div>
+<div id="etapa-analizar-analisis-de-capacidad" class="section level2">
+<h2><span class="header-section-number">1.6</span> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</h2>
+<div id="introduccion-1" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Introducción</h3>
+<div id="analisis-de-capacidad" class="section level4">
+<h4><span class="header-section-number">1.6.1.1</span> Analisis de capacidad</h4>
+<ul>
+<li><p><strong>Objetivo</strong> Estimar lo bien que un proceso se ajusta a las tolerancias definitivas por la empresa, los clientes, la normativa, etc.</p></li>
+<li><strong>Definiciones</strong>
+<ul>
+<li><p>Cunstificación de la variabilidad del proceso y el análisis de esta variabilidad en comparación con las especificaciones del producto final.</p></li>
+<li><p>Comparación de la distribución de pñrobabilidad de una característiica de calidad con respecto a unas efecificaciones o tolerancias fijadas para la misma.</p></li>
+<li><p>Porcentaje del proceso fuera de especificaciones.</p></li>
+</ul></li>
+<li><p><strong>Aplicaciones</strong></p>
+<ul>
+<li><p>Predecir lo bien que un proceso se ajusta a las especificaciones</p></li>
+<li><p>Ayudar a la modificación de un proceso</p></li>
+<li><p>Especificación de requisitos para la adquisición de nuevos equipos</p></li>
+<li><p>Selección entre varios proveedores.</p></li>
+<li><p>Reducción de la variabilidad en un proceso.</p></li>
+</ul></li>
+<li><p><strong>Requisitos</strong></p>
+<ul>
+<li><p>El proceso ha de estar bajo control</p></li>
+<li><p>Se supone que se conoce la distribución de probabilidad de la característica de calidad del proceso. La suposición más común es que los datos se distribuyen segúb una distribución normal.</p></li>
+<li><p>Si bien existen alternativas robustas no paramétricas</p></li>
+<li><p>También para datos autocorrelacionados</p></li>
+</ul></li>
+<li><p><strong>Herramientas</strong></p>
+<ul>
+<li><p>Histogramas</p>
+<ul>
+<li>Estimación de la distribución de probabilidad de la característica CTQ</li>
+<li>Comparación con los limites de tolerancia</li>
+</ul></li>
+<li><p>Graficos Cuantil Cuantil</p>
+<ul>
+<li>Bondad de ajuste, Fiables con &lt;100 observaciones</li>
+</ul></li>
+<li><p><strong>indices de Capacidad</strong></p>
+<ul>
+<li><p>Primera generación: Cp</p></li>
+<li><p>Degunda generación: Cpu, Cpl, Cpk</p></li>
+<li><p>Tercera generación: Cpm, Cpkm</p></li>
+<li><p>Indices no paramétricos/ robustos.</p></li>
+<li><p>Indices para una caracteristica CTQ autocorrelada</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="indices-de-capacidad" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Indices de capacidad</h3>
+<div id="generalidades" class="section level4">
+<h4><span class="header-section-number">1.6.2.1</span> Generalidades</h4>
+<ul>
+<li><p>Definición:</p>
+<ul>
+<li><p>Indicadores desarrollados para medir si un proceso es capaz o no en relación a las tolerancias/especificaciones fijadas por los clientes/empresa.</p></li>
+<li><p>Grado en el que la variabilidad de un proceso, debida a causas comunes, ocupa el intervalo de tolerancia definido por los clientes.</p></li>
+</ul></li>
+<li><p>Características:</p>
+<ul>
+<li><p>Índices altos indican que un proceso es capaz de producir artículos o servicios que cumplen las especificaciones de los clientes.</p></li>
+<li><p>Dan información acerca del:</p>
+<ul>
+<li><p>Número de no conformidades esperadas.</p></li>
+<li><p>Desplazamiento de la distribución de la característica de calidad con respecto al objetivo o "target“</p></li>
+</ul></li>
+<li><p>Cuánto más grande sea el índice calculado, habrá menos productos no
+conformes.</p></li>
+<li><p>Dependen de los límites de tolerancia o consigna (LSL, límite inferior de tolerancia y ULS, límite superior de tolerancia) y los correspondientes a la distribución de probabilidad paramétrica de los datos (límites naturales de control).</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="indices-parametricos" class="section level4">
+<h4><span class="header-section-number">1.6.2.2</span> Indices paramétricos</h4>
+<ul>
+<li><p><strong>Primera Generación</strong></p>
+<ul>
+<li>Medida de la capacidad potencial del proceso</li>
+</ul>
+<span class="math display">\[ C_p = \frac{USL-LSL}{6 \sigma} = \frac{USL-LSL}{X_{0.99865}-X_{0.00135}}\]</span>
+<span class="math display">\[ \hat{C}_p = \frac{USL-LSL}{6 \hat{\sigma}}  \]</span></li>
+<li><p><strong>Segunda Generación</strong></p>
+<ul>
+<li><p><span class="math inline">\(C_{pk}\)</span> describe el desempeño de la capacidad del proceso, capacidad real</p></li>
+<li><p>Tiene en cuenta distacia del valor medio de la característica CTQ a los limites de especificación. A partit de <span class="math inline">\(C_{pu}\)</span> y <span class="math inline">\(C_{pl}\)</span></p></li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(C_{pu}= \frac{USL-\mu}{3\sigma}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{C}_{pu}=\frac{USL-\hat{\mu}}{3\hat{\sigma}}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_{pl}= \frac{\mu-LSL}{3\sigma}\)</span></td>
+<td align="center"><span class="math inline">\(\hat{C}_{pl}= \frac{\hat{\mu-LSL}}{3\hat{\sigma}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_{pk}= \min{C_{pu},C_{pl}}\)</span></td>
+<td align="center"><span class="math inline">\(\hat{C}_{pk}= \min \{\hat{C}_{pu},\hat{C}_{pl} \}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span>: Se utilizan para comparar la capaacidad potencial del proceso (hasta donde puede llegar en lo que a varabilidad se refiere) y la capacidad real.</p>
+<ul>
+<li><p><strong>Tercera Generación</strong></p>
+<ul>
+<li><p><span class="math inline">\(C_{pm}\)</span> es un índice de calidad que en su expresión SÍ tiene en cuenta la distancia de la media del proceso al valor objetivo/nominal/Target (T).</p></li>
+<li><span class="math inline">\(C_{pkm}=\frac{C_{pk}}{\sqrt{1+(\frac{\mu-T}{\sigma})^2}}\)</span> nace como una corrección del <span class="math inline">\(C_{pk}\)</span> para dotarlo de sensibilidad a desplazamientos de la media de la distribución <span class="math inline">\(\mu\)</span> con respecto al “target” T .</li>
+<li><p><span class="math inline">\(C_p(u,v)\)</span> generaliza todos los índices en función del los parámetros u y v.</p></li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col width="52%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(C_{pm}= \frac{USL-LSL}{6\sqrt{\sigma^2 + (\mu -T)^2}}\)</span></th>
+<th align="center"><span class="math inline">\(\hat{C}_{pm}= \frac{USL-LSL}{3\sqrt{\hat{\sigma}^2 + (\hat{\mu} -T)^2}}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_{pkm}= \frac{d - |\mu -m|}{3\sqrt{\sigma^2 + (\mu -T)^2}}\)</span></td>
+<td align="center"><span class="math inline">\(\hat{C}_{pkm}= \frac{d - |\mu -m|}{3\sqrt{\hat{\sigma}^2 + (\hat{\mu} -T)^2}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_p(u,v)=\frac{d - u|\mu -m|}{3\sqrt{\sigma^2 + (\mu -T)^2}}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_p(0,0)=C_{p}\)</span></td>
+<td align="center"><span class="math inline">\(C_p(1,0)=C_{pk}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_p(0,1)=C_{pm}\)</span></td>
+<td align="center"><span class="math inline">\(C_p(1,1)=C_{pkm}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Siendo <span class="math inline">\(d=\frac{USL-LSL}{2}\)</span></td>
+<td align="center"><span class="math inline">\(m=\frac{USL+LSL}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="analisis-de-capacidad-en-r" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> Analisis de capacidad en R</h3>
+<div id="libreria-qcc" class="section level4">
+<h4><span class="header-section-number">1.6.3.1</span> Libreria qcc</h4>
+<p><strong>Ejemplo 1</strong>: Simulacion Grosor Yates <a href="practica-3.html#yate">4.1.1.1</a></p>
+</div>
+<div id="libreria-sixsigma" class="section level4">
+<h4><span class="header-section-number">1.6.3.2</span> Libreria SixSigma</h4>
+<p><strong>Ejemplo 2</strong>: Botellas de Refresco <a href="practica-3.html#sigma">4.1.1.2</a></p>
+</div>
+<div id="libreria-qualitytools" class="section level4">
+<h4><span class="header-section-number">1.6.3.3</span> Libreria qualityTools</h4>
+<p><strong>Ejemplo 3a</strong>: Simulacion distribución normal <a href="practica-3.html#qtools">4.1.1.3</a></p>
+<p><strong>Ejemplo 3b</strong>: Simulacion distribución Weibull <a href="practica-3.html#qtools">4.1.1.3</a></p>
+<p><strong>Ejemplo 4</strong>: Pistorings (datos Agrupados) <a href="practica-3.html#qtools">4.1.1.3</a></p>
+</div>
+</div>
+<div id="analisis-de-capacidad-con-datos-no-normales" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> Análisis de capacidad con datos no normales</h3>
+<div id="transformacon-de-datos" class="section level4">
+<h4><span class="header-section-number">1.6.4.1</span> Transformacón de datos</h4>
+<ul>
+<li><p>Es importante trabajar sobre la distribución correcta de los datos, sino se puede llegar a obtener un número de no conformidades erroneo</p></li>
+<li><p>Aplicar una Transformación de <strong>Box Cox</strong> a los datos es una forma de estimar correctamente la capacidad de un proceso cuando este no es normal</p></li>
+</ul>
+<p><span class="math display">\[y_i^{(\lambda)}= \left\{ \begin{array}{lcc}
+             \frac{y_i^{(\lambda)}-1}{\lambda} &amp;   si  &amp; \lambda \not = 0 \\
+             \\ ln(y_i) &amp;  si &amp; \lambda  = 0 \\
+             \end{array}
+   \right.\]</span></p>
+<ul>
+<li><p>Los datos transformados sí serán normales, pudiendose aplicar de forma fiable los índices de capacidad anteriormente deefinidos</p></li>
+<li><p>La librería qualutyTools de R permite aplicar transformaciones de <strong>Box-Cox</strong>, que sea la óptima (respecto a <span class="math inline">\(\lambda\)</span>) que proporciona por defecto o fijando un <span class="math inline">\(\lambda\)</span> determinado</p></li>
+</ul>
+</div>
+<div id="indices-no-parametricos" class="section level4">
+<h4><span class="header-section-number">1.6.4.2</span> Indices no paramétricos</h4>
+<ul>
+<li><p>Si no se verifica la suposición de normalidad de los datos u otra distribución paramétrica conocida, no se deben utilizar los índices anteriormente descritos, pues nos llevarían a conciderar una proporción de no conformidades errónea.</p></li>
+<li><p>Índices que no asumen ninguna distribución conocida para la característica CTQ.</p></li>
+<li><p>Chang y Lu (1994) propusieron el índice <span class="math inline">\(C_p(u,v)\)</span>para distribución arbitraria:</p></li>
+</ul>
+<p><span class="math display">\[C_{Np}(u,v)=\frac{d-u|M-m|}{3\sqrt{\frac{F_{99.865}-F_{0.135}}{6}+v(M-T)^2}}\]</span></p>
+<p><span class="math display">\[\hat{C}_{Np}(u,v)=\frac{d-u|\hat{M}-m|}{3\sqrt{\frac{\hat{F}_{99.865}-\hat{F}_{0.135}}{6}+v(\hat{M}-T)^2}}\]</span></p>
+<p>Los Cuantiles <span class="math inline">\(F_{0.99865}\)</span> y <span class="math inline">\(F_{0.00135}\)</span> se estiman mediante los percentiles de la distribución empírica sacada de la muestra <span class="math inline">\(\hat{F}_{0.99865}\)</span> y <span class="math inline">\(\hat{F}_{0.00135}\)</span>. M es oa mediana de la distribución, <span class="math inline">\(d=\frac{USL-LSL}{2}\)</span> y <span class="math inline">\(m=\frac{USL+LSL}{2}\)</span></p>
+<p><strong>Ejemplo 5</strong>: Peso de Altavoces <a href="practica-3.html#Altavoces">4.1.2.1</a></p>
+<p><strong>Ejemplo 6</strong>: Piedra artificial <a href="practica-3.html#Piedra">4.1.3</a></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="etapa-controlar-y-analizar" class="section level2">
+<h2><span class="header-section-number">1.7</span> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></h2>
+<div id="cec-multivariante-reduccion-de-la-dimencion" class="section level3">
+<h3><span class="header-section-number">1.7.1</span> CEC multivariante: Reducción de la Dimención</h3>
+<p>Cuando varias variables aleatorias caracterizan la calidad de un proceso/servicio, es necesario aplicar técnicas de control estadístico de calidad multivariante.</p>
+<p>Si analizamos cada una de las variables por separado, la probabilidad de que una observación de la variable aparezca dentro de los límites calculados cuando SE SABE que realmente el proceso esta bajo control, ya NO SERÁ 0.9973 para una un intervalo 6·Sigma, SERÁ <span class="math inline">\((0.9973)^{(Nº de variables)}\)</span> = 0.9946. (suponiendo las 2 variab. del ej. sig.). Mientras que <span class="math inline">\(\alpha_{nuevo} = 1-(1-\alpha)^{nºde variables}\)</span></p>
+<p>Conclusión, los límites de control son diferentes a los dibujados.</p>
+<p>Pero esto se cumple en el caso que las variables sean independientes, donde la probabilidad de la intersección es el producto de probabilidades.</p>
+<p>Si las variables son dependientes, el cálculo del nivel de significación, alfa, se vuelve muy complicado: Hay que estudiar las variables conjuntamente, de forma multivariante</p>
+<p><strong>Ejemplo 7</strong>: Control del contenido de contaminantes en el queroseno. <a href="practica-4.html#queroseno">5.1.1.1</a></p>
+<p>Otra alternativa es estudiar las variables por separado, aplicando la corrección de Bonferroni: <span class="math inline">\(\alpha_{Bonferroni} = \alpha/(\text{nº de combinaciones posibles, dos a dos, de variables})\)</span>, o mismo dividiendo alfa entre 2*nº de variables [Ver Alt (1985)].
+Inconveniente: demasiado conservador con la hipótesis nula (proceso bajo control).</p>
+<p><strong>Ejemplo 8</strong>: Aproximación univariante utilizando una corrección tipo BONFERRONI. <a href="practica-4.html#BONFERRONI">5.1.1.2</a></p>
+<p><strong>Ejemplo 9</strong>:Control de calidad multivariante con gráficos Shewhart. <a href="practica-4.html#Shewhart">5.1.1.3</a></p>
+<p><strong>Ejemplo 10</strong>:Control de calidad multivariante con gráficos MEWMA y MCUSUM. <a href="practica-4.html#MEWMA">5.1.1.4</a></p>
+<p><strong>Ejemplo 11</strong>:Cotrol de humedad relativa, temperatura y consumo eléctrico.<a href="practica-4.html#adjustment">5.1.1.5</a></p>
+<div id="pca" class="section level4">
+<h4><span class="header-section-number">1.7.1.1</span> PCA</h4>
+<p><strong>Análisis de componentes principales
+(PCA):</strong></p>
+<ul>
+<li><p><strong>Objetivo:</strong></p>
+<ul>
+<li>Reducir el número de variables que caracterizan un conjunto de individuos.</li>
+<li>Poder aplicar métodos multivariantes de forma fiable (clasificación, regresión,
+control de calidad).</li>
+</ul></li>
+<li><strong>Características:</strong>
+<ul>
+<li>A partir de una matriz de datos con “p”
+variables, se obtiene otra matriz de datos
+con “p” componentes principales (nuevas
+variables).</li>
+<li>La primera componente principal de se
+obtiene al proyectar los vectores de
+observaciones en la dirección de la máxima
+varianza de los datos.</li>
+<li>La segunda componente se obtendrá al
+proyectar la información restante en la
+dirección de su máxima varianza y así
+sucesivamente hasta obtener la nuevas p
+componentes.</li>
+<li>Las “p” componentes son ORTOGONALES e
+INDEPENDIENTES entre sí.</li>
+</ul></li>
+<li><strong>Ventajas:</strong>
+<ul>
+<li>Útiles cuando tenemos una gran cantidad
+de variables. Con cerca de 10 variables los
+gráficos clásicos no son fiables.</li>
+<li>El ARL1 se incrementa al incrementar el nº
+de variables, se tarda más en detectar un
+verdadero fuera de control.</li>
+<li>Muchas veces se puede resumir la mayor
+parte de la información de la base de datos
+en apenas dos variables.</li>
+<li>Las proyecciones pueden cumplir las
+hipótesis de normalidad y no
+autocorrelación, lo que hace aplicables los
+gráficos de Shewhart.</li>
+</ul></li>
+<li><strong>Inconvenientes: </strong>
+<ul>
+<li>Es difícil descubrir cuál es la variable
+original que origina el fuera de control y,
+así, identificar las causas asignables.</li>
+</ul></li>
+<li><strong>Cálculo: </strong>
+<ul>
+<li>Descomposición en valores singulares de la
+matriz de características X (SVD):
+<span class="math display">\[ X =UDV^T=PT^T\]</span></li>
+</ul></li>
+</ul>
+<p>U y V son matries ortogonales de vectores singulares, D = matriz diagonal de autovalores, P = loadings (peso de las antiguas variables en las nuevas), T = scores (coordenadas de las observaciones en las nuevas variables).</p>
+<p><strong>Análisis de componentes principales
+(PCA):</strong></p>
+<ul>
+<li><p><strong>Problema a resolver:</strong></p>
+<ul>
+<li>Se obtienen datos del consumo energético
+(medido en kW), 3 variables de
+temperatura ambiente, 3 variables de
+concentración de CO2 y 3 variables que
+miden la humedad relativa (HR) en tres
+zonas diferentes de una oficina.</li>
+<li>Miden la calidad de la eficiencia energética,
+del confort térmico y la calidad del aire de
+la oficina.</li>
+<li>DATOS referidos a las 18:00 de la tarde
+durante 45 días laborables</li>
+</ul></li>
+</ul>
+<p><strong>Ejemplo 11</strong>: Reducción de dimensión: Análisis de componentes principales <a href="control-estadistico-de-la-calidad.html#pca">1.7.1.1</a></p>
+</div>
+<div id="minimos-cuadrados-parciales-pls" class="section level4">
+<h4><span class="header-section-number">1.7.1.2</span> Mínimos cuadrados parciales (PLS):</h4>
+<ul>
+<li><p><strong>Objetivo:</strong></p>
+<ul>
+<li>Reducir el número de variables que
+caracterizan un conjunto de individuos.</li>
+<li>Poder aplicar métodos multivariantes de
+forma fiable.</li>
+</ul></li>
+<li><strong>Características:</strong>
+<ul>
+<li>Se expresan los vectores de características
+según nuevas componentes o variables,
+pero en la obtención de las mismas se ha
+tenido en cuenta la existencia de una
+matriz de variables independientes X y una
+variable respuesta Y.</li>
+<li>Los datos se proyectan en una nueva base
+que tiene en cuenta la relación lineal entre
+Y y X.</li>
+<li>Ideal cuando se tienen muchas variables X,
+o parámetros, de los que depende la
+característica a controlar Y.</li>
+</ul></li>
+<li><strong>Caso práctico:</strong>
+<ul>
+<li>Controlar la eficiencia energética de las
+instalaciones de climatización de una oficina
+a partir del consumo eléctrico.</li>
+<li>En el consumo eléctrico influyen
+parámetros de confort térmico y calidad del
+aire (se consume para mantener unos
+estándares de calidad de estos últimos).</li>
+</ul></li>
+</ul>
+<p><strong>Ejemplo 12</strong>: Reducción de dimensión: Mínimos cuadrados parciales (PLS) <a href="practica-4.html#pls">5.1.1.7</a></p>
+</div>
+</div>
+<div id="cec-para-variables-autocorrelacionadas" class="section level3">
+<h3><span class="header-section-number">1.7.2</span> CEC para variables autocorrelacionadas</h3>
+<p>Se ajustarán modelos de series de tiempo “Autoregressive integrated moving average” previo paso a la aplicación de gráficos de control.</p>
+<p>Se suele expresar como ARIMA(p,d,q) donde los parámetros p, d y q son números enteros no negativos que indican el orden de las distintas componentes del modelo, respectivamente, las componentes autorregresiva, integrada y de media móvil. También se puede incluir una parte para la componente estacional</p>
+<p>p es la componente autorregresiva: a “grosso modo” de cuántas observaciones pasadas (cada una con su parám, phi_i) depende la actual.
+q es la componente de medias móviles:de cuántos términos de error correspondientes a observaciones anteriores (cada una con su parám, <span class="math inline">\(\theta_i\)</span>) depende la actual.
+d indica d las diferencias que son necesarias para convertir la serie original en estacionaria.</p>
+<p><strong>Ejemplo 13</strong>: Control del confort climático en oficinas <a href="practica-4.html#oficinas">5.1.2.1</a></p>
+<div id="series-de-tiempo-y-graficos-de-los-residuos" class="section level4">
+<h4><span class="header-section-number">1.7.2.1</span> Series de tiempo y gráficos de los residuos</h4>
+<ul>
+<li><strong>Objetivo:</strong>
+<ul>
+<li>Si no se cumple la hipótesis de
+observaciones independientes, los gráficos
+de control tipo Shewhart no son fiables.</li>
+<li>Se pretende “extraer” la autocorrelación y
+poder aplicar de forma fiable los gráficos
+estándar.</li>
+<li>El procedimiento más usual para resolver
+este problema es el ajuste de un modelo de
+series de tiempo, obtención de los residuos
+y posterior aplicación de los gráficos de
+control.</li>
+</ul></li>
+<li><strong>Procedimiento:</strong>
+<ul>
+<li>Se verifica que no se cumple la hipótesis de
+independencia de las observaciones.</li>
+<li>En caso afirmativo, se ajusta un modelo de
+series de tiempo autorregresivo de medias
+móviles (ARIMA), por ser el más flexible.</li>
+<li>Una vez modelizada la autocorrelación, se
+obtienen y controlan los residuos
+(independientes) mediante gráficos tipo
+Shewhart , EWMA, T2, MEWMA…</li>
+</ul></li>
+<li><strong>Series de tiempo:</strong>
+<ul>
+<li><p>Colección de mediciones de un cierto
+fenómeno registrada de forma secuencial
+en el tiempo <span class="math inline">\(Y(t_1),Y(t_2)\)</span>…</p></li>
+<li>Componentes: tendencia, componente
+estacional, cíclica y aleatoria.</li>
+<li><p>Modelos dinámicos para estimar y predecir
+los valores de una serie de tiempo:
+modelos de Box-Jenkins.</p></li>
+</ul></li>
+<li><strong>Modelos Box-Jenkins:</strong>
+<ul>
+<li>Modelos autorregresivos:</li>
+</ul>
+<span class="math display">\[ X_t = c + \sum_{i=1}^p \phi_i X_{t-i}+\epsilon_t \]</span>
+<ul>
+<li><p>Modelos autorregresivos:</p>
+<span class="math display">\[ X_t = \epsilon_t + \sum_{i=1}^q \theta _i \epsilon_{t-i} \]</span></li>
+<li><p>Modelos autorregresivos integrados de
+medias móviles:</p></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[ Y_i=-(\Delta^d Y_t-Y_t)+\phi _0 + \sum_{i=1}^p \phi_i \Delta^d Y_{t-i}-\sum_{i=1}^q \theta_i \epsilon_{t-i}+\epsilon_t\]</span>
+<strong>Ejemplo 14</strong>: Ejemplo practico ARIMA <a href="practica-4.html#ar1">5.1.2.3</a></p>
+<p>EWMA para datos autocorrelados</p>
+<ul>
+<li><p><strong>Objetivo:</strong></p>
+<ul>
+<li>Se pretende obtener unas bandas de
+confianza móviles que tengan en cuenta la
+autocorrelación de los datos.</li>
+</ul></li>
+<li><p><strong>Procedimiento:</strong></p>
+<ul>
+<li>Montgomery y Mastrangelo (1991)
+sugirieron una aproximación basada en
+EWMA:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[x_t=x_{t-1}+ \epsilon_t - \theta \epsilon _{t-1}\]</span></p>
+<ul>
+<li>Se puede demostrar que las medias ponderadas exponencialmente son un buen predictor de X en procesos AR(1) y con un <span class="math inline">\(\lambda = 1 -\theta\)</span></li>
+</ul>
+<p><span class="math display">\[\hat{x}_{t+1}(t)=Z_t\]</span></p>
+<ul>
+<li>Siendo <span class="math inline">\(Z_i\)</span></li>
+</ul>
+<p><span class="math display">\[Z_t=\lambda x_t + (1-\lambda)Z_{t-1}\]</span></p>
+<ul>
+<li>Y <span class="math inline">\(e_t\)</span> los residuos</li>
+</ul>
+<p><span class="math display">\[e_t=x_t-\hat{x} _t(t-1)\]</span></p>
+<ul>
+<li>A partir de la estimacion de la variabilidad de los errores se pueden calcular unas
+banda de confianza móviles para procesos
+autocorrelados</li>
+</ul>
+</div>
+</div>
+<div id="analisis-de-capacidad-para-datos-autocorrelados" class="section level3">
+<h3><span class="header-section-number">1.7.3</span> Análisis de capacidad para datos autocorrelados</h3>
+<ul>
+<li><p><strong>Objetivo:</strong></p>
+<ul>
+<li>Supóngase que la característica de calidad
+del proceso sigue un proceso estacionario
+autorregresivo de orden 1, AR(1) con
+parámetro <span class="math inline">\(\Phi_1\)</span> tal que |<span class="math inline">\(\Phi_1 &lt; 1\)</span>. Entonces el
+proceso se puede escribir como:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[ X_t-\mu = \phi_1(X_{t-1}-\mu)-a_t\]</span>
++ Donde <span class="math inline">\(a_t \sim N(0,\sigma_{\alpha}^2)\)</span> y <span class="math inline">\(\mu\)</span> la media del proceso.</p>
+<ul>
+<li><strong>Índices propuestos por Wallgren
+(1996, 2001):</strong></li>
+</ul>
+<p><span class="math display">\[C_{pmr} = \frac{USL - LSL}{ \sqrt[6]{\sigma_r^2+(\mu-T)^2}} \]</span></p>
+<p><span class="math display">\[C_{pkr}=min \left(  \frac{USL - \mu}{3\sigma_r^2},\frac{ \mu-LSL}{3\sigma_r^2}\right)\]</span></p>
+<ul>
+<li>Donde <span class="math inline">\(\sigma_r^2=\alpha _r^2/(1-\Phi_1)\)</span></li>
+</ul>
+<p><strong>Ejemplo 15</strong>: Datos autocorrelacionados <a href="practica-4.html#autocorr">5.1.3</a></p>
+<hr />
+</div>
+</div>
+<div id="introduccion-al-diseno-de-experimentos-con-r" class="section level2">
+<h2><span class="header-section-number">1.8</span> Introducción al diseño de experimentos con R</h2>
+<div id="ejemplos-de-contrastes-anova" class="section level3">
+<h3><span class="header-section-number">1.8.1</span> Ejemplos de contrastes ANOVA</h3>
+<p><strong>Ejemplo 5.1:</strong> Ejemplo de la tracción del horigón armado (con acero) Sujeto a tres tratamientos diferentes <a href="practica-5.html#aceros">6.1.1.1</a></p>
+<p><strong>Ejemplo 5.2:</strong> Ejemplo de los laboratorios que miden el peso de muestras de estaño. Respuesta: peso <a href="practica-5.html#estaño">6.1.1.2</a></p>
+<p><strong>Ejemplo 5.3:</strong> Exprerimento para medir la velocidad de la luz ideado por Morley <a href="practica-5.html#luz">6.1.1.3</a></p>
+<p><strong>Ejemplo 5.4:</strong> Diseño que incluye el test de Tuckey para la resistencia a la rotura de la lana (con dos tipos diferentes) en un telar <a href="practica-5.html#lana">6.1.1.4</a></p>
+</div>
+<div id="diseno-de-experimentos-factorial-2k" class="section level3">
+<h3><span class="header-section-number">1.8.2</span> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></h3>
+<p>Para obtener más información sobre el modelo de caja negra por el cuál la combinación de los distintos niveles de factores trtamiento y nuisance originan cambios en la variable respuesta, se puede crear un diseño factorial de <span class="math inline">\(2^k\)</span> utilizando la funcion <strong>facDesign</strong> del paquete ´qualityTools´. Como se indica en los libros de texto y en los apuntes de la materia, <span class="math inline">\(k\)</span> denota el número de factores y 2 es el número de niveles por factor. Un diseño con <span class="math inline">\(k\)</span> factores y 2 combinaciones por factor se caracteriza por estar formado por <span class="math inline">\(2^k\)</span> combinaciones de factores diferentes, denominados réplicas o “runs”</p>
+<p><strong>Ejemplo 5.4:</strong> Fiabilidad de una resina epoxy (polímero) con fibras de carbono <a href="practica-5.html#resina">6.1.2.1</a></p>
+</div>
+<div id="diseno-de-experimentos-factoriales-fraccionarios" class="section level3">
+<h3><span class="header-section-number">1.8.3</span> Diseño de experimentos factoriales fraccionarios</h3>
+<p>Supóngase que se prueban 5 factores diferentes en un diseño de <span class="math inline">\(2^k\)</span>, dando lugar a <span class="math inline">\(2^5=32\)</span> réplicas. Es probable que esto sea bastante costoso de ejecutar en cualquier máquina de ensayo, proceso o configuración experimental en un proceso de producción o investigación. Antes de descartar el diseño, es aconsejable reflejar lo que este diseño es capaz de hacer. Es decir, qué tipos de interacciones puede estimar. La interacción más alta en un diseño <span class="math inline">\(2^5\)</span> es la interacción entre los cinco factores ABCDE. Esta interacción, aunque sea significativa, es realmente difícil de interpretar, y es probable que no exista. Lo mismo se aplica a las interacciones entre cuatro factores y algunas de las interacciones entre 3 factores, por lo que, en lugar de sus correspondientes diseños completos, la mayoría de las veces se consideran diseños factoriales fraccionados ya desde las primeras etapas de la experimentación.</p>
+<p>Para diseños factoriales fraccionados, se puede utilizar el método <strong>fracDesign</strong> del paquete. Para un diseño de <span class="math inline">\(2^3\)</span> (es decir, 3 factores que deben analizarse en un <span class="math inline">\(2^2\)</span> réplicas al confundir el tercer factor con la interacción entre los dos primeros factores) esto estaría dado por el argumento gen=“C=AB”, que significa que la interacción entre A y B debe confundirse con el efecto de un tercer factor C. El efecto estimado para C se confunde con la interacción AB; es decir, no pueden estimarse por separado, por lo tanto, C = AB (alias) o el alias de C es AB.</p>
+<p><strong>Caso de estudio</strong></p>
+<p>Se ajusta el modelo paramétrico de Paris, dependiente de los parámetros C y m (su valor depende del tipo de material) para estimar la longitud de grietas en un material en función del número de ciclos de esfuerzos a fatiga.</p>
+<p>Se trata de ver si el efecto de unos parámetros de un modelo de fiabilidad (prueba de fatiga tipo Paris) son significativos sobre la respuesta, error de ajuste del modelo, a la par que se analiza el posible efecto de la interacción. Lo que se quiere dilucidar es si el modelo de Paris ajusta mejor o peor dependiendo del material (C y m) y su heterogeneidad <span class="math inline">\((\sigma_C, \sigma_m, \sigma_{Cm})\)</span>.</p>
+<p><strong>Ejemplo 5.5:</strong> EJEMPLO de DISEÑO FRACCIONADO 1/4 <a href="practica-5.html#f1">6.1.3.1</a></p>
+</div>
+<div id="estudios-interlaboratorios" class="section level3">
+<h3><span class="header-section-number">1.8.4</span> Estudios Interlaboratorios</h3>
+<p>Un estudio interlaboratorio se puede definir como un procedimiento de control para evaluar el rendimiento de un grupo de laboratorios a traves de un ensayo en colaboración [1,2]. En un estudiio interlaboratorio, un número adecuado de los laboratorios son elegidos para participar en el experimento con el objetivo de anaizar las muestras y obtener resultados.</p>
+<p>los laboratorios participantes reciben muestras (previamente homogeneizadas o ser homogeneizadas por los laboratorios) para el análisis, acontinuacion, ñas mediciones de resultados de los laboratorios se evalúan de acuerdo con el grado de variabilidad de los datos. Alguno de los factores más comunes que pueden ser una causa de la variabilidad son</p>
+<ul>
+<li>el equipamiento de laboratorios</li>
+<li>los operadores</li>
+<li>los materiales</li>
+<li>la temperatura</li>
+<li>la humedad</li>
+</ul>
+<p>Varias técnicas estadisticas escalares se aplican con frecuencia para estudiar la consistencia de los resultados de prueba de los diferentes laboratorios que participan en un ILS. Norma ASTM E-691 (Práctica estándar para la realización de un estudio entre laboratorios para determinar la precisión de una prueba modelo) recomienda aplicar sólo una gráfica de Mendel k y h estadisticas, mientras que ISO 5735-2 (Presición-veracidad y precisión de los métodos de medición y resultados) recomienda además de la técnica gráfica, para utilizar el test de Cochran y Grubbs</p>
+<p>Además, a través de análisis de varianza (ANOVA), el efecto del factor de laboratorio sobre la respuesta puede ser estudiado. La varianza de la repetibilidad y reproducibilidad puede ser también estima cuando se considera un modelo de efectos aleatorios ANOVA, como se muestra en la norma ISO 5725-2. Por otra parte, si un modelo de efectos fijo es ajustado, además de la prueba F, comparaciones múltiples de medios se pueden realizar con el método Tukey Honest Significant Difference (HSD).</p>
+<p>Para llevar a cabo pruebas de coherencia para las hipótesis de repetibilidad y reproducibilidad, así como para la detección de valores atípicos, los valores de los estadísticos deben ser comparados con sus correspondientes valores críticos. Si éstos son mayores, la incoherencia se detecta en los resultados de los laboratorios. ISO 5725-2 proporciona algunos valores críticos en función del número de laboratorios p, número de mediciones n y el nivel de significacia <span class="math inline">\(\alpha\)</span>.</p>
+<p>En la actualidad, tanto ISO 5725 y ASTM-E691 no proporcionan una metodología para la
+realización de un ILS cuando los datos son funcionales, esto es, en el caso en que los resultados de la prueba son curvas (datos funcionales). Análisis de datos funcional (FDA) es relativamente una nueva rama de la estadística que toma las curvas como unidad de análisis, también las superficies y volúmenes definidos de forma continua (como el tiempo, o el dominio de frecuencia). Teniendo en cuenta los últimos avances en la ciencia de la computación y la creciente cantidad de datos generados por las técnicas experimentales y sensores, la FDA ha tenido un gran desarrollo en los últimos años. De hecho, tenemos muchas metodologías estadísticas que se han desarrollado y extendido al caso funcional, tales como análisis exploratorio, regresión, clasificación, análisis de varianza, y las series de tiempo. En el caso específico ILS, las extensiones del Analisis de Datos Funcionales (FDA) para Mandels h y k se han propuesto y descrito por Miguel Flores.
+El proposito del paquete ILS es, por un lado, para facilitar el uso de nuevas herramientas en el contexto del (FDA) y, por otro lado, para proporcionar un conjunto completo de tests de valores atípicos univariados más utilizados para el ILS con respuesta escalar. Es importante tener en cuenta que las técnicas del FDA para los estudios entre laboratorios que se basan en las propuestas de Naya, Flores, y sobre todo, la propuestas de Flores. Con lo que las nuevas extensiones funcionales de h y k Se introducen las estadísticas para identificar los laboratorios no consistentes.</p>
+<p>Las funciones que se han implementado en el paquete ILS pueden determinar los estadísticos de Mandel h y k, tanto en forma gráfica y analítica, utilizando un enfoque funcional. Estas pruebas estadísticas también se han implementado para facilitar la ejecución de los estudios de repetibilidad y reproducibilidad (R&amp;R) cuando los datos son funcionales. además, el paquete ILS se aplicar a los métodos sugeridos por las normas ASTM E-691 e ISO 5725-2 para el caso escalar. El paquete ILS está disponible en la red global de R Archivo en <a href="http://CRAN.Rproject.org/package=ILS" class="uri">http://CRAN.Rproject.org/package=ILS</a> .</p>
+<p>La presente librería ILS implementa y pide algunas de sus rutinas con el fin de realizar la detección de valores atípicos en el marco de los estudios entre laboratorios. Por lo tanto, con respecto a ILS con la respuesta escalar, hay algunas herramientas computacionales interesantes y útiles en R software. A saber, la <code>metRology</code> del paquete estima la incertidumbre de la medición, y lleva a cabo los cálculos estadísticos necesarios para estudios entre laboratorios, mientras <code>multcomp</code> realiza un análisis de la varianza (ANOVA) a través de pruebas F y Tuckey. Por otro lado, debido a la exponencial creciente del FDA, también hay un número en continuo aumento de las librerias de R dedicadas a la investigación de esta rama de la estadística. Entre todos ellos, los paquetes más importantes y utilizados (en que se basa la presente propuesta) son <code>fda.usc</code>, Que implementa las técnicas de detección de valores atípicos y ANOVA funcional, entre otras herramientas para FDA. El presente paquete ILS utiliza las aplicaciones de la antes mencionada <code>multcomp</code> y <code>fda.usc</code>.</p>
+<p><strong>Ejemplo 5.5:</strong> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)
+<a href="practica-5.html#ilab">6.1.4</a></p>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practica-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Control_book.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

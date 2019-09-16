@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Control Estadístico de la Calidad</title>
+  <meta name="description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Control Estadístico de la Calidad" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Control Estadístico de la Calidad" />
+  
+  <meta name="twitter:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+<meta name="author" content="Miguel Flores Sánchez (miguel.flores@epn.edu.ec)" />
+
+
+<meta name="date" content="2019-09-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="control-estadistico-de-la-calidad.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Control Estadistico de la Calidad </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Teoria</b></span></li>
+<li class="chapter" data-level="1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html"><i class="fa fa-check"></i><b>1</b> Control Estadistico de la Calidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-y-seis-sigma-alternativas-en-r"><i class="fa fa-check"></i><b>1.1</b> CEC y seis Sigma: Alternativas en <em>R</em></a></li>
+<li class="chapter" data-level="1.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-definir"><i class="fa fa-check"></i><b>1.2</b> Etapa <strong>DEFINIR</strong></a><ul>
+<li class="chapter" data-level="1.2.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#mapa-de-procesos"><i class="fa fa-check"></i><b>1.2.1</b> Mapa de Procesos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-ishikawa-o-espina-de-pescado"><i class="fa fa-check"></i><b>1.2.2</b> Diagrama de Ishikawa o espina de pescado</a></li>
+<li class="chapter" data-level="1.2.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-pareto"><i class="fa fa-check"></i><b>1.2.3</b> Diagrama de Pareto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#epata-analizar-anova"><i class="fa fa-check"></i><b>1.3</b> Epata <strong>ANALIZAR</strong>: ANOVA</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion"><i class="fa fa-check"></i><b>1.3.1</b> Introducción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-medir"><i class="fa fa-check"></i><b>1.4</b> Etapa <strong>MEDIR</strong></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-rr"><i class="fa fa-check"></i><b>1.4.1</b> Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-control"><i class="fa fa-check"></i><b>1.5</b> Etapa <strong>CONTROL</strong>:</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control"><i class="fa fa-check"></i><b>1.5.1</b> Gráficos de control</a></li>
+<li class="chapter" data-level="1.5.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-por-variables"><i class="fa fa-check"></i><b>1.5.2</b> Graficos de control por variables</a></li>
+<li class="chapter" data-level="1.5.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-para-atributos"><i class="fa fa-check"></i><b>1.5.3</b> Gráficos de control para atributos</a></li>
+<li class="chapter" data-level="1.5.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#otros-graficos-de-control-univariante"><i class="fa fa-check"></i><b>1.5.4</b> Otros graficos de Control univariante</a></li>
+<li class="chapter" data-level="1.5.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#curvas-oc"><i class="fa fa-check"></i><b>1.5.5</b> Curvas OC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-analizar-analisis-de-capacidad"><i class="fa fa-check"></i><b>1.6</b> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-1"><i class="fa fa-check"></i><b>1.6.1</b> Introducción</a></li>
+<li class="chapter" data-level="1.6.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#indices-de-capacidad"><i class="fa fa-check"></i><b>1.6.2</b> Indices de capacidad</a></li>
+<li class="chapter" data-level="1.6.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-en-r"><i class="fa fa-check"></i><b>1.6.3</b> Analisis de capacidad en R</a></li>
+<li class="chapter" data-level="1.6.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>1.6.4</b> Análisis de capacidad con datos no normales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-controlar-y-analizar"><i class="fa fa-check"></i><b>1.7</b> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></a><ul>
+<li class="chapter" data-level="1.7.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-multivariante-reduccion-de-la-dimencion"><i class="fa fa-check"></i><b>1.7.1</b> CEC multivariante: Reducción de la Dimención</a></li>
+<li class="chapter" data-level="1.7.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-para-variables-autocorrelacionadas"><i class="fa fa-check"></i><b>1.7.2</b> CEC para variables autocorrelacionadas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-para-datos-autocorrelados"><i class="fa fa-check"></i><b>1.7.3</b> Análisis de capacidad para datos autocorrelados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-al-diseno-de-experimentos-con-r"><i class="fa fa-check"></i><b>1.8</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#ejemplos-de-contrastes-anova"><i class="fa fa-check"></i><b>1.8.1</b> Ejemplos de contrastes ANOVA</a></li>
+<li class="chapter" data-level="1.8.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factorial-2k"><i class="fa fa-check"></i><b>1.8.2</b> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factoriales-fraccionarios"><i class="fa fa-check"></i><b>1.8.3</b> Diseño de experimentos factoriales fraccionarios</a></li>
+<li class="chapter" data-level="1.8.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-interlaboratorios"><i class="fa fa-check"></i><b>1.8.4</b> Estudios Interlaboratorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Practicas</b></span></li>
+<li class="chapter" data-level="2" data-path="practica-1.html"><a href="practica-1.html"><i class="fa fa-check"></i><b>2</b> Práctica 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="practica-1.html"><a href="practica-1.html#cec-y-seis-signa-alternativas-en-r"><i class="fa fa-check"></i><b>2.1</b> CEC y Seis Signa: alternativas en R</a></li>
+<li class="chapter" data-level="2.2" data-path="practica-1.html"><a href="practica-1.html#etapa-definir-mapas-de-procesos-ishikawa-pareto"><i class="fa fa-check"></i><b>2.2</b> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-1.html"><a href="practica-1.html#pizza"><i class="fa fa-check"></i><b>2.2.1</b> Mapas de procesos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-1.html"><a href="practica-1.html#ishikawa"><i class="fa fa-check"></i><b>2.2.2</b> DIAGRAMA DE ISHIKAWA</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-1.html"><a href="practica-1.html#par"><i class="fa fa-check"></i><b>2.2.3</b> DIAGRAMA DE PARETO</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="practica-1.html"><a href="practica-1.html#anova"><i class="fa fa-check"></i><b>2.3</b> Etapa <em>ANALIZAR</em>: ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="practica-1.html"><a href="practica-1.html#RyR"><i class="fa fa-check"></i><b>2.4</b> Etapa <em>MEDIR</em>: Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="practica-2.html"><a href="practica-2.html"><i class="fa fa-check"></i><b>3</b> Práctica 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-1"><i class="fa fa-check"></i><b>3.1</b> Gráficos de Control</a></li>
+<li class="chapter" data-level="3.2" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-variables-1"><i class="fa fa-check"></i><b>3.2</b> Gráficos de Control por variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-2.html"><a href="practica-2.html#gqcc"><i class="fa fa-check"></i><b>3.2.1</b> Gráficos qcc para variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-2.html"><a href="practica-2.html#grafico-de-control-para-el-rango-y-la-media-datos-plates"><i class="fa fa-check"></i><b>3.2.2</b> Gráfico de control para el RANGO y la MEDIA: datos “plates”</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-2.html"><a href="practica-2.html#renderizado"><i class="fa fa-check"></i><b>3.2.3</b> Grafico de control para valores individuales de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-atributos"><i class="fa fa-check"></i><b>3.3</b> Gráficos de control por atributos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="practica-2.html"><a href="practica-2.html#P"><i class="fa fa-check"></i><b>3.3.1</b> Gráficos p</a></li>
+<li class="chapter" data-level="3.3.2" data-path="practica-2.html"><a href="practica-2.html#np"><i class="fa fa-check"></i><b>3.3.2</b> Gráfico tipo np</a></li>
+<li class="chapter" data-level="3.3.3" data-path="practica-2.html"><a href="practica-2.html#gc"><i class="fa fa-check"></i><b>3.3.3</b> Gráficos C</a></li>
+<li class="chapter" data-level="3.3.4" data-path="practica-2.html"><a href="practica-2.html#gu"><i class="fa fa-check"></i><b>3.3.4</b> Gráficos U</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="practica-2.html"><a href="practica-2.html#otros-graficos-de-control-cusum-y-ewma"><i class="fa fa-check"></i><b>3.4</b> Otros gráficos de Control: CUSUM y EWMA</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="practica-2.html"><a href="practica-2.html#cusum"><i class="fa fa-check"></i><b>3.4.1</b> GRÀFICOS CUSUM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="practica-2.html"><a href="practica-2.html#ewma"><i class="fa fa-check"></i><b>3.4.2</b> GRÁFICOS EWMA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="practica-2.html"><a href="practica-2.html#oc"><i class="fa fa-check"></i><b>3.5</b> CURVAS OC</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="practica-2.html"><a href="practica-2.html#curvas-oc-para-grafica-de-variables"><i class="fa fa-check"></i><b>3.5.1</b> Curvas OC para gráfica de variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practica-3.html"><a href="practica-3.html"><i class="fa fa-check"></i><b>4</b> Práctica 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="practica-3.html"><a href="practica-3.html#etapa-analizar-analisis-de-la-capacidad"><i class="fa fa-check"></i><b>4.1</b> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="practica-3.html"><a href="practica-3.html#analisis-de-capacidad-con-r"><i class="fa fa-check"></i><b>4.1.1</b> Análisis de capacidad con R:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="practica-3.html"><a href="practica-3.html#analisis-de-la-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>4.1.2</b> Análisis de la capacidad con datos no normales</a></li>
+<li class="chapter" data-level="4.1.3" data-path="practica-3.html"><a href="practica-3.html#Piedra"><i class="fa fa-check"></i><b>4.1.3</b> Caso Práctico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practica-4.html"><a href="practica-4.html"><i class="fa fa-check"></i><b>5</b> Práctica 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="practica-4.html"><a href="practica-4.html#etapa-controlar-y-analizar-1"><i class="fa fa-check"></i><b>5.1</b> Etapa Controlar y Analizar</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="practica-4.html"><a href="practica-4.html#control-estadistico-de-calidad-multivariante"><i class="fa fa-check"></i><b>5.1.1</b> Control Estadistico de Calidad Multivariante:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="practica-4.html"><a href="practica-4.html#control-de-calidad-de-variables-autocorreladas"><i class="fa fa-check"></i><b>5.1.2</b> Control de Calidad de variables autocorreladas</a></li>
+<li class="chapter" data-level="5.1.3" data-path="practica-4.html"><a href="practica-4.html#autocorr"><i class="fa fa-check"></i><b>5.1.3</b> Análisis de capacidad con datos autocorrelados.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practica-5.html"><a href="practica-5.html"><i class="fa fa-check"></i><b>6</b> Práctica 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="practica-5.html"><a href="practica-5.html#introduccion-al-diseno-de-experimentos-con-r-1"><i class="fa fa-check"></i><b>6.1</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="practica-5.html"><a href="practica-5.html#ejemplos-de-pruebas-anova"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplos de Pruebas ANOVA</a></li>
+<li class="chapter" data-level="6.1.2" data-path="practica-5.html"><a href="practica-5.html#disenos-factoriales"><i class="fa fa-check"></i><b>6.1.2</b> DISEÑOS FACTORIALES</a></li>
+<li class="chapter" data-level="6.1.3" data-path="practica-5.html"><a href="practica-5.html#disenos-de-experimentos-factoriales-fraccionados"><i class="fa fa-check"></i><b>6.1.3</b> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</a></li>
+<li class="chapter" data-level="6.1.4" data-path="practica-5.html"><a href="practica-5.html#estudios-interlaboratorio-caso-particular-de-doe-y-estudios-rr"><i class="fa fa-check"></i><b>6.1.4</b> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Control Estadístico de la Calidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Control Estadístico de la Calidad</h1>
+<p class="author"><em>Miguel Flores Sánchez (<a href="mailto:miguel.flores@epn.edu.ec" class="email">miguel.flores@epn.edu.ec</a>)</em></p>
+<p class="date"><em>2019-09-09</em></p>
+</div>
+<div id="prologo" class="section level1 unnumbered">
+<h1>Prólogo</h1>
+<p>Este libro ha sido escrito en <a href="http://rmarkdown.rstudio.com">R-Markdown</a> empleando el paquete <a href="https://bookdown.org/yihui/bookdown/"><code>bookdown</code></a> y está disponible en el repositorio Github: <a href="https://github.com/rubenfcasal/simbook">rubenfcasal/simbook</a>. Para generar el libro (compilar) puede ser recomendable instalar la última versión de <a href="(https://www.rstudio.com/products/rstudio/download/)">RStudio</a> y la versión de desarrollo de <code>bookdown</code> disponible en <a href="https://github.com/rstudio/bookdown">Github</a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</a></code></pre></div>
+<p>Este obra está bajo una licencia de <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es_ES">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>
+(esperamos poder liberarlo bajo una licencia menos restrictiva más adelante…).</p>
+
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="control-estadistico-de-la-calidad.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Control_book.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

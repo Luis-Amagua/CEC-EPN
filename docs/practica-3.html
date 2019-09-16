@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Práctica 3 | Control Estadístico de la Calidad</title>
+  <meta name="description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Práctica 3 | Control Estadístico de la Calidad" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Práctica 3 | Control Estadístico de la Calidad" />
+  
+  <meta name="twitter:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+<meta name="author" content="Miguel Flores Sánchez (miguel.flores@epn.edu.ec)" />
+
+
+<meta name="date" content="2019-09-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="practica-2.html"/>
+<link rel="next" href="practica-4.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Control Estadistico de la Calidad </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Teoria</b></span></li>
+<li class="chapter" data-level="1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html"><i class="fa fa-check"></i><b>1</b> Control Estadistico de la Calidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-y-seis-sigma-alternativas-en-r"><i class="fa fa-check"></i><b>1.1</b> CEC y seis Sigma: Alternativas en <em>R</em></a></li>
+<li class="chapter" data-level="1.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-definir"><i class="fa fa-check"></i><b>1.2</b> Etapa <strong>DEFINIR</strong></a><ul>
+<li class="chapter" data-level="1.2.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#mapa-de-procesos"><i class="fa fa-check"></i><b>1.2.1</b> Mapa de Procesos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-ishikawa-o-espina-de-pescado"><i class="fa fa-check"></i><b>1.2.2</b> Diagrama de Ishikawa o espina de pescado</a></li>
+<li class="chapter" data-level="1.2.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-pareto"><i class="fa fa-check"></i><b>1.2.3</b> Diagrama de Pareto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#epata-analizar-anova"><i class="fa fa-check"></i><b>1.3</b> Epata <strong>ANALIZAR</strong>: ANOVA</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion"><i class="fa fa-check"></i><b>1.3.1</b> Introducción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-medir"><i class="fa fa-check"></i><b>1.4</b> Etapa <strong>MEDIR</strong></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-rr"><i class="fa fa-check"></i><b>1.4.1</b> Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-control"><i class="fa fa-check"></i><b>1.5</b> Etapa <strong>CONTROL</strong>:</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control"><i class="fa fa-check"></i><b>1.5.1</b> Gráficos de control</a></li>
+<li class="chapter" data-level="1.5.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-por-variables"><i class="fa fa-check"></i><b>1.5.2</b> Graficos de control por variables</a></li>
+<li class="chapter" data-level="1.5.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-para-atributos"><i class="fa fa-check"></i><b>1.5.3</b> Gráficos de control para atributos</a></li>
+<li class="chapter" data-level="1.5.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#otros-graficos-de-control-univariante"><i class="fa fa-check"></i><b>1.5.4</b> Otros graficos de Control univariante</a></li>
+<li class="chapter" data-level="1.5.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#curvas-oc"><i class="fa fa-check"></i><b>1.5.5</b> Curvas OC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-analizar-analisis-de-capacidad"><i class="fa fa-check"></i><b>1.6</b> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-1"><i class="fa fa-check"></i><b>1.6.1</b> Introducción</a></li>
+<li class="chapter" data-level="1.6.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#indices-de-capacidad"><i class="fa fa-check"></i><b>1.6.2</b> Indices de capacidad</a></li>
+<li class="chapter" data-level="1.6.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-en-r"><i class="fa fa-check"></i><b>1.6.3</b> Analisis de capacidad en R</a></li>
+<li class="chapter" data-level="1.6.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>1.6.4</b> Análisis de capacidad con datos no normales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-controlar-y-analizar"><i class="fa fa-check"></i><b>1.7</b> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></a><ul>
+<li class="chapter" data-level="1.7.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-multivariante-reduccion-de-la-dimencion"><i class="fa fa-check"></i><b>1.7.1</b> CEC multivariante: Reducción de la Dimención</a></li>
+<li class="chapter" data-level="1.7.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-para-variables-autocorrelacionadas"><i class="fa fa-check"></i><b>1.7.2</b> CEC para variables autocorrelacionadas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-para-datos-autocorrelados"><i class="fa fa-check"></i><b>1.7.3</b> Análisis de capacidad para datos autocorrelados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-al-diseno-de-experimentos-con-r"><i class="fa fa-check"></i><b>1.8</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#ejemplos-de-contrastes-anova"><i class="fa fa-check"></i><b>1.8.1</b> Ejemplos de contrastes ANOVA</a></li>
+<li class="chapter" data-level="1.8.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factorial-2k"><i class="fa fa-check"></i><b>1.8.2</b> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factoriales-fraccionarios"><i class="fa fa-check"></i><b>1.8.3</b> Diseño de experimentos factoriales fraccionarios</a></li>
+<li class="chapter" data-level="1.8.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-interlaboratorios"><i class="fa fa-check"></i><b>1.8.4</b> Estudios Interlaboratorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Practicas</b></span></li>
+<li class="chapter" data-level="2" data-path="practica-1.html"><a href="practica-1.html"><i class="fa fa-check"></i><b>2</b> Práctica 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="practica-1.html"><a href="practica-1.html#cec-y-seis-signa-alternativas-en-r"><i class="fa fa-check"></i><b>2.1</b> CEC y Seis Signa: alternativas en R</a></li>
+<li class="chapter" data-level="2.2" data-path="practica-1.html"><a href="practica-1.html#etapa-definir-mapas-de-procesos-ishikawa-pareto"><i class="fa fa-check"></i><b>2.2</b> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-1.html"><a href="practica-1.html#pizza"><i class="fa fa-check"></i><b>2.2.1</b> Mapas de procesos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-1.html"><a href="practica-1.html#ishikawa"><i class="fa fa-check"></i><b>2.2.2</b> DIAGRAMA DE ISHIKAWA</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-1.html"><a href="practica-1.html#par"><i class="fa fa-check"></i><b>2.2.3</b> DIAGRAMA DE PARETO</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="practica-1.html"><a href="practica-1.html#anova"><i class="fa fa-check"></i><b>2.3</b> Etapa <em>ANALIZAR</em>: ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="practica-1.html"><a href="practica-1.html#RyR"><i class="fa fa-check"></i><b>2.4</b> Etapa <em>MEDIR</em>: Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="practica-2.html"><a href="practica-2.html"><i class="fa fa-check"></i><b>3</b> Práctica 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-1"><i class="fa fa-check"></i><b>3.1</b> Gráficos de Control</a></li>
+<li class="chapter" data-level="3.2" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-variables-1"><i class="fa fa-check"></i><b>3.2</b> Gráficos de Control por variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-2.html"><a href="practica-2.html#gqcc"><i class="fa fa-check"></i><b>3.2.1</b> Gráficos qcc para variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-2.html"><a href="practica-2.html#grafico-de-control-para-el-rango-y-la-media-datos-plates"><i class="fa fa-check"></i><b>3.2.2</b> Gráfico de control para el RANGO y la MEDIA: datos “plates”</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-2.html"><a href="practica-2.html#renderizado"><i class="fa fa-check"></i><b>3.2.3</b> Grafico de control para valores individuales de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-atributos"><i class="fa fa-check"></i><b>3.3</b> Gráficos de control por atributos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="practica-2.html"><a href="practica-2.html#P"><i class="fa fa-check"></i><b>3.3.1</b> Gráficos p</a></li>
+<li class="chapter" data-level="3.3.2" data-path="practica-2.html"><a href="practica-2.html#np"><i class="fa fa-check"></i><b>3.3.2</b> Gráfico tipo np</a></li>
+<li class="chapter" data-level="3.3.3" data-path="practica-2.html"><a href="practica-2.html#gc"><i class="fa fa-check"></i><b>3.3.3</b> Gráficos C</a></li>
+<li class="chapter" data-level="3.3.4" data-path="practica-2.html"><a href="practica-2.html#gu"><i class="fa fa-check"></i><b>3.3.4</b> Gráficos U</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="practica-2.html"><a href="practica-2.html#otros-graficos-de-control-cusum-y-ewma"><i class="fa fa-check"></i><b>3.4</b> Otros gráficos de Control: CUSUM y EWMA</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="practica-2.html"><a href="practica-2.html#cusum"><i class="fa fa-check"></i><b>3.4.1</b> GRÀFICOS CUSUM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="practica-2.html"><a href="practica-2.html#ewma"><i class="fa fa-check"></i><b>3.4.2</b> GRÁFICOS EWMA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="practica-2.html"><a href="practica-2.html#oc"><i class="fa fa-check"></i><b>3.5</b> CURVAS OC</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="practica-2.html"><a href="practica-2.html#curvas-oc-para-grafica-de-variables"><i class="fa fa-check"></i><b>3.5.1</b> Curvas OC para gráfica de variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practica-3.html"><a href="practica-3.html"><i class="fa fa-check"></i><b>4</b> Práctica 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="practica-3.html"><a href="practica-3.html#etapa-analizar-analisis-de-la-capacidad"><i class="fa fa-check"></i><b>4.1</b> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="practica-3.html"><a href="practica-3.html#analisis-de-capacidad-con-r"><i class="fa fa-check"></i><b>4.1.1</b> Análisis de capacidad con R:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="practica-3.html"><a href="practica-3.html#analisis-de-la-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>4.1.2</b> Análisis de la capacidad con datos no normales</a></li>
+<li class="chapter" data-level="4.1.3" data-path="practica-3.html"><a href="practica-3.html#Piedra"><i class="fa fa-check"></i><b>4.1.3</b> Caso Práctico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practica-4.html"><a href="practica-4.html"><i class="fa fa-check"></i><b>5</b> Práctica 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="practica-4.html"><a href="practica-4.html#etapa-controlar-y-analizar-1"><i class="fa fa-check"></i><b>5.1</b> Etapa Controlar y Analizar</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="practica-4.html"><a href="practica-4.html#control-estadistico-de-calidad-multivariante"><i class="fa fa-check"></i><b>5.1.1</b> Control Estadistico de Calidad Multivariante:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="practica-4.html"><a href="practica-4.html#control-de-calidad-de-variables-autocorreladas"><i class="fa fa-check"></i><b>5.1.2</b> Control de Calidad de variables autocorreladas</a></li>
+<li class="chapter" data-level="5.1.3" data-path="practica-4.html"><a href="practica-4.html#autocorr"><i class="fa fa-check"></i><b>5.1.3</b> Análisis de capacidad con datos autocorrelados.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practica-5.html"><a href="practica-5.html"><i class="fa fa-check"></i><b>6</b> Práctica 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="practica-5.html"><a href="practica-5.html#introduccion-al-diseno-de-experimentos-con-r-1"><i class="fa fa-check"></i><b>6.1</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="practica-5.html"><a href="practica-5.html#ejemplos-de-pruebas-anova"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplos de Pruebas ANOVA</a></li>
+<li class="chapter" data-level="6.1.2" data-path="practica-5.html"><a href="practica-5.html#disenos-factoriales"><i class="fa fa-check"></i><b>6.1.2</b> DISEÑOS FACTORIALES</a></li>
+<li class="chapter" data-level="6.1.3" data-path="practica-5.html"><a href="practica-5.html#disenos-de-experimentos-factoriales-fraccionados"><i class="fa fa-check"></i><b>6.1.3</b> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</a></li>
+<li class="chapter" data-level="6.1.4" data-path="practica-5.html"><a href="practica-5.html#estudios-interlaboratorio-caso-particular-de-doe-y-estudios-rr"><i class="fa fa-check"></i><b>6.1.4</b> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Control Estadístico de la Calidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practica-3" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> Práctica 3</h1>
+<div id="etapa-analizar-analisis-de-la-capacidad" class="section level2">
+<h2><span class="header-section-number">4.1</span> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</h2>
+<div id="analisis-de-capacidad-con-r" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Análisis de capacidad con R:</h3>
+<div id="yate" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> qcc</h4>
+<p>Ejemplo para entender lo que miden los índices de capacidad y poder diferenciar unos de otros</p>
+<p>Estudio de simulacion. Espesores del casco de un yate, 5 medidas por cada pieza medida:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(qcc)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">d1 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(<span class="dv">125</span>, <span class="dt">mean =</span> <span class="dv">50</span>,<span class="dt">sd=</span><span class="dv">4</span> ),<span class="kw">rep</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,<span class="dt">each=</span><span class="dv">5</span>) )</a>
+<a class="sourceLine" id="cb2-2" title="2">d2 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(<span class="dv">125</span>, <span class="dt">mean =</span> <span class="dv">56</span>,<span class="dt">sd=</span><span class="dv">2</span> ),<span class="kw">rep</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,<span class="dt">each=</span><span class="dv">5</span>) )</a>
+<a class="sourceLine" id="cb2-3" title="3">d3 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(<span class="dv">125</span>, <span class="dt">mean =</span> <span class="dv">59</span>,<span class="dt">sd=</span><span class="dv">1</span> ),<span class="kw">rep</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,<span class="dt">each=</span><span class="dv">5</span>) )</a></code></pre></div>
+<p>Representación de sus funciones de densidad (mismo significado que el histograma):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">setEPS</span>(<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">plot</span>(<span class="kw">density</span>(d1[,<span class="dv">1</span>])<span class="op">$</span>x,<span class="kw">density</span>(d1[,<span class="dv">1</span>])<span class="op">$</span>y, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span> ) ,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">62</span>),<span class="dt">xlab=</span><span class="st">&quot;Longitud(mm)  &quot;</span>,</a>
+<a class="sourceLine" id="cb3-4" title="4">     <span class="dt">ylab=</span><span class="st">&quot;Funcion de densidad&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">lines</span>(<span class="kw">density</span>(d2[,<span class="dv">1</span>])<span class="op">$</span>x,<span class="kw">density</span>(d2[,<span class="dv">1</span>])<span class="op">$</span>y,<span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span> )</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">lines</span>(<span class="kw">density</span>(d3[,<span class="dv">1</span>])<span class="op">$</span>x,<span class="kw">density</span>(d3[,<span class="dv">1</span>])<span class="op">$</span>y,<span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="dv">3</span> ,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">legend</span>(<span class="dv">38</span>,<span class="fl">0.4</span>,<span class="kw">c</span>(<span class="st">&quot;Muestra d.1&quot;</span>,<span class="st">&quot;Muestra d.2&quot;</span>,<span class="st">&quot;Muestra d.3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Se agrupan según las muestras racionales. Creo objetos qcc</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">d<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">qcc.groups</span>(d1[,<span class="dv">1</span>], d1[,<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb4-2" title="2">d<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">qcc.groups</span>(d2[,<span class="dv">1</span>], d2[,<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb4-3" title="3">d<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">qcc.groups</span>(d3[,<span class="dv">1</span>], d3[,<span class="dv">2</span>])</a></code></pre></div>
+<p>Se establecen los límites de control natural del proceso:</p>
+<ul>
+<li>Primero con los rangos de la característica de calidad</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">op=<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb5-2" title="2">q1 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.1</span>, <span class="dt">type=</span><span class="st">&quot;R&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb5-3" title="3">          <span class="dt">title=</span><span class="st">&quot;R chart d.1&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<ul>
+<li>Segunda muestra</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">q2 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.2</span>, <span class="dt">type=</span><span class="st">&quot;R&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb6-2" title="2">          <span class="dt">title=</span><span class="st">&quot;R chart d.2&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li>Tercera muestra</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">q3 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.3</span>, <span class="dt">type=</span><span class="st">&quot;R&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb7-2" title="2">          <span class="dt">title=</span><span class="st">&quot;R chart d.3&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">par</span>(op)</a></code></pre></div>
+<p>Se eliminan, si procede, los puntos fuera de control con el gráfico para las medias</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">setEPS</span>(<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">windows</span>(<span class="dv">28</span>,<span class="dv">14</span>)</a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4">op=<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a></code></pre></div>
+<p>Se estima la variabilidad a partir del grafico de control de la media</p>
+<ul>
+<li>Primera muestra</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb10-2" title="2">q1 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.1</span>, <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb10-3" title="3">          <span class="dt">title=</span><span class="st">&quot;xbar chart d.1&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<ul>
+<li>Segunda muestra</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">q2 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.2</span>, <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb11-2" title="2">          <span class="dt">title=</span><span class="st">&quot;xbar chart d.2&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<ul>
+<li>Tercera muestra</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">q3 &lt;-<span class="st"> </span><span class="kw">qcc</span>(d<span class="fl">.3</span>, <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>,<span class="dt">digits=</span><span class="dv">4</span>,<span class="dt">add.stats =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb12-2" title="2">          <span class="dt">title=</span><span class="st">&quot;xbar chart d.3&quot;</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>No hay ningún punto fuera de control. El sistema está bajo control
+Por tanto, se realiza el análisis de la <em>CAPACIDAD DEL PROCESO</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">process.capability</span>(q1, <span class="dt">spec.limits=</span><span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">62</span>), <span class="dt">restore.par =</span> <span class="ot">FALSE</span>) <span class="co">#, target=50)</span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre><code>## 
+## Process Capability Analysis
+## 
+## Call:
+## process.capability(object = q1, spec.limits = c(38, 62), restore.par = FALSE)
+## 
+## Number of obs = 125          Target = 50
+##        Center = 49.69           LSL = 38
+##        StdDev = 3.984           USL = 62
+## 
+## Capability indices:
+## 
+##        Value    2.5%  97.5%
+## Cp    1.0039  0.8791  1.129
+## Cp_l  0.9777  0.8644  1.091
+## Cp_u  1.0302  0.9119  1.148
+## Cp_k  0.9777  0.8427  1.113
+## Cpm   1.0008  0.8765  1.125
+## 
+## Exp&lt;LSL 0.17%     Obs&lt;LSL 0.8%
+## Exp&gt;USL 0.1%  Obs&gt;USL 0%</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">process.capability</span>(q2, <span class="dt">spec.limits=</span><span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">62</span>), <span class="dt">restore.par =</span> <span class="ot">FALSE</span>) <span class="co">#, target=50)</span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<pre><code>## 
+## Process Capability Analysis
+## 
+## Call:
+## process.capability(object = q2, spec.limits = c(38, 62), restore.par = FALSE)
+## 
+## Number of obs = 125          Target = 50
+##        Center = 56.07           LSL = 38
+##        StdDev = 2.286           USL = 62
+## 
+## Capability indices:
+## 
+##        Value    2.5%   97.5%
+## Cp    1.7496  1.5319  1.9669
+## Cp_l  2.6353  2.3557  2.9149
+## Cp_u  0.8639  0.7612  0.9666
+## Cp_k  0.8639  0.7415  0.9862
+## Cpm   0.6162  0.5118  0.7205
+## 
+## Exp&lt;LSL 0%    Obs&lt;LSL 0%
+## Exp&gt;USL 0.48%     Obs&gt;USL 0.8%</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">process.capability</span>(q3, <span class="dt">spec.limits=</span><span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">62</span>), <span class="dt">restore.par =</span> <span class="ot">FALSE</span>) <span class="co">#, target=50)</span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
+<pre><code>## 
+## Process Capability Analysis
+## 
+## Call:
+## process.capability(object = q3, spec.limits = c(38, 62), restore.par = FALSE)
+## 
+## Number of obs = 125          Target = 50
+##        Center = 59              LSL = 38
+##        StdDev = 1.015           USL = 62
+## 
+## Capability indices:
+## 
+##        Value    2.5%   97.5%
+## Cp    3.9417  3.4514  4.4313
+## Cp_l  6.8985  6.1763  7.6207
+## Cp_u  0.9850  0.8710  1.0990
+## Cp_k  0.9850  0.8492  1.1208
+## Cpm   0.4416  0.3645  0.5185
+## 
+## Exp&lt;LSL 0%    Obs&lt;LSL 0%
+## Exp&gt;USL 0.16%     Obs&gt;USL 0%</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">par</span>(op)</a></code></pre></div>
+<p>Valores de 1.33, 1.50 denotan procesos capaces.
+El valor de 2 es el buscado en six sigma</p>
+<p>Cp estima el potencial del proceso, pues NO tiene en cuenta la localización del proceso, sólo compara la tolerancia de especificanción con la variabilidad natural de la característica de calidad</p>
+<p>Cpk y Cpm describen el desempeño de la capacidad del proceso. Localización y variabilidad
+Cpm tiene en cuenta la distancia al valor objetivo. Cpk solo tiene en cuenta
+la distancia a los limites de especificacion</p>
+</div>
+<div id="sigma" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> SixSigma.</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">library</span>(SixSigma)</a></code></pre></div>
+<p>En una fábrica de refrescos, la característica de calidad del producto es el contenido por botella. Los límites de especificación son 2.01 l (USL) y 1.99 l (LSL). Se midió la cantidad real de varias muestras resultando:</p>
+<p><strong>Datos</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">x&lt;-<span class="kw">c</span>( <span class="fl">1.999607</span>, <span class="fl">1.998117</span>, <span class="fl">1.999559</span>, <span class="fl">2.001637</span>,</a>
+<a class="sourceLine" id="cb21-2" title="2">      <span class="fl">1.999599</span>, <span class="fl">2.000879</span>, <span class="fl">2.001136</span>, <span class="fl">2.000005</span>,</a>
+<a class="sourceLine" id="cb21-3" title="3">      <span class="fl">1.999577</span>, <span class="fl">1.999364</span>, <span class="fl">2.000888</span>, <span class="fl">1.998724</span>,</a>
+<a class="sourceLine" id="cb21-4" title="4">      <span class="fl">2.000295</span>, <span class="fl">1.999653</span>, <span class="fl">1.997282</span>, <span class="fl">1.998309</span>,</a>
+<a class="sourceLine" id="cb21-5" title="5">      <span class="fl">2.001099</span>, <span class="fl">1.999770</span>, <span class="fl">2.000964</span>, <span class="fl">2.002265</span>,</a>
+<a class="sourceLine" id="cb21-6" title="6">      <span class="fl">2.001769</span>, <span class="fl">2.000813</span>, <span class="fl">2.000456</span>, <span class="fl">1.999769</span>,</a>
+<a class="sourceLine" id="cb21-7" title="7">      <span class="fl">2.001893</span>, <span class="fl">2.000715</span>, <span class="fl">1.998592</span>, <span class="fl">1.999813</span>,</a>
+<a class="sourceLine" id="cb21-8" title="8">      <span class="fl">1.997697</span>, <span class="fl">1.999766</span>)</a>
+<a class="sourceLine" id="cb21-9" title="9"></a>
+<a class="sourceLine" id="cb21-10" title="10"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb21-11" title="11"><span class="kw">ss.study.ca</span>(x, <span class="dt">LSL =</span> <span class="fl">1.99</span>, <span class="dt">USL =</span> <span class="fl">2.01</span>,<span class="dt">alpha =</span> <span class="fl">0.05</span>,<span class="dt">Target =</span>((<span class="fl">1.99+2.01</span>)<span class="op">/</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb21-12" title="12">            <span class="dt">f.su =</span> <span class="st">&quot;Contenido Sustancia Maravillosa&quot;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ss.ca.cp</span>(x, <span class="dt">LSL =</span> <span class="fl">1.99</span>, <span class="dt">USL =</span> <span class="fl">2.01</span>,<span class="dt">alpha =</span> <span class="fl">0.05</span>,<span class="dt">ci =</span> <span class="ot">TRUE</span>) <span class="co"># Proporciona el IC de cp</span></a></code></pre></div>
+<pre><code>## [1] 1.98843 3.35642</code></pre>
+</div>
+<div id="qtools" class="section level4">
+<h4><span class="header-section-number">4.1.1.3</span> qualityTools.</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">library</span>(qualityTools)</a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a></code></pre></div>
+<p>Se genera una muestra perteneciente a una distribución normal de media = 20 y sd = 1</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">d1 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">20</span>)</a></code></pre></div>
+<p>Se genera una muestra de 20 elementos perteneciente a una distribución weibull con parámetros de forma y escala iguales a 2 y 0, respectivamente</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">d2 =<span class="st"> </span><span class="kw">rweibull</span>(<span class="dv">20</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">8</span>)</a></code></pre></div>
+<p>Análisis de la Capacidad de Proceso para la muestra normal</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">pcr</span>(d1, <span class="st">&quot;normal&quot;</span>, <span class="dt">lsl =</span> <span class="dv">17</span>, <span class="dt">usl =</span> <span class="dv">23</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  d1 
+## A = 0.5722, mean = 19.749, sd = 1.014, p-value = 0.1191
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<p>Análisis de la Capacidad de Proceso para la muestra Weibull</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="kw">pcr</span>(d2, <span class="st">&quot;logistic&quot;</span>, <span class="dt">lsl =</span> <span class="dv">1</span>, <span class="dt">usl =</span> <span class="dv">20</span>) <span class="co"># Suponiendo erróneamente dist. logística</span></a></code></pre></div>
+<pre><code>## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for logistic distribution
+## 
+## data:  d2 
+## A = 0.3795, location = 6.866, scale = 1.428, p-value &gt; 0.25
+## alternative hypothesis: true distribution is not equal to logistic</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="kw">pcr</span>(d2, <span class="st">&quot;normal&quot;</span>, <span class="dt">lsl =</span> <span class="dv">1</span>, <span class="dt">usl =</span> <span class="dv">20</span>) <span class="co"># Si supongo que la muestra es normal, </span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  d2 
+## A = 0.3974, mean = 7.065, sd = 2.543, p-value = 0.3351
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co">#                                      el test no lo rechaza</span></a></code></pre></div>
+<p>Hay que tener cuidado con la distribución que se asume, pues llegamos a un número erróneo de muestras no conformes. Asumiendo la distribución correcta:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">pcr</span>(d2, <span class="st">&quot;weibull&quot;</span>, <span class="dt">lsl =</span> <span class="dv">1</span>, <span class="dt">usl =</span> <span class="dv">20</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for weibull distribution
+## 
+## data:  d2 
+## A = 0.3505, shape = 3.050, scale = 7.916, p-value &gt; 0.25
+## alternative hypothesis: true distribution is not equal to weibull</code></pre>
+<p>Con sólo un límite de especificación:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">pcr</span>(d1, <span class="st">&quot;normal&quot;</span>, <span class="dt">usl =</span> <span class="dv">23</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  d1 
+## A = 0.5722, mean = 19.749, sd = 1.014, p-value = 0.1191
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">pcr</span>(d1, <span class="st">&quot;normal&quot;</span>, <span class="dt">lsl =</span> <span class="dv">17</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  d1 
+## A = 0.5722, mean = 19.749, sd = 1.014, p-value = 0.1191
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<p>Con datos agrupados en diferentes submuestras:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">library</span>(qcc)</a>
+<a class="sourceLine" id="cb41-2" title="2"></a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="kw">data</span>(pistonrings)</a>
+<a class="sourceLine" id="cb41-4" title="4"><span class="kw">attach</span>(pistonrings)</a>
+<a class="sourceLine" id="cb41-5" title="5"></a>
+<a class="sourceLine" id="cb41-6" title="6"><span class="kw">pcr</span>(pistonrings<span class="op">$</span>diameter[<span class="dv">1</span><span class="op">:</span><span class="dv">125</span>], <span class="dt">grouping =</span> sample[<span class="dv">1</span><span class="op">:</span><span class="dv">125</span>], <span class="dt">lsl =</span> <span class="fl">73.99</span>, </a>
+<a class="sourceLine" id="cb41-7" title="7">    <span class="dt">usl =</span> <span class="fl">74.01</span>)</a></code></pre></div>
+<pre><code>## Warning in .myADTest(x, distribution): sample size is greater than 40</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  pistonrings$diameter[1:125] 
+## A = 0.191, mean = 74.001, sd = 0.010, p-value = 0.8958
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<p>Si lo comparamos con las utilidades de la librería qcc:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">diameter &lt;-<span class="st"> </span><span class="kw">qcc.groups</span>(diameter, sample)</a>
+<a class="sourceLine" id="cb44-2" title="2">q &lt;-<span class="st"> </span><span class="kw">qcc</span>(diameter[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,], <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="kw">process.capability</span>(q, <span class="dt">spec.limits=</span><span class="kw">c</span>(<span class="fl">73.99</span>,<span class="fl">74.01</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre><code>## 
+## Process Capability Analysis
+## 
+## Call:
+## process.capability(object = q, spec.limits = c(73.99, 74.01))
+## 
+## Number of obs = 125          Target = 74
+##        Center = 74              LSL = 73.99
+##        StdDev = 0.009785        USL = 74.01
+## 
+## Capability indices:
+## 
+##        Value    2.5%   97.5%
+## Cp    0.3407  0.2983  0.3830
+## Cp_l  0.3807  0.3176  0.4439
+## Cp_u  0.3006  0.2424  0.3588
+## Cp_k  0.3006  0.2312  0.3700
+## Cpm   0.3382  0.2960  0.3804
+## 
+## Exp&lt;LSL 13%   Obs&lt;LSL 12%
+## Exp&gt;USL 18%   Obs&gt;USL 16%</code></pre>
+<p>La diferencia está en que pcr clacula sigma=s_media/c4, mientras que qcc lo hace con sigma= R_medio/d2</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">detach</span>(pistonrings)</a></code></pre></div>
+</div>
+</div>
+<div id="analisis-de-la-capacidad-con-datos-no-normales" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Análisis de la capacidad con datos no normales</h3>
+<div id="Altavoces" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Indices no paramétricos</h4>
+<ul>
+<li>Ejemplo</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">library</span>(qualityTools)</a></code></pre></div>
+<p><strong>1. Ejemplo práctico: Control componentes para altavoces</strong></p>
+<p>Una empresa fabricante y proveedora de componentes para altavoces, está interesada en controlar la masa de uno de ellos en particular. Si la masa de dicho componente cae fuera del intervalo de especificación, está estudiado que los consumidores no aceptarán los productos.
+Los límites superior e inferior de especificación son 8.94 y 8.46 (en gramos) y el target es el punto medio de los límites de especificación, 8.70.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">x=<span class="kw">c</span>(<span class="fl">8.61</span>, <span class="fl">8.81</span>, <span class="fl">8.72</span>, <span class="fl">8.69</span>, <span class="fl">8.65</span>, <span class="fl">8.64</span>, <span class="fl">8.68</span>, <span class="fl">8.74</span>, <span class="fl">8.68</span>, <span class="fl">8.67</span>,</a>
+<a class="sourceLine" id="cb48-2" title="2">    <span class="fl">8.64</span>, <span class="fl">8.68</span>, <span class="fl">8.98</span>, <span class="fl">8.70</span>, <span class="fl">8.74</span>, <span class="fl">8.75</span>, <span class="fl">8.66</span>, <span class="fl">9.00</span>, <span class="fl">8.64</span>, <span class="fl">8.70</span>,</a>
+<a class="sourceLine" id="cb48-3" title="3">    <span class="fl">8.53</span>, <span class="fl">8.74</span>, <span class="fl">8.59</span>, <span class="fl">8.69</span>, <span class="fl">8.70</span>, <span class="fl">9.03</span>, <span class="fl">8.83</span>, <span class="fl">8.87</span>, <span class="fl">8.79</span>, <span class="fl">8.68</span>,</a>
+<a class="sourceLine" id="cb48-4" title="4">    <span class="fl">8.76</span>, <span class="fl">8.71</span>, <span class="fl">8.71</span>, <span class="fl">8.67</span>, <span class="fl">8.67</span>, <span class="fl">8.68</span>, <span class="fl">8.69</span>, <span class="fl">8.74</span>, <span class="fl">8.80</span>, <span class="fl">8.59</span>,</a>
+<a class="sourceLine" id="cb48-5" title="5">    <span class="fl">8.68</span>, <span class="fl">8.55</span>, <span class="fl">8.73</span>, <span class="fl">8.67</span>, <span class="fl">8.71</span>, <span class="fl">8.73</span>, <span class="fl">8.67</span>, <span class="fl">8.68</span>, <span class="fl">8.69</span>, <span class="fl">8.74</span>,</a>
+<a class="sourceLine" id="cb48-6" title="6">    <span class="fl">8.55</span>, <span class="fl">8.71</span>, <span class="fl">8.74</span>, <span class="fl">8.70</span>, <span class="fl">8.62</span>, <span class="fl">8.61</span>, <span class="fl">8.79</span>, <span class="fl">8.69</span>, <span class="fl">8.68</span>, <span class="fl">8.77</span>,</a>
+<a class="sourceLine" id="cb48-7" title="7">    <span class="fl">8.66</span>, <span class="fl">8.72</span>, <span class="fl">8.81</span>, <span class="fl">8.63</span>, <span class="fl">8.78</span>, <span class="fl">8.64</span>, <span class="fl">8.66</span>, <span class="fl">8.63</span>, <span class="fl">8.71</span>, <span class="fl">8.99</span>,</a>
+<a class="sourceLine" id="cb48-8" title="8">    <span class="fl">8.67</span>, <span class="fl">8.71</span>, <span class="fl">8.63</span>, <span class="fl">8.74</span>, <span class="fl">8.67</span>, <span class="fl">8.69</span>, <span class="fl">8.69</span>, <span class="fl">8.68</span>, <span class="fl">8.70</span>, <span class="fl">8.81</span>,</a>
+<a class="sourceLine" id="cb48-9" title="9">    <span class="fl">8.76</span>, <span class="fl">8.64</span>, <span class="fl">8.54</span>, <span class="fl">8.71</span>, <span class="fl">8.69</span>, <span class="fl">8.80</span>, <span class="fl">8.70</span>, <span class="fl">8.59</span>, <span class="fl">8.53</span>, <span class="fl">8.74</span>,</a>
+<a class="sourceLine" id="cb48-10" title="10">    <span class="fl">8.71</span>, <span class="fl">8.81</span>, <span class="fl">8.60</span>, <span class="fl">8.64</span>, <span class="fl">8.71</span>, <span class="fl">8.75</span>, <span class="fl">8.67</span>, <span class="fl">8.73</span>, <span class="fl">8.61</span>, <span class="fl">8.84</span>)</a>
+<a class="sourceLine" id="cb48-11" title="11"></a>
+<a class="sourceLine" id="cb48-12" title="12"><span class="kw">pcr</span>(x, <span class="st">&quot;normal&quot;</span>, <span class="dt">lsl =</span> <span class="fl">8.46</span>, <span class="dt">usl =</span> <span class="fl">8.94</span>)</a></code></pre></div>
+<pre><code>## Warning in .myADTest(x, distribution): sample size is greater than 40</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  x 
+## A = 2.3967, mean = 8.706, sd = 0.090, p-value = 4.177e-06
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">shapiro.test</span>(x)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.90824, p-value = 3.526e-06</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">Target=(<span class="fl">8.94+8.46</span>)<span class="op">/</span><span class="dv">2</span>; USL=<span class="fl">8.94</span>; LSL=<span class="fl">8.46</span>; </a>
+<a class="sourceLine" id="cb53-2" title="2">d=(USL<span class="op">-</span>LSL)<span class="op">/</span>( <span class="dv">2</span>)      ;    m=(USL<span class="op">+</span>LSL)<span class="op">/</span>( <span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb53-3" title="3"></a>
+<a class="sourceLine" id="cb53-4" title="4">F2=<span class="kw">as.numeric</span>(<span class="kw">quantile</span>(x,<span class="dt">probs=</span><span class="fl">0.99865</span>)); F1=<span class="kw">as.numeric</span>(<span class="kw">quantile</span>(x,<span class="dt">probs=</span><span class="fl">0.00135</span>))</a></code></pre></div>
+<p>Para calcular el índice <span class="math inline">\(C_{Np}\)</span>:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">u=<span class="dv">0</span>;v=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb54-2" title="2">CN_p=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">median</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((F2<span class="op">-</span>F1)<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">median</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb54-3" title="3">CN_p </a></code></pre></div>
+<pre><code>## [1] 0.9677605</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{Npk}\)</span>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">u=<span class="dv">1</span>;v=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb56-2" title="2">CN_pk=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">median</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((F2<span class="op">-</span>F1)<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">median</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb56-3" title="3">CN_pk</a></code></pre></div>
+<pre><code>## [1] 0.9274371</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{Npm}\)</span>:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">u=<span class="dv">0</span>;v=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb58-2" title="2">CN_pm=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">median</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((F2<span class="op">-</span>F1)<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">median</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb58-3" title="3">CN_pm</a></code></pre></div>
+<pre><code>## [1] 0.9607563</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{Npmk}\)</span></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">u=<span class="dv">1</span>;v=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb60-2" title="2">CN_pmk=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">median</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((F2<span class="op">-</span>F1)<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">median</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb60-3" title="3">CN_pmk</a></code></pre></div>
+<pre><code>## [1] 0.9207248</code></pre>
+<p>Los resultados son los siguientes:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">Resultado=<span class="kw">data.frame</span>(<span class="kw">c</span>(CN_p,CN_pk,CN_pm,CN_pmk))</a>
+<a class="sourceLine" id="cb62-2" title="2"><span class="kw">colnames</span>(Resultado)=<span class="kw">c</span>(<span class="st">&quot;Índices de capacidad&quot;</span>);<span class="kw">rownames</span>(Resultado)=<span class="kw">c</span>(<span class="st">&quot;CN_p&quot;</span>,<span class="st">&quot;CN_pk&quot;</span>,<span class="st">&quot;CN_pm&quot;</span>,<span class="st">&quot;CN_pmk&quot;</span>)</a>
+<a class="sourceLine" id="cb62-3" title="3">Resultado</a></code></pre></div>
+<pre><code>##        Índices de capacidad
+## CN_p              0.9677605
+## CN_pk             0.9274371
+## CN_pm             0.9607563
+## CN_pmk            0.9207248</code></pre>
+<p>Si se supusiera normalidad</p>
+<p>Utilizando la librería qualityTools</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw">pcr</span>(x, <span class="st">&quot;normal&quot;</span>, <span class="dt">lsl =</span> LSL, <span class="dt">usl =</span> USL)</a></code></pre></div>
+<pre><code>## Warning in .myADTest(x, distribution): sample size is greater than 40</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<pre><code>## 
+##  Anderson Darling Test for normal distribution
+## 
+## data:  x 
+## A = 2.3967, mean = 8.706, sd = 0.090, p-value = 4.177e-06
+## alternative hypothesis: true distribution is not equal to normal</code></pre>
+<p>Paso a paso:
+Para calcular el índice <span class="math inline">\(C_{p}\)</span>:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">  u=<span class="dv">0</span>;v=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb67-2" title="2">C_p=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">mean</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span></a>
+<a class="sourceLine" id="cb67-3" title="3"><span class="st">  </span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((<span class="kw">qnorm</span>(<span class="fl">0.99865</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x))<span class="op">-</span><span class="kw">qnorm</span>(<span class="fl">0.00135</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x)))<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">mean</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb67-4" title="4">C_p</a></code></pre></div>
+<pre><code>## [1] 0.8846175</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{pk}\)</span>:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">u=<span class="dv">1</span>;v=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb69-2" title="2">C_pk=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">mean</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span></a>
+<a class="sourceLine" id="cb69-3" title="3"><span class="st">  </span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((<span class="kw">qnorm</span>(<span class="fl">0.99865</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x))<span class="op">-</span><span class="kw">qnorm</span>(<span class="fl">0.00135</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x)))<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">mean</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb69-4" title="4">C_pk</a></code></pre></div>
+<pre><code>## [1] 0.8643451</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{pm}\)</span>:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">u=<span class="dv">0</span>;v=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb71-2" title="2">C_pm=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">mean</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span></a>
+<a class="sourceLine" id="cb71-3" title="3"><span class="st">  </span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((<span class="kw">qnorm</span>(<span class="fl">0.99865</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x))<span class="op">-</span><span class="kw">qnorm</span>(<span class="fl">0.00135</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x)))<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">mean</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb71-4" title="4">C_pm</a></code></pre></div>
+<pre><code>## [1] 0.8829861</code></pre>
+<p>Para calcular el índice <span class="math inline">\(C_{pmk}\)</span>:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">u=<span class="dv">1</span>;v=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb73-2" title="2">C_pmk=((USL<span class="op">-</span>LSL)<span class="op">/</span><span class="dv">2</span><span class="op">-</span>u<span class="op">*</span><span class="kw">abs</span>(<span class="kw">mean</span>(x)<span class="op">-</span>(USL<span class="op">+</span>LSL)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span></a>
+<a class="sourceLine" id="cb73-3" title="3"><span class="st">  </span>(<span class="dv">3</span><span class="op">*</span><span class="kw">sqrt</span>(((<span class="kw">qnorm</span>(<span class="fl">0.99865</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x))<span class="op">-</span><span class="kw">qnorm</span>(<span class="fl">0.00135</span>,<span class="dt">mean=</span><span class="kw">mean</span>(x),<span class="dt">sd=</span><span class="kw">sd</span>(x)))<span class="op">/</span><span class="dv">6</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>v<span class="op">*</span>(<span class="kw">mean</span>(x)<span class="op">-</span>Target)<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb73-4" title="4">C_pmk</a></code></pre></div>
+<pre><code>## [1] 0.862751</code></pre>
+<p>Resultado</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1">Resultado2=<span class="kw">data.frame</span>(<span class="kw">c</span>(C_p,C_pk,C_pm,C_pmk))</a>
+<a class="sourceLine" id="cb75-2" title="2"><span class="kw">colnames</span>(Resultado2)=<span class="kw">c</span>(<span class="st">&quot;Índices de capacidad&quot;</span>);<span class="kw">rownames</span>(Resultado2)=<span class="kw">c</span>(<span class="st">&quot;C_p&quot;</span>,<span class="st">&quot;C_pk&quot;</span>,<span class="st">&quot;C_pm&quot;</span>,<span class="st">&quot;C_pmk&quot;</span>)</a>
+<a class="sourceLine" id="cb75-3" title="3">Resultado2</a></code></pre></div>
+<pre><code>##       Índices de capacidad
+## C_p              0.8846175
+## C_pk             0.8643451
+## C_pm             0.8829861
+## C_pmk            0.8627510</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Resultado,Resultado2)</a>
+<a class="sourceLine" id="cb77-2" title="2">dat</a></code></pre></div>
+<pre><code>##        Índices.de.capacidad Índices.de.capacidad.1
+## CN_p              0.9677605              0.8846175
+## CN_pk             0.9274371              0.8643451
+## CN_pm             0.9607563              0.8829861
+## CN_pmk            0.9207248              0.8627510</code></pre>
+<p>Conclusión, si hubiéramos supuesto normalidad de los datos, x, habríamos estimado un mayor número de no conformes que el real. Los índices de capacidad son menores suponiendo normalidad.</p>
+</div>
+</div>
+<div id="Piedra" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Caso Práctico</h3>
+<p><strong>2. Ejemplo práctico: Control de dureza de la piedra artificial</strong></p>
+<p>Una conocida empresa química está desarrollando la patente de una nueva variante de piedra artificial, compuesta en su mayor parte por cuarzo <span class="math inline">\((93 wt\%)\)</span> y resina de poliéster. Esta compañía pone en marcha una planta piloto donde se comienzan a producir planchas de este material a escala industrial. Con el fin de medir el grado de homogeneidad del producto, se toman <span class="math inline">\(50\)</span> submuestras, realizándose <span class="math inline">\(5\)</span> medidas por plancha de la dureza Vickers correspondiente a distintas zonas de la piedra artificial <em>(Ejercicio1.r)</em>. ¿Qué tipo de gráficos de control serían los más adecuados para controlar el nivel y la dispersión? Hallar los límites de control natural <span class="math inline">\(3 \sigma\)</span> con una muestra de calibrado y, seguidamente, monitorizar las muestras restantes. Comentar los resultados, identificar patrones e identificar sus posibles causas. Desde la gerencia de la empresa se manda una circular según la cual la dureza ha de estar entre <span class="math inline">\(195\)</span> y <span class="math inline">\(210\)</span> <span class="math inline">\(Kg/cm^2\)</span> para poder competir con la piedra natural. Suponiendo que la dureza es una variable normal, ¿cuál sería entonces la proporción de planchas no conformes?, ¿habría que cambiar algo en el proceso de producción?</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">library</span>(qcc)</a></code></pre></div>
+<p>Cargar datos</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">Ejercicio1=<span class="kw">read.table</span>(<span class="st">&quot;Ejercicio1.r&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb80-2" title="2"><span class="kw">names</span>(Ejercicio1)</a></code></pre></div>
+<pre><code>## [1] &quot;dureza&quot; &quot;sample&quot;</code></pre>
+<p>Crear objeto qcc</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">Dureza &lt;-<span class="st"> </span><span class="kw">qcc.groups</span>(Ejercicio1<span class="op">$</span>dureza, Ejercicio1<span class="op">$</span>sample)</a></code></pre></div>
+<p>Abrir ventana de gráficos</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">windows</span>()</a></code></pre></div>
+<p>Controlar la variabilidad con gráfico de rangos:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">qcc</span>(Dureza[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,], <span class="dt">type=</span><span class="st">&quot;R&quot;</span>, <span class="dt">newdata=</span>Dureza[<span class="dv">26</span><span class="op">:</span><span class="dv">50</span>,],<span class="dt">nsigmas=</span><span class="dv">3</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<pre><code>## List of 15
+##  $ call        : language qcc(data = Dureza[1:25, ], type = &quot;R&quot;, newdata = Dureza[26:50, ],      nsigmas = 3)
+##  $ type        : chr &quot;R&quot;
+##  $ data.name   : chr &quot;Dureza[1:25, ]&quot;
+##  $ data        : num [1:25, 1:5] 138 175 178 199 205 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics  : Named num [1:25] 75.4 38.9 34.5 30.4 62.6 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes       : Named int [1:25] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ center      : num 49.2
+##  $ std.dev     : num 21.1
+##  $ newstats    : Named num [1:25] 45 42.2 45.3 43.8 67.6 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata     : num [1:25, 1:5] 193 182 198 195 231 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ newsizes    : Named int [1:25] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata.name: chr &quot;Dureza[26:50, ]&quot;
+##  $ nsigmas     : num 3
+##  $ limits      : num [1, 1:2] 0 104
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations  :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
+<p>Se elimina una muestra fuera de control cuando hay causa asignable:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">qcc</span>(Dureza[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">25</span>),], <span class="dt">type=</span><span class="st">&quot;R&quot;</span>, <span class="dt">newdata=</span>Dureza[<span class="dv">26</span><span class="op">:</span><span class="dv">50</span>,],<span class="dt">nsigmas=</span><span class="dv">3</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<pre><code>## List of 15
+##  $ call        : language qcc(data = Dureza[c(1:10, 12:25), ], type = &quot;R&quot;, newdata = Dureza[26:50,      ], nsigmas = 3)
+##  $ type        : chr &quot;R&quot;
+##  $ data.name   : chr &quot;Dureza[c(1:10, 12:25), ]&quot;
+##  $ data        : num [1:24, 1:5] 138 175 178 199 205 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics  : Named num [1:24] 75.4 38.9 34.5 30.4 62.6 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:24] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes       : Named int [1:24] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:24] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ center      : num 45
+##  $ std.dev     : num 19.3
+##  $ newstats    : Named num [1:25] 45 42.2 45.3 43.8 67.6 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata     : num [1:25, 1:5] 193 182 198 195 231 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ newsizes    : Named int [1:25] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata.name: chr &quot;Dureza[26:50, ]&quot;
+##  $ nsigmas     : num 3
+##  $ limits      : num [1, 1:2] 0 95.2
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations  :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
+<p>Controlar la medida de posición con el gráfico de medias:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb88-2" title="2"><span class="kw">qcc</span>(Dureza[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">25</span>),], <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">newdata=</span>Dureza[<span class="dv">26</span><span class="op">:</span><span class="dv">50</span>,],<span class="dt">nsigmas=</span><span class="dv">3</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<pre><code>## List of 15
+##  $ call        : language qcc(data = Dureza[c(1:10, 12:25), ], type = &quot;xbar&quot;, newdata = Dureza[26:50,      ], nsigmas = 3)
+##  $ type        : chr &quot;xbar&quot;
+##  $ data.name   : chr &quot;Dureza[c(1:10, 12:25), ]&quot;
+##  $ data        : num [1:24, 1:5] 138 175 178 199 205 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics  : Named num [1:24] 184 173 193 183 174 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:24] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes       : Named int [1:24] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:24] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ center      : num 187
+##  $ std.dev     : num 19.3
+##  $ newstats    : Named num [1:25] 188 195 188 193 196 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata     : num [1:25, 1:5] 193 182 198 195 231 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ newsizes    : Named int [1:25] 5 5 5 5 5 5 5 5 5 5 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:25] &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; ...
+##  $ newdata.name: chr &quot;Dureza[26:50, ]&quot;
+##  $ nsigmas     : num 3
+##  $ limits      : num [1, 1:2] 161 213
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations  :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
+<div id="aplicacion-del-grafico-de-control-ewma" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> Aplicación del gráfico de control EWMA</h4>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">windows</span>(<span class="dv">10</span>,<span class="dv">15</span>)</a></code></pre></div>
+<p>4 paneles en un gráfico:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1">op&lt;-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p>Se suele tomar como buena práctica el asignar el valor de 0.2 al parametro lambda</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1">q &lt;-<span class="st"> </span><span class="kw">ewma</span>(Dureza[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,], <span class="dt">lambda=</span><span class="fl">0.2</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>,<span class="dt">restore.par=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">summary</span>(q)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## ewma(data = Dureza[1:25, ], lambda = 0.2, nsigmas = 3, restore.par = FALSE)
+## 
+## ewma chart for Dureza[1:25, ] 
+## 
+## Summary of group statistics:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 147.9709 180.7828 187.0367 185.1899 190.7910 201.8938 
+## 
+## Group sample size:  5
+## Number of groups:  25
+## Center of group statistics:  185.1899
+## Standard deviation:  21.14165 
+## 
+## Smoothing parameter: 0.2 
+## Control limits:
+##          LCL      UCL
+## 1   179.5170 190.8628
+## 2   177.9250 192.4547
+## ...                  
+## 25  175.7351 194.6446</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">names</span>(q); q<span class="op">$</span>limits</a></code></pre></div>
+<pre><code>##  [1] &quot;call&quot;       &quot;type&quot;       &quot;data.name&quot;  &quot;data&quot;       &quot;statistics&quot;
+##  [6] &quot;sizes&quot;      &quot;center&quot;     &quot;std.dev&quot;    &quot;x&quot;          &quot;y&quot;         
+## [11] &quot;sigma&quot;      &quot;lambda&quot;     &quot;nsigmas&quot;    &quot;limits&quot;     &quot;violations&quot;</code></pre>
+<pre><code>##         LCL      UCL
+## 1  179.5170 190.8628
+## 2  177.9250 192.4547
+## 3  177.0683 193.3114
+## 4  176.5645 193.8152
+## 5  176.2570 194.1227
+## 6  176.0657 194.3141
+## 7  175.9453 194.4344
+## 8  175.8690 194.5107
+## 9  175.8206 194.5592
+## 10 175.7897 194.5900
+## 11 175.7700 194.6098
+## 12 175.7574 194.6224
+## 13 175.7493 194.6304
+## 14 175.7442 194.6356
+## 15 175.7409 194.6388
+## 16 175.7388 194.6410
+## 17 175.7374 194.6423
+## 18 175.7366 194.6432
+## 19 175.7360 194.6437
+## 20 175.7357 194.6441
+## 21 175.7354 194.6443
+## 22 175.7353 194.6444
+## 23 175.7352 194.6445
+## 24 175.7351 194.6446
+## 25 175.7351 194.6446</code></pre>
+<p>Para la muestra a monitorizar se emplean unos límites ligeramente más exigentes</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1">q2 &lt;-<span class="st">  </span><span class="kw">ewma</span>(Dureza[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,], <span class="dt">lambda=</span><span class="fl">0.25</span>, <span class="dt">nsigmas=</span><span class="dv">3</span>, <span class="dt">newdata=</span>Dureza[<span class="dv">26</span><span class="op">:</span><span class="dv">50</span>,], </a>
+<a class="sourceLine" id="cb98-2" title="2">            <span class="dt">restore.par=</span><span class="ot">FALSE</span>) </a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">summary</span>(q2)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## ewma(data = Dureza[1:25, ], lambda = 0.25, nsigmas = 3, newdata = Dureza[26:50,     ], restore.par = FALSE)
+## 
+## ewma chart for Dureza[1:25, ] 
+## 
+## Summary of group statistics:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 147.9709 180.7828 187.0367 185.1899 190.7910 201.8938 
+## 
+## Group sample size:  5
+## Number of groups:  25
+## Center of group statistics:  185.1899
+## Standard deviation:  21.14165 
+## 
+## Summary of group statistics in Dureza[26:50, ]:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 187.9595 194.8110 201.1229 198.9129 202.5958 205.1781 
+## 
+## Group sample size:  5
+## Number of groups:  25 
+## 
+## Smoothing parameter: 0.25 
+## Control limits:
+##          LCL      UCL
+## 1   178.0987 192.2810
+## 2   176.3260 194.0538
+## ...                  
+## 50  174.4691 195.9106</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">par</span>(op)</a></code></pre></div>
+<ul>
+<li>En este caso, el gráfico de control de la media detecta antes el cambio del proceso.</li>
+<li>Es un cambio grande. El gráfico EWMA detecta mejor los cambios pequeños.</li>
+<li>Cambios inferiores 2*sigma: los detectan mejor los gráficos CUSUM y EWMA</li>
+<li>Cambios superiores a 2*sigma: los detectan mejor los gráficos de la media y rango.</li>
+</ul>
+<p>Análisis de capacidad</p>
+<p>La librería qcc permite estimar la capacidad del proceso a partir de la desviación típica obtenida de un gráfico de control:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1">qfinal=<span class="kw">qcc</span>(Dureza[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">12</span><span class="op">:</span><span class="dv">25</span>),], <span class="dt">type=</span><span class="st">&quot;xbar&quot;</span>, <span class="dt">newdata=</span>Dureza[<span class="dv">26</span><span class="op">:</span><span class="dv">50</span>,],<span class="dt">nsigmas=</span><span class="dv">3</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">process.capability</span>(qfinal, <span class="dt">spec.limits=</span><span class="kw">c</span>(<span class="dv">195</span>,<span class="dv">210</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-49-2.png" width="672" /></p>
+<pre><code>## 
+## Process Capability Analysis
+## 
+## Call:
+## process.capability(object = qfinal, spec.limits = c(195, 210))
+## 
+## Number of obs = 120          Target = 202.5
+##        Center = 186.7           LSL = 195
+##        StdDev = 19.35           USL = 210
+## 
+## Capability indices:
+## 
+##         Value      2.5%    97.5%
+## Cp     0.1292   0.11280   0.1456
+## Cp_l  -0.1423  -0.08999  -0.1946
+## Cp_u   0.4007   0.33489   0.4665
+## Cp_k  -0.1423  -0.07997  -0.2046
+## Cpm    0.1002   0.08521   0.1151
+## 
+## Exp&lt;LSL 67%   Obs&lt;LSL 68%
+## Exp&gt;USL 11%   Obs&gt;USL 10%</code></pre>
+<p>La proporción de elementos no conformes según las especificaciones del modelo sería del <span class="math inline">\(78\%\)</span></p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="practica-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practica-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Control_book.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

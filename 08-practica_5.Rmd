@@ -1,0 +1,503 @@
+# Práctica 5 
+
+
+## Introducción al diseño de experimentos con R
+
+
+### Ejemplos de Pruebas ANOVA
+
+
+#### Ejemplo de la resistencia a la tracción de aceros {#aceros}
+
+```{r}
+ traccion=c(39, 33, 39, 35, 32,
+            36, 40, 35, 30, 29,
+            33, 33, 36, 26, 35)
+ 
+ Hormigon=as.factor(c(rep("A",5),rep("B",5),rep("C",5)))
+
+ boxplot(split(traccion,Hormigon),xlab='Tipo de hormigón',
+         ylab='Resistencia a la tracción',col=terrain.colors(3))
+ 
+ anovatraccion<-aov(traccion~Hormigon)
+ summary(aov(anovatraccion))              # Construye la tabla ANOVA
+```
+
+__Diagnósis de las hipótesis del modelo:__ 
+Independencia, normalidad, homocedasticidad
+
+```{r} 
+ res<-residuals(anovatraccion)  # Se calculan los residuos.
+ yh<-fitted(anovatraccion)
+ plot(yh,res)
+ abline(h=0,col=2,lty=2)
+ 
+ shapiro.test(res)       # Prueba de normalidad, los residuos son normales
+ qqnorm(res)
+ qqline(res)
+ 
+ ```
+ 
+ ```{r warning=FALSE,message=FALSE}
+ library(car)			       #Para poder hacer la prueba de LEVENE se necesita
+ ```
+ 
+```{r}
+ leveneTest(traccion,Hormigon)    # Prueba de Levene para homogeneidad de varianzas
+                                  # Residuos homocedásticos.
+ bartlett.test(traccion,Hormigon) # Prueba de Bartlett para homogeneidad de varianzas
+                                  # Residuos homocedásticos.   
+ # Diagnósis gráfica del modelo:
+ par(mfrow = c(2, 2), oma = c(0, 0, 2, 0))
+ plot(anovatraccion)
+``` 
+
+se cumplen las hipótesis del modelo _ANOVA_, por lo que es factible la aplicación del test _F_
+
+#### Ejemplo de los laboratorios que miden el peso de muestras de estaño. Respuesta: peso{#estaño}
+
+Se presenta el caso práctico en el que se pretende medir la cantidad de recubrimiento de estaño que tienen las latas de un determinado fabricante. Para ellos de hace un pequeño diseño de experimentos por lo que 4 laboratorios, mediante en tratamiento químico, miden el contenido en estaño de 12 muestras, cada uno. ¿Habra que descartar los resultados de alguno de los laboratorios? Esta es una primera aproximación a los estudios interlaboratorio.
+
+Primeramente se cargan los datos 
+
+```{r}
+laboratorio<-c(rep(1,12),rep(2,12),rep(3,12),rep(4,12))
+laboratorio<-as.factor(laboratorio)
+peso<-c(0.25, 0.27, 0.22, 0.30, 0.27, 0.28, 0.32, 0.24, 0.31, 0.26, 0.21, 0.28,
+0.19, 0.25, 0.27, 0.24, 0.18, 0.26, 0.28, 0.24, 0.25, 0.20, 0.21, 0.19,
+0.18, 0.28, 0.21, 0.23, 0.25, 0.20, 0.27, 0.19, 0.24, 0.22, 0.29, 0.16,
+0.23, 0.30, 0.28, 0.28, 0.24, 0.34, 0.20, 0.18, 0.24, 0.28, 0.22, 0.21)
+``` 
+
+Se Realiza un __ANOVA__ gráfico
+
+```{r}
+boxplot(split(peso,laboratorio),xlab='Laboratorios',ylab='Peso de estado')
+```
+
+Se contruye la tabla __ANOVA__ y se realiza el test de la __F__:
+
+```{r}
+anovapeso<-aov(peso~ laboratorio)
+summary(aov(peso~laboratorio))  # Construye la tabla ANOVA
+
+```
+
+__Diagnosis del modelo__
+
+¿Son los residuos independientes?
+
+```{r}
+res<-residuals(anovapeso)            # Se calculan los residuals.
+yh<-fitted(anovapeso)
+plot(yh,res)
+abline(h=0)
+```
+
+¿Son los residuos normales?
+
+```{r}
+shapiro.test(res)                            # Prueba de normalidad
+qqnorm(res)
+qqline(res)
+```
+
+¿Son los residuos homocedásticos?
+
+```{r}
+library(car)			       #Para poder hacer la prueba de LEVENE se necesita
+			                   #la librerÃ?a CAR que se descarga de la pÃ¡gina del R.
+leveneTest(peso,laboratorio)         # Prueba de Levene para homogeneidad de varianzas
+bartlett.test(peso,laboratorio)        # Prueba de Bartlett para homogeneidad de varianzas
+```
+
+Se cumplen las hipótesis del modelo.
+
+
+#### Exprerimento para medir la velocidad de la luz ideado por Morley {#luz}
+
+Datos clásicos de Michelson sobre mediciones hechas en 1879 para estimar la velocidad de la luz. Los datos constan de cinco experimentos, cada uno de los cuales consta de 20 réplicas consecutivas. La respuesta es la velocidad de medición de la luz, adecuadamente codificada (medida en km/s, habiendo sustraído 299000 km/h en todas las mediciones).
+
+Los datos se ven aquí como un experimento de bloques aleatorizados con “Experimento” y “Réplica” como los factores. “Réplica” también se puede considerar una variable cuantitativa para tener en cuenta los cambios lineales (o polinomiales) en la medición en el transcurso de un solo experimento.
+
+Se tiene, por tanto, una variable respuesta, velocidad de la luz, y dos factores tratamiento, el experimento realizado, con cinco niveles (se realizan 5 experimentos), y la réplica (con 20 niveles).
+
+Se cargan los datos:
+
+```{r}
+luz<-morley
+luz$Expt <- factor(luz$Expt)
+luz$Run <- factor(luz$Run)
+summary(luz)
+attach(luz)
+```
+
+__ANOVA__ gráfico:
+
+```{r}
+plot(Expt, Speed, main="Velocidad de la luz", xlab="Experimento NÃºmero")
+```
+
+Tabla __ANOVA__ y test __F__:
+
+```{r}
+fm <- aov(Speed ~ Run + Expt, data=luz)
+summary(fm)
+names(fm)
+fm$coef
+
+summary(fm)
+names(fm)
+fm$coef
+```
+
+Se observa que el factor Experimento afecta significativamente (0.00307<0.05) a la respuesta (velocidad de la luz) en al menos un nivel. Viendo el ANOVA gráfico, bien podría ser el Experimento 1 el diferente. Habría que ver cuál es la razón a tales diferencias. En todo caso, la velocidad debería estimarse con el resto de experimentos.
+
+__Diagnosis del modelo__:
+
+```{r}
+par(mfrow=c(2,2))
+plot(fm)
+windows()
+rm(fm)
+```
+
+#### Diseño que incluye el test de Tuckey para la resistencia a la rotura de la lana (con dos tipos diferentes) en un telar {#lana}
+
+Este conjunto de datos proporciona el número de roturas de urdimbre por telar, donde un telar corresponde a una longitud fija de hilo. Se tienen 54 observaciones correspondientes a 3 telares, con dos tipos de lana (medida de roturas)
+
+__Variable respuesta__: número de roturas de las fibras de lana. Factores tratamiento: tipo de lana (A o B) y tensión que soporta (Low, Medium, High). Por tanto, hay $2*3=6$ tratamientos.
+
+```{r}
+data(warpbreaks)
+```
+
+Tabla _ANOVA_ y test de la _F_:
+
+```{r}
+summary(fm1 <- aov(breaks ~ wool + tension, data = warpbreaks))
+```
+
+Si sólo se suponen efectos aditivos, variaciones en el factor tensión originan cambios significativamente distintos de cero (0.00138<0.05) en el número de roturas (variable respuesta).
+
+Además, el test de __Tukey__ puede indicar qué niveles de tensión producen cambios significativos en el número de roturas.
+
+```{r}
+TukeyHSD(fm1, "tension", ordered = TRUE)            
+plot(TukeyHSD(fm1, "tension"))
+```
+
+La alta (H) y media (M) tensión inducen un número de roturas similar y signficativamente más bajo que el correspondiente a un nivel de tensión bajo (L).
+
+Si se analiza un modelo con interacción, se ve, al igual que se intuía en el ANOVA gráfico (diferente efecto de la tensión según el tipo de lana), que la interacción entre tensión y tipo de lana es significativa $(0.021044<0.05)$.
+
+### DISEÑOS FACTORIALES 
+
+#### Fiabilidad de una resina epoxy (polímero) con fibras de carbono {#resina}
+
+Base de datos y construcción del esquema:
+
+```{r}
+Inclinacion=factor(c(0,1,0,1,0,1,0,1))
+Grosor=factor(c(0,0,1,1,0,0,1,1))
+Postcurado=factor(c(0,0,0,0,1,1,1,1))
+Compresiones=c(79,97,75,92,64,84,73,90)
+```
+
+El esquema del diseño factorial se define usando la librería __qualityTools__, asignando $-1$ a los niveles $0$ y $+1$ a los niveles $1$.
+
+```{r}
+library(qualityTools)
+
+diseno.frac = fracDesign(k = 3)
+names(diseno.frac)=c("Inclinacion","Grosor","Postcurado")
+diseno.frac
+Compresiones_b=c(92,75,97,64,84,73,90,79)
+response(diseno.frac)=
+  data.frame(Compresiones=Compresiones_b)
+summary(diseno.frac)
+```
+ Efectos principales:
+ 
+```{r}
+effectPlot(diseno.frac, classic = TRUE)
+```
+
+Alternativa:
+
+```{r}
+par(mfrow=c(1,3))
+
+Efecto.I=data.frame(Inclinacion,Compresiones)
+plot.design(Efecto.I,fun="mean",main="Inclinacion",xlab="",
+            ylab=list("Compresiones",cex=1.4))
+Efecto.G=data.frame(Grosor,Compresiones)
+plot.design(Efecto.G,fun="mean",main="Grosor",xlab="",
+            ylab=list("Compresiones",cex=1.4))
+Efecto.P=data.frame(Postcurado,Compresiones)
+plot.design(Efecto.P,fun="mean",main="Postcuarado",xlab="",
+            ylab=list("Compresiones",cex=1.4))
+```
+
+Efectos de las interacciones:
+
+```{r}
+windows()
+interactionPlot(diseno.frac)
+```
+
+Alternativa
+
+```{r}
+par(mfrow=c(2,2))
+interaction.plot(Inclinacion,Grosor,Compresiones,main="Interacci?n I - G",
+                 xlab=list("I",cex=1.4))
+
+interaction.plot(Inclinacion,Postcurado,Compresiones,main="Interacci?n I - P",
+                 xlab=list("I",cex=1.4))
+
+interaction.plot(Grosor,Postcurado,Compresiones,main="Interacci?n G - P",
+                 xlab=list("G",cex=1.4))
+par(mfrow=c(1,1))
+```
+
+Hay interacción entre el grosor y el postcurado
+
+__Gráfico de Pareto__:
+
+[El gráfico de Pareto muestra los valores absolutos de los efectos estandarizados desde el efecto más grande hasta el efecto más 
+pequeño. Los efectos estandarizados son estadísticos que se distribuyen como una t-student. Así se contrasta la hipótesis nula de que el efecto es 0.  El gráfico también traza una línea de referencia para indicar qué efectos son estadísticamente significativos.]
+
+```{r}
+windows()
+paretoPlot(diseno.frac,main="Diagrama de Pareto de los efectos",abs=T,
+           xlab=list("Factores",cex=1.4),
+           las=1,col=2:6,alpha=0.05)
+```
+
+Interpretación: Se usa el diagrama de Pareto para determinar la magnitud y la importancia de los efectos. En el gráfico de Pareto, las barras que cruzan la línea de referencia hacen referencia a efectos estadísticamente significativos. Los efectos de inclinación, postcurado e interacción grosor postcurado son susceptibles de ser significativos, si atendemos al ME (margin error) del método de Lenth.
+
+__Análisis del diseño factorial mediante la tabla ANOVA__
+
+Esta es otra alternativa para detectar aquellos factores que inducen cambios significativamente distintos de cero en la respuesta (efectos significativos sobre la respuesta, resistencia a la rotura del material).
+
+```{r}
+analisis.disen=aov(Compresiones~(Inclinacion + Grosor + Postcurado))
+summary(analisis.disen)
+```
+Inclinación es el factor significativo cuando sólo se tienen en cuenta efectos principales.
+
+Si se incluye la interacción de grosos y postcurado, se observa que es significativa.
+
+```{r}
+analisis.disen=aov(Compresiones~Inclinacion + Grosor * Postcurado)
+summary(analisis.disen)
+```
+__Gráfica de probabilidad normal:__
+
+Debido a que el gráfico de Pareto muestra el valor absoluto de los efectos, puede determinar qué efectos
+son grandes, pero no puede determinar qué efectos aumentan o disminuyen la respuesta. Úsese la gráfica de probabilidad normal de los efectos estandarizados para examinar la magnitud y dirección de los efectos.
+
+```{r}
+# *La gráfica de probabilidad normal de los efectos muestra
+# los efectos estandarizados relativos a una línea de 
+# ajuste de distribución para el caso en el que todos los 
+# efectos son 0. Los efectos estandarizados son 
+# t-estadísticos que contrastan la hipótesis nula de que 
+# el efecto es 0. 
+# *Los efectos positivos aumentan la respuesta cuando la 
+# configuración cambia del valor bajo del factor al valor 
+# alto. 
+# *Los efectos negativos disminuyen la respuesta cuando su 
+# configuración cambia del valor bajo del factor al alto 
+# *Los efectos más allá de 0 en el eje x tienen mayor 
+# magnitud. Los efectos más allá de 0 son estadísticamente
+# más significativos.
+```
+
+```{r}
+normalPlot(diseno.frac)
+```
+
+Inclinación y la interacción Inclinación:Postcurado tienen efecto positivo sobre la respuesta.
+
+El postcurado tiene efecto negativo.
+
+__Superficie de respuesta para ver la relación entre inclinación y postcurado__ 
+
+Visualización con un mapa de contorno y una superficie de respuesta:
+
+```{r}
+par(mfrow = c(1,2))
+wirePlot(A, C, Compresiones, data = diseno.frac)
+contourPlot(A, C, Compresiones, data = diseno.frac)
+```
+ 
+
+### DISEÑOS DE EXPERIMENTOS  FACTORIALES FRACCIONADOS 
+
+Se ajusta el modelo paramétrico de Paris, dependiente de los parámetros C y m para estimar la longitud de grietas en un material en función del número de ciclos de esfuerzos a fatiga. Se trataría de ver si unos parámetros de un modelo de fiabilidad (prueba de fatiga tipo Paris) son significativos a la par que se analiza el posible efecto de la interacción.
+
+#### EJEMPLO de DISEÑO FRACCIONADO 1/4 {#f1}
+
+```{r}
+ library(qualityTools)
+```
+
+MATRIZ DE BASE DE DATOS: valores ajustados
+
+```{r}
+S2m=c(0.1,0.5,0.1,0.5,0.1,0.5,0.1,0.5)
+SCm=c(-0.09,-0.09,-0.02,-0.02,-0.09,-0.09,-0.02,-0.02)
+S2C=c(0.1,0.1,0.1,0.1,0.5,0.5,0.5,0.5)
+m=c(4,3,3,4,4,3,3,4)
+C=c(6,5,6,5,5,6,5,6)
+
+S2_m=factor(S2m); S_Cm=factor(SCm);S2_C=factor(S2C);m=factor(m);C=factor(C)
+```
+
+RESPUESTA DE LAS DISTANCIAS L2 DE LAS OCHO COMBINACIONES
+
+```{r}
+resp.lme.L2=c(0.001326,0.001648,0.000626,0.002624,0.005023,0.002590,0.003786, 0.003949)
+```
+
+DIAGRAMA DE PARETO DE LOS EFECTOS SIGNIFICATIVOS
+
+```{r}
+diseno.frac = fracDesign(k = 5, gen = c("D=AB","E=AC"))
+names(diseno.frac)=c("var(m)","cov(C,m)","var(C)","m","C")
+response(diseno.frac)=data.frame(resp.L2=c(0.002624,0.000626,0.001648,0.005023, 0.002590,   0.003786,0.003949,0.001326))
+```
+
+Gráfico de pareto del los efectos estadarizados de los factores
+
+```{r}
+paretoPlot(diseno.frac,main="Diagrama de Pareto de los efectos",abs=T,
+           xlab=list("Efectos",cex=1.4),ylab=list(expression(L[2]),cex=1.2),
+           las=1,col=2:6)
+```
+
+ANALISIS DEL DISEÃO CON LA TABLA __ANOVA__
+
+```{r}
+analisis.disen=aov(resp.lme.L2~(S2_m + S_Cm + S2_C + m + C))
+summary(analisis.disen)
+```
+
+
+
+
+_ESTRUCTURA DE ALIAS_
+
+A=S2_m ; B=S_Cm ; C=S2_C ; D=m ; E= C
+
+I + ABD + ACE + BCDE
+
+A + BD + CE + ABCDE
+
+B + AD + CDE + ABCE
+
+C + AE + BDE + ABCD    * EFECTO
+SIGNIFICATIVO C
+
+D + AB + BCE + ACDE    * EFECTO SIGNIFICATIVO D
+
+E + AC + BCD + ABDE    * EFECTO SIGNIFICATIVO E
+
+BC + DE + ABE + ACD
+
+BE + CD + ABC + ADE
+
+GRÁFICOS DE EFECTOS PRINCIPALES SIGNIFICATIVOS
+
+```{R}
+par(mfrow=c(2,2))
+interaction.plot(S2_m,C,resp.lme.L2,main="Interacci?n var(m) - C",
+                 ylab=expression(L[2]),xlab=list("var(m)",cex=1.4))
+
+interaction.plot(S2_m,S_Cm,resp.lme.L2,main="Interacci?n var(m) - cov(C,m)",
+                 ylab=expression(L[2]),xlab=list("var(m)",cex=1.4))
+
+interaction.plot(S2_m,S2_C,resp.lme.L2,main="Interacci?n var(m) - var(C)",
+                 ylab=expression(L[2]),xlab=list("var(m)",cex=1.4))
+par(mfrow=c(1,1))
+```
+
+
+__MODELO LINEAL__
+
+```{r}
+model.lm=lm(resp.lme.L2~(S2_m +S_Cm +S2_C +m + C))
+anova(model.lm) # Es el mismo resumen de la tabla ANOVA
+summary(model.lm)
+```
+
+$p-value=0.01751$   es significativo el modelo al $95\%$ y los coeficientes significativos del modelo coinciden con los de latabla ANOVA
+
+
+RESIDUOS DEL MODELO
+
+```{r}
+plot(rstandard(model.lm),main="Comportamiento de los residuos estÃ¡ndar",
+     ylab=list("Residuos est?ndar",cex=1.2),xlab="?ndice",ylim=c(-2,2),pch=20,
+     cex=2,col=4)
+```
+
+Están dentro del intervalo de -2 a 2
+
+PREDICCIONES DEL MODELO PARA IDENTIFICAR EL NIVEL ÓPTIMO DE $var(m)$
+
+```{r}
+factorA=factor(c(0.1,0.5)) ; factorB=factor(c(-0.02,-0.02))
+factorC=factor(c(0.1,0.1)) ; factorD=factor(c(3,3))
+factorE=factor(c(6,6))
+
+pred.model=predict(model.lm,newdata=data.frame(S2_m=factorA,S_Cm=factorB,
+                                               S2_C=factorC, m=factorD,
+                                               C=factorE),level=0.95,
+                   interval="confidence")
+pred.model
+```
+
+
+### ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&R) {#ilab}
+
+Conjunto de datos de grucosa. El contenido de glucosa se mide en diferentes 5 muestras diferentes de sangre (5 tipos de material diferentes) por 8 diferentes laboratorios.
+
+__Gráficos para el estadístico h de Mandel:__
+
+```{r warning=FALSE,message=FALSE}
+library(ILS)
+data(Glucose)
+Glucose.qcdata <- lab.qcdata(Glucose)
+str(Glucose.qcdata)
+```
+
+```{r warning=FALSE, message=FALSE}
+h<- h.qcs(Glucose.qcdata, alpha = 0.005)
+summary(h)
+plot(h)
+```
+
+__Gráficos para el estadístico k de Mandel:__
+
+
+```{r}
+library(ILS)
+data(Glucose)
+Glucose.qcdata <- lab.qcdata(Glucose)
+str(Glucose.qcdata)
+```
+
+```{r}
+k<- k.qcs(Glucose.qcdata, alpha = 0.005)
+summary(k)
+plot(k)
+```
+
+
+
+                      
+
+

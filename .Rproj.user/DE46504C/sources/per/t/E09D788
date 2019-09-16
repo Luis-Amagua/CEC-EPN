@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568402098114.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4252477119",
+    "id" : "E09D788",
+    "lastKnownWriteTime" : 1568411993,
+    "last_content_update" : 1568411993465,
+    "path" : "C:/Users/WINDOWS/Desktop/CONTROL DE CALIDAD/Control_book/02-introd.Rmd",
+    "project_path" : "02-introd.Rmd",
+    "properties" : {
+        "cursorPosition" : "1111,0",
+        "docOutlineSize" : "185",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "1105"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

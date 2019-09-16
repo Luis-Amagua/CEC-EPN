@@ -1,0 +1,710 @@
+# Práctica 4 
+
+## Etapa Controlar y Analizar 
+
+
+### Control Estadistico de Calidad Multivariante:
+
+
+#### Caso práctico: Control del contenido de contaminantes en el queroseno. {#queroseno}
+
+Se carga la base de datos del contenido en contaminantes (agua y sólidos) en queroseno, aguas abajo del filtro, justo antes de su inyección en el tanque de combustible de un avión.
+
+```{r warning=FALSE,message=FALSE} 
+#librerias
+library(readr)
+library(qcc)
+library(qcr)
+library(qualityTools)
+library(knitr)
+library(SixSigma)
+library(nortest)
+```
+
+```{r}
+Contaminacion=read.table("Contaminacion.txt",header=TRUE)
+
+Contaminacion
+```
+
+Normativa: el contenido de agua en el queroseno no ha de ser superior a 15 ppm, el contenido de sólidos en el queroseno ho ha de ser superior a 0.26 mg/L.
+
+
+¿Cómo hacer un control del contenido en contaminantes cuando hay 2 características CTQ?
+
+#### Aproximación univariante utilizando una corrección tipo BONFERRONI. {#BONFERRONI}
+
+```{r}
+# Se comprueba la normalidad de los datos:
+
+library(nortest)
+lillie.test(Contaminacion$Solidos) # Normal
+lillie.test(Contaminacion[,"Agua"]) # Normal
+
+# ¿Hay autocorrelación en la variable sólidos?, ¿y en la variable contenido en agua?
+
+library(stats)
+
+# H0: independencia de las observaciones
+
+Box.test(Contaminacion$Solidos) # La observación actual no depende de la anterior
+Box.test(Contaminacion$Agua) # La observación actual no depende de la anterior
+
+# Entonces se pueden aplicar gráficos de Shewhart para la media de forma fiable:
+
+library(qcc)
+
+agua=qcc.groups(Contaminacion$Agua,rep(1:25,each=4)) # se agrupan las medidas de 4 en 4.
+solidos=qcc.groups(Contaminacion$Solidos,rep(1:25,each=4)) # se agrupan las medidas de 4 en 4.
+
+# Se aplica la corrección de Bonferroni apuntada por Artl, con un nivel de significación alfa/(2*nº variables) = 0.0027/4=0.000675
+
+qcc(agua,type="xbar",confidence.level=(1-0.000675))
+qcc(solidos,type="xbar",confidence.level=(1-0.000675))
+```
+
+#### Control de calidad multivariante con gráficos Shewhart (T2 Hotelling).{#Shewhart}
+
+__CONTROL MULTIVARIANTE TIPO SHEWART__
+
+Comprobar si las variables aleatorias a controlar siguen una distribución multinormal (SE UTILIZA EL TEST DE MARDIA, cargando la librería MVN):
+
+```{r}
+library(MVN)
+mardiaTest(Contaminacion, cov = TRUE, qqplot = TRUE) # Es multinormal
+```
+La función a emplear es mqcc, de la librería qcc permite calcular gráficos de control T2 para MEDIAS de la variable y para MEDIDAS INDIVIDUALES.
+
+__Control de medias con datos agrupados__
+
+Se agrupan los datos en muestras de 4 elementos:
+
+Calibrado: obtención de los límites de control a partir de 25 muestras racionales
+```{r}
+x1=matrix(Contaminacion[1:100,1],nc=4, byrow=TRUE) 
+x2=matrix(Contaminacion[1:100,2],nc=4, byrow=TRUE)
+X=list(x1,x2)
+
+# x1new=matrix(Contaminacion[85:100,1],nc=4, byrow=TRUE) 
+# x2new=matrix(Contaminacion[85:100,2],nc=4, byrow=TRUE)
+# Xnew=list(x1new,x2new)
+
+
+# Muestra de Monitorizado (20 muestras racionales de 4 observaciones):
+
+ContaminacionNew=read.table("ContaminacionNew.txt",header=TRUE)
+x1new=matrix(ContaminacionNew[,1],nc=4, byrow=TRUE) 
+x2new=matrix(ContaminacionNew[,2],nc=4, byrow=TRUE)
+Xnew=list(x1new,x2new)
+```
+Gráfico de control con mqcc. Los límites para la muestra de calibrado son más estrechos que los de la muestra de monitorizado (ver Montgomery, 2001).
+Se recomienda, de ser posible, usar siempre más de 20 grupos y, a menudo, más de m = 50 para formar la muestra de calibrado y estimar los límites de control.
+```{r}
+q1=mqcc(X,newdata=Xnew, type = "T2", pred.limits = TRUE)
+
+# medidas descriptivas del estadistico T2, nº variab., nº grupos, nºobser./grupo,
+# vector de medias, matriz de covarianzas muestral, límites de control:
+summary(q1) 
+
+# La observación 35 se detecta como fuera de control:
+names(q1);q1$violation$beyond.pred.limits 
+```
+Si tenemos solo dos variables, se puede realizar un grafico de elipse, circunferencia si las variables son independientes (sólo para control de la media de la variable CTQ).
+```{r}
+ellipseChart(q1, show.id = TRUE, chart.all = TRUE) 
+                                 # con show.id se identifica cada observación según su
+                                 # secuencia temporal
+                                 # LA OBSERVACIÓN 10 DE LA M. DE MONITOR. ESTÁ FUERA
+                                 # DE CONTROL.
+
+```
+__Control de medidas individuales__
+
+También es posible obtener el gráfico T2 de Hotelling para medidas individuales. Se empleará la función mqcc con type = "T2.single":
+
+```{r}
+qq = mqcc(Contaminacion, type = "T2.single",newdata = ContaminacionNew, 
+          pred.limits = TRUE)
+
+qq$violations$beyond.pred.limits # Las observaciones 137 y 139 están fuera de control
+```
+
+#### Control de calidad multivariante con gráficos MEWMA y MCUSUM.{#MEWMA}
+
+Detectan mejor los cambios pequeños en el proceso debido a que tienen memoria:
+cada punto representado se calcula teniendo en cuenta, aparte de la actual, las
+observaciones anteriores.
+
+Se utiliza el paquete qcr, elaborado por Miguel Flores
+
+Los gráficos MCUSUM y MEWMA estan implementados sólo para el control de medidas individuales
+```{r}
+library(qcr)
+```
+
+__CUSUM: gráfico de las diferencias acumumadas con respecto al vector de medias__ 
+
+Función mqcd para crear el objeto multivariante y mqcs.mcusum para obtener el gráfico multivariante:
+```{r}
+# Muestra de calibrado:
+data.mqcd <- mqcd(Contaminacion)  
+res.mqcs <- mqcs.mcusum(data.mqcd)
+summary(res.mqcs) # Resumen de las principales características del gráfico de control
+
+plot(res.mqcs, title =" MCUSUM Control Chart for Water and Solids in Jet Fuel")
+
+# Muestra de monitorizado:
+data.mqcd.new <- mqcd(ContaminacionNew)
+
+# Se toman el vector de medias y la matriz de covarianzas de la muestra de calibrado
+Xmv=matrix(res.mqcs$mean,byrow=TRUE)
+S = data.frame(matrix(res.mqcs$S,byrow=FALSE,nc=2))
+
+# Se calcula el nuevo gráfico con los límites obtenidos en la muestra de calibrado:
+res.mqcs.new <- mqcs.mcusum(data.mqcd.new,Xmv=Xmv,S=S)
+plot(res.mqcs.new, title =" MCUSUM Control Chart for Water and Solids in Jet Fuel")
+names(res.mqcs.new);res.mqcs.new$violations.
+
+# A partir de la observación 18 de la muestra de monitorizado, se muestra
+# que el proceso se ha desplazado respecto al vector de medias calculado en
+# la muestra de calibrado.
+```
+
+__EWMA: gráfico de las medias móviles ponderadas exponencialmente__
+
+Función mqcd para crear el objeto multivariante y mqcs.mewma para obtener el gráfico multivariante:
+
+```{r}
+# Muestra de calibrado:
+data.mqcd <- mqcd(Contaminacion)
+res.mqcs <- mqcs.mewma(data.mqcd)
+summary(res.mqcs)
+plot(res.mqcs, title =" MEWMA Control Chart for Water and Solids in Jet Fuel")
+
+# Muestra de monitorizado:
+data.mqcd.new <- mqcd(ContaminacionNew)
+
+# Se toman el vector de medias y la matriz de covarianzas de la muestra de calibrado
+Xmv=matrix(res.mqcs$mean,byrow=TRUE)
+S = data.frame(matrix(res.mqcs$S,byrow=FALSE,nc=2))
+
+# Se calcula el nuevo gráfico con los límites obtenidos en la muestra de calibrado:
+res.mqcs.new <- mqcs.mewma(data.mqcd.new,Xmv=Xmv,S=S)
+plot(res.mqcs.new, title =" MEWMA Control Chart for Water and Solids in Jet Fuel")
+
+names(res.mqcs.new);res.mqcs.new$violations
+
+```
+A partir de la observación 8 de la muestra de monitorizado, se muestra que el proceso se ha desplazado respecto al vector de medias calculado en la muestra de calibrado.
+* CONCLUSIÓN: usando MEWMA, en la observación número 108 (teniendo en cuenta la de  calibrado), se observa que el proceso está fuera de control.
+Con un gráfico T2, se verifica que el proceso está fuera de control en la observación 137.
+
+Este tipo de gráficos detectan mejor los cambios pequeños y paulatinos.
+
+##### Caso práctico: Cotrol de humedad relativa, temperatura y consumo eléctrico.
+
+#### Regression adjustment. {#adjustment}
+
+Se obtienen datos del consumo energético (medido en KW) de una instalación de climatización para mantener unas determinadas condiciones de temperatura, humedad relativa y contenido de CO2.
+
+Supóngase que la característica de calidad del proceso "Confort térmico" de las instalaciones de climatización es su temperatura.
+
+La temperatura depende de las condiciones de humedad en una determinada oficina.
+Además, en la base de datos que se muestra hay tres medidas diferentes de la temp. y la humedad relativa, tomadas en tres zonas de la oficina.
+
+Se pretende controlar la temperatura del fondo de la oficina (la variable no es normal).
+
+¿Cómo controlar el proceso?
+
+Una alternativa cuando se tienen varios parámetros que influyen en una característica CTQ a controlar es la aplicacion del metodo: REGRESSION ADJUSTMENT
+
+__VENTAJA:__ simple, no es necesario aplicar estadisticos con condiciones de optimalidad. El ARL es similar al de gráficos como el T2 y otros.
+
+__REQUERIMIENTOS:__ (1) dependencia entre variables, (2) para medidas individuales.
+
+PROCEDIMIENTO: 
+    + A) Se hace una regresión de la caracteristica Y sobre el parámetro X1; 
+  luego, una regresión de los residuos sobre el parámetro X2, y así
+  sucesivamente con todos los parametros.
+  
+    + B) Se hace un gráfico de control de los residuos (muchas veces normales e 
+  independientes).
+
+_DATOS referidos a las 18:00 de la tarde durante 45 días laborables_
+
+```{r warning=FALSE}
+ConTempHRco2=read.table("ConTempHRco2.txt")
+
+# Hay relación entre las variables, hay cierta información redundante:
+
+# Antención: cargar antes library(car)
+library(car)
+windows()
+scatterplotMatrix(~CO2Entrada+CO2Fondo+CO2Medio+ConsumoUE03+HREntrada+HRFondo+HRMedio+TempEntrada+TempFondo+TempMedio,
+                  reg.line=FALSE, smooth=FALSE, spread=FALSE, span=0.5, ellipse=FALSE, 
+                  levels=c(.5, .9), id.n=0, diagonal = 'density', data=ConTempHRco2)
+
+# Efectúo regresiones sucesivas...
+
+# de la temperatura del fondo de la habitación sobre la temperatura del medio...
+regre1=lm(ConTempHRco2$TempFondo~ConTempHRco2$TempMedio); summary(regre1)
+# de los residuos de la regresión anterior sobre la temperatura de entrada...
+regre2=lm(regre1$residuals~ConTempHRco2$TempEntrada); summary(regre2)
+# de los residuos de la regresión anterior sobre la humedad relativa del fondo...
+regre3=lm(regre2$residuals~ConTempHRco2$HRFondo); summary(regre3)
+# de los residuos de la regresión anterior sobre la humedad relativa del medio...
+regre4=lm(regre3$residuals~ConTempHRco2$HRMedio); summary(regre4)
+# de los residuos de la regresión anterior sobre la humedad relativa de la entrada...
+regre5=lm(regre4$residuals~ConTempHRco2$HREntrada); summary(regre5)
+
+
+# Test sobre los residuos correspondientes al primer mes:
+
+lillie.test(regre5$residuals[1:20]) # Normalidad
+Box.test(regre5$residuals[1:20]) # No autocorrelación
+
+lillie.test(ConTempHRco2$TempFondo[1:20]) # No normalidad en la variable de partida
+```
+
+__Aplicación de gráficos de control Sewhart__
+
+Gráficos de control para las muestras de calibrado y monitorizado (se toman, por ejemplo, los residuos una vez extraida la dependencia lineal con el resto de temperaturas, regre2):
+
+```{r}
+q6=qcc(regre2$residuals[1:20],newdata=regre2$residuals[21:45],type="xbar.one")
+q6$violations$beyond.limits
+q6$violations$violating.runs
+```
+A partir del segundo mes, la temperatura no está bajo control. Han cambiado las condiciones con respecto al primer mes. Al 6º día nos damos cuenta.
+
+El regression adjustment se podría extender para el caso de regresión lineal generalizada (GLM), aditiva generalizada (GAM) e, incluso, regresión con datos funcionales.
+
+#### Reducción de dimensión: Análisis de componentes principales (PCA). {#pca}
+
+A partir de una matriz de datos con "p" variables, se obtiene otra matriz de datos con "p" componentes principales (nuevas variables).
+La primera componente principal de las p-componentes se obtiene al proyectar los vectores de observaciones en la dirección de la máxima varianza de los datos. La segunda componente se obtendrá al proyectar la información restante en la dirección de su máxima varianza y así sucesivamente hasta obtener la nuevas p componentes.
+Las "p" componentes son ORTOGONALES e INDEPENDIENTES entre sí.
+
+VENTAJAS: Útiles cuando tenemos una gran cantidad de variables. Con cerca de 10 variables los gráficos clásicos no son fiables (el ARL se incrementa al incrementar el nº de variables, se tarda más en detectar un verdadero fuera de control). 
+Muchas veces se puede resumir la mayor parte de la información de la base de datos en apenas dos variables.
+Las proyecciones pueden cumplir las hipótesis de normalidad y no autocorrelación, lo que hace aplicables los gráficos de Shewhart.
+
+INCONVENIENTES: Es difícil descubrir cuál es la variable original que origina el fuera de control y, así, identificar las causas asignables.
+
+__PROBLEMA a resolver__
+
+Resumir las 9 características del confort térmico y calidad del aire de la oficina en dos variables y aplicar gráficos de control:
+
+```{r}
+# Muestra de calibrado (descomposición matricial en valores singulares con svd):
+HF.svd <- svd(ConTempHRco2[1:20,-c(1:2,12:14)])
+
+# Se obtiene la matriz de puntuaciones respecto a la nueva base de componentes principales
+# al multiplicar matricialmente la matriz u y d, resultado de la descomposición svd:
+HF.scores <- as.data.frame(HF.svd$u %*% diag(HF.svd$d))
+PCA <- list(scores = HF.svd$u %*% diag(HF.svd$d),loadings = HF.svd$v)
+ 
+# Muestra de monitorizado. Se proyectan las nuevas observaciones (vectores de 
+# características) en la nueva base:
+
+HF_test.scores=NULL
+for(i in 21:45){
+  HF_test.scores <- 
+  rbind(HF_test.scores,
+        as.data.frame(as.numeric(ConTempHRco2[i,-c(1:2,12:14)]) %*%  PCA$loadings))
+  
+}
+
+```
+
+__$T^2$ de Hotelling__
+
+```{r}
+
+q10=mqcc(HF.scores[,1:2],newdata=HF_test.scores[,1:2],type = c("T2.single"),
+         pred.limits = TRUE) 
+```
+
+
+Se percibe que el proceso se empieza a descontrolar a partir de la observación 19 de  la muestra de monitorizado. Pero si, como se debe, se observan los intervalos de predicción, no se detecta ninguna muestra fuera de control.
+
+* PRECAUCIÓN: Cuando se reduce a pocas componentes principales, estamos obviando algunas direcciones en las que se producirían posibles desplazamientos hacia el fuera de control. 
+
+El uso de MEWMA aplicado a las componentes principales retenidas disminuye considerablemente el ARL1:
+
+__MEWMA__
+```{r}
+# Muestra de calibrado:
+data.mqcd <- mqcd(HF.scores[,1:2])
+res.mqcs <- mqcs.mewma(data.mqcd)
+summary(res.mqcs)
+plot(res.mqcs, title ="MEWMA Control Chart for Water and Solids in Jet Fuel")
+
+# Muestra de monitorizado:
+data.mqcd.new <- mqcd(HF_test.scores[,1:2])
+
+# Se toman el vector de medias y la matriz de covarianzas de la muestra de calibrado
+Xmv=matrix(res.mqcs$mean,byrow=TRUE)
+S = data.frame(matrix(res.mqcs$S,byrow=FALSE,nc=2))
+
+# Se calcula el nuevo gráfico con los límites obtenidos en la muestra de calibrado:
+res.mqcs.new <- mqcs.mewma(data.mqcd.new,Xmv=Xmv,S=S)
+plot(res.mqcs.new, title =" MEWMA Control Chart for Thermal confort and Air quality")
+names(res.mqcs.new);res.mqcs.new$violations
+```
+CONCLUSIÓN: Se identifica que el proceso está fuera de control en la 4ª observación de la muestra de monitorizado. 
+
+####  Reducción de dimensión: Mínimos cuadrados parciales (PLS). {#pls}
+
+Misma utilidad que las compententes principales, pero con una ventaja fundamental: se expresan los vectores de características según nuevas componentes o variables, pero en la obtención de las mismas se ha tenido en cuenta la existencia de una matriz de variables independientes X y una variable respuesta Y. Los datos se proyectan en una nueva base conforme que tiene en cuenta la relación lineal entre Y y X.
+
+Ideal para el caso de tener muchas variables X, o parámetros, de los que depende la característica a controlar o variable respuesta Y.
+
+CASO PRÁCTICO: se pretende controlar la eficiencia energética de las instalaciones de climatización de una oficina a partir del consumo eléctrico. En el consumo eléctrico influyen parámetros de confort térmico y calidad del aire (de hecho, dicho consumo se produce para mantener unos estándares de calidad de estos últimos).
+
+__Procedimiento__
+
+```{R}
+library(pls)
+```
+
+Muestra de calibrado (se escalan previamente las varibles regresoras). La función plsr proporciona una regresión por mínimos cuadrados parciales del consumo con respecto a las demás variables (temperaturas, HR, CO2)
+
+```{r}
+HF.pls <- plsr(ConTempHRco2[1:20,12] ~ scale(ConTempHRco2[1:20,-c(1:2,12:14)]),
+               ncomp = 9, validation = "CV")
+
+# Muestra de monitorizado. Se proyectan las nuevas observaciones (vectores de características) en la nueva base:
+
+tst.scores=NULL
+for(i in 21:45){
+Xtst <- scale(ConTempHRco2[i,-c(1:2,12:14)],
+              center = colMeans(ConTempHRco2[1:20,-c(1:2,12:14)]),
+              scale = apply(ConTempHRco2[1:20,-c(1:2,12:14)],2,sd))
+tst.scores <- rbind(tst.scores,as.data.frame(Xtst %*% HF.pls$projection))
+
+}
+```
+__T^2 de Hotelling__
+
+```{r}
+qPLS=mqcc(scores(HF.pls)[,1:2],newdata=tst.scores[,1:2], type = c("T2"),pred.limits = TRUE) 
+```
+Se percibe que el proceso se empieza a descontrolar a partir de la 6ª observación de la muestra de monitorizado.
+Mucho antes que empleando componentes principales
+
+
+Uso de MEWMA aplicado a las componentes PLS:
+
+__MEWMA__
+```{r}
+# Muestra de calibrado:
+data.mqcd <- mqcd(scores(HF.pls)[,1:2])
+res.mqcs <- mqcs.mewma(data.mqcd)
+summary(res.mqcs)
+plot(res.mqcs, title =" MEWMA Control Chart for Water and Solids in Jet Fuel")
+
+# Muestra de monitorizado:
+data.mqcd.new <- mqcd(tst.scores[,1:2])
+
+# Se toman el vector de medias y la matriz de covarianzas de la muestra de calibrado
+Xmv=matrix(res.mqcs$mean,byrow=TRUE)
+S = data.frame(matrix(res.mqcs$S,byrow=FALSE,nc=2))
+
+# Se calcula el nuevo gráfico con los límites obtenidos en la muestra de calibrado:
+res.mqcs.new <- mqcs.mewma(data.mqcd.new,Xmv=Xmv,S=S)
+plot(res.mqcs.new, title =" MEWMA Control Chart for Thermal confort and Air quality")
+names(res.mqcs.new);res.mqcs.new$violations
+```
+Nos damos cuenta del desplazamiento al fuera de control en la 2ª observación de la muestra de monitorizado (con PCA nos dábamos cuenta en la 4ª).
+
+###  Control de Calidad de variables autocorreladas
+
+####   Caso práctico: Control del confort climático en oficinas.{#oficinas}
+
+DATOS: Variables de confort térmico, calidad del aire y consumo energético en horas de ocupación (11 horas) de una oficina. Medidas horarias de septiembre y octubre.
+```{r}
+MultivarianteOCUP=read.table("clima.txt",header=T)
+
+MultivarianteOCUP
+```
+####  Ajuste de series de tiempo y gráfico de residuos.
+
+Estudio de la humedad relativa en el fondo de la oficina 
+__¿Normalidad, autocorrelación de la humedad relativa?__
+```{r}
+lillie.test(MultivarianteOCUP[1:418,9]) # No normal
+Box.test(MultivarianteOCUP[1:418,9]) # Dependencia, Xn+1 depende de Xn
+```
+Estos gráficos no son fiables (indican + muestras fuera de control que las que en realidad son). Váse la variable Humedad Relativa (HR) del fondo de la oficina:
+
+```{r}
+qcc(MultivarianteOCUP[1:418,9],type="xbar.one") # Hay una cierta dependencia
+```
+PROCEDIMIENTO: se ajusta un modelo de series de tiempo (ARIMA) y, una vez ajustada la autocorrelación, se controlan los residuos.Se pretende "extraer" la autocorrelación y poder aplicar de forma fiable los gráficos estándar.
+
+Se utiliza la librería "forecast", que permite un ajuste automático del modelo de series de tiempo:
+```{r}
+library(forecast)
+# Se crea objeto serie de tiempo de la HR con periodo 11 (11 medidas por día)
+myts <- ts(MultivarianteOCUP[,9], start=c(1, 1), frequency=11)
+plot(myts)
+fit <- auto.arima(myts,stepwise=TRUE) 
+
+summary(fit) # El modelo obtenido es un ARIMA(0,1,0)(2,0,0)[11]
+plot(forecast(fit, 20)) 
+
+# Una vez asjustado el modelo de series de tiempo, se obtienen y estudian los residuos:
+lillie.test(fit$residuals) # No son normales
+Box.test(fit$residuals) # Parece que Xn+1 no depende de Xn
+tsdiag(fit, gof.lag=50) # No hay autocorrelación
+
+qcc(fit$residuals,type="xbar.one") # No normales: Este gráfico no es fiable
+
+# Se aconseja la aplicación del gráfico EWMA, pues los residuos no son normales:
+
+ew=ewma(fit$residuals[1:418],type="xbar.one") 
+```
+Eliminamos las muestras fuera de control por deberse a picos y valles atípicos de humedad, correspondientes a condiciones especiales. 
+
+Se incluyen los residuos de la muestra de monitorizado::
+```{r}
+ewma(fit$residuals[-c(ew[15]$violations,419:495)],newdata=fit$residuals[419:495],type="xbar.one")
+
+```
+Conclusión: una vez eliminadas las observaciones fuera de control, no aparecen más, SE SUPONE QUE LA HUMEDAD ESTA BAJO CONTROL, no se han observado fueras de control ni causa asignable.
+
+NOTA: podría haberse estudiado la humedad mediante gráficos de medias. Se agrupan los datos de a dos (no tendría sentido incluir en un mismo grupo la humedad a las 9:00 y la humedad a las 12:00, pues se supone que pueden ser muy diferentes)
+
+__Se estudia el consumo energético de las instalaciones de climatización__
+
+ ¿Normalidad, autocorrelación del consumo de las instalaciones de climatización?
+```{r}
+
+lillie.test(MultivarianteOCUP[1:418,12]) # No normal
+Box.test(MultivarianteOCUP[1:418,12]) # Dependencia, Xn+1 depende de Xn
+
+# Estos gráficos no son fiables (dan + fuera de control que los que en realidad son):
+qcc(MultivarianteOCUP[1:418,12],type="xbar.one") # Hay una cierta dependencia
+```
+
+#### Ejemplo práctico ARIMA {#ar1}
+
+PROCEDIMIENTO: se ajusta un modelo de series de tiempo (ARIMA) y, una vez ajustada la autocorrelación, se controlan los residuos:
+```{r}
+
+library(forecast)
+myts <- ts(MultivarianteOCUP[,12], start=c(1, 1), frequency=11) 
+plot(myts)
+fit <- auto.arima(myts,stepwise=TRUE) 
+
+summary(fit)
+plot(forecast(fit, 20)) 
+
+
+# Vamos con los residuos:
+lillie.test(fit$residuals) # No son normales
+Box.test(fit$residuals) # Parece que Xn+1 no depende de Xn
+tsdiag(fit, gof.lag=100) # No hay autocorrelación
+
+qcc(fit$residuals[1:418],type="xbar.one") # No normales: Este gráfico no es fiable
+
+# Se aplica el gráfico EWMA, pues los resíduos no son normales:
+
+ew=ewma(fit$residuals[1:418],type="xbar.one") 
+ew[15]$violations
+```
+
+Eliminamos los puntos fuera de control por deberse a picos y valles atípicos de consumo, correspondientes a condiciones especiales (horas punta de días especiales: reuniones, alta ocupación, encendido de ventilación...). 
+Se muestra la muestra de monitorizado:
+
+
+```{r}
+
+ewma(fit$residuals[-c(ew[15]$violations,419:490)],newdata=fit$residuals[419:490],
+     type="xbar.one")
+```
+Conclusión: una vez eliminados las observaciones fuera de control, aparecen más, es decir, el sistema no está bajo control. Parece que continuamente los operarios están actuando sobre el sistema.
+
+Puede ser debido a que también haya dos poblaciones. Por ejemplo, no estamos teniendo en cuenta las horas donde la instalación esta apagada (con un consumo residual sólo debido al mantenimiento del sistema informático y al encendido, <=0.3 KW)
+
+Utilizando todos los datos como muestra de calibrado:
+```{r}
+Consumo_ON=MultivarianteOCUP$ConsumoUE03[MultivarianteOCUP$ConsumoUE03>0.3]
+ewma(Consumo_ON,type="xbar.one")
+qcc(Consumo_ON,type="xbar.one")
+Box.test(Consumo_ON) # Hay autocorrelación
+
+myts <- ts(Consumo_ON, start=c(1, 1), frequency=11) 
+plot(myts)
+fit <- auto.arima(myts,stepwise=TRUE) 
+
+summary(fit) # ARIMA(3,0,0)(1,0,0)[11]
+plot(forecast(fit, 2)) 
+
+
+# Se estudian las hipótesis sobre los residuos:
+lillie.test(fit$residuals[1:20]) # Son normales
+Box.test(fit$residuals[1:20]) # Parece que Xn+1 no depende de Xn
+windows()
+tsdiag(fit, gof.lag=7) # No hay autocorrelación
+```
+El consumo diario no está bajo control. Existen picos de consumo excesivos comparados con las demás observaciones.
+```{r}
+qcc(fit$residuals,type="xbar.one")
+```
+Otra posible causa: puede ser que no haya eliminado toda la dependencia. Por tanto, agrupanos en medidas diarias (gran inconveniente: se pierde mucha información)
+
+```{r}
+
+ConsumoDiario=apply(matrix(MultivarianteOCUP$ConsumoUE03,ncol=11,byrow=TRUE),1,mean)
+lillie.test(ConsumoDiario) # Son normales
+Box.test(ConsumoDiario) # Hay dependencia
+
+myts <- ts(ConsumoDiario, start=c(1, 1), frequency=5) 
+plot(myts)
+fit <- auto.arima(myts,stepwise=TRUE) 
+
+summary(fit)
+plot(forecast(fit, 2)) 
+
+
+# Vamos con los residuos:
+lillie.test(fit$residuals[1:20]) # Son normales
+Box.test(fit$residuals[1:20]) # Parece que Xn+1 no depende de Xn
+tsdiag(fit, gof.lag=100) # No hay autocorrelación
+
+# El consumo diario está bajo control:
+
+qcc(fit$residuals[1:20],newdata=fit$residuals[20:45],type="xbar.one")
+
+```
+
+####   Gráfico EWMA para datos dependientes (dependencia tipo AR(1)).
+Función diseñada por Javier Rivero de Aguilar.
+
+Se pretende hacer un control de la humedad relativa:
+```{r}
+qcc(ConTempHRco2[,9],type="xbar.one")
+```
+Se observa que el sistema está aparentemente fuera de control. Esto puede ser debido a la existencia de autocorrelación en los datos.
+Si no se tiene en cuenta la autocorrelación al estimar la variablilidad del proceso se obtiene un gran número de falsas alarmas.
+
+Se crea una función llamada EWMAcorrelatedData para aplicar una modificación del gráfico EWMA para variables autocorreladas. Funciona muy bien con procesos AR(1), autorregresivos de orden uno.
+```{r}
+EWMAcorrelatedData<-function(x) { #x es la variable a controlar (consumo eléctrico en este caso)
+  # Valores posibles del parámetro lambda (relacionado con la "memoria") del gráfico EWMA
+  lambda=c(seq(0,1,0.001)) 
+  z=numeric()   # Se inicializa el vector de las medias ponderadas exponencialmente
+  z[1]=mean(x)  # Se iguala la primera componente a la media de la variable a controlar (cosumo)
+  dim=length(x) # Dimensión de la variable a controlar
+  e=numeric()   # Diferencias entre el valor de la variable y la media ponderada para cada lamda
+  eop=numeric() # Diferencias entre el valor de la variable y la media ponderada para lamda OPT.
+  o=numeric()   # Suma de los cuadrados de las diferencias entre variable y media ponderada
+  for (i in 1:length(lambda)) {
+    for (k in 2:(dim+1)){
+      # Cálculo de medias ponderadas para cada lambda. Se elige un parámetro de memoria (1-lambda)
+      z[k]=lambda[i]*x[k-1]+((1-lambda[i])*z[k-1]) 
+      e[k-1]=x[k-1]-z[k-1] # Cálculo de las diferencias entre variable y media ponderada
+    }
+    o[i]=sum(e^2) # Cálculo de la suma de diferencias al cuadrado
+  }
+  # Se elige el lambda que produce el menor valor para las diferencias al cuadrado (o):
+  lambdaopt=lambda[which.min(o)] 
+  for (k in 2:(dim+1)){
+    # Cálculo de las medias ponderadas para lamda óptimo
+    z[k]=lambdaopt*x[k-1]+((1-lambdaopt)*z[k-1]) 
+    eop[k-1]=x[k-1]-z[k-1] # Diferencias entre variable a controlar y medias ponderadas
+  }
+  # Se calculan los límites de control para los residuos o diferencias,
+  # asumiendo que son normales
+  UCL=z+3*sd(eop)
+  LCL=z-3*sd(eop)
+  outl=0
+  outu=0
+  for (i in 1:(dim)){
+    if (x[i]<LCL[i]) outl=c(outl,i) # Marcador de las observaciones por debajo lím inferior
+  }
+  for (i in 1:(dim)){
+    if (x[i]>UCL[i]) outu=c(outu,i) # Marcador de las observaciones por encima lím superior
+  }
+  
+  
+  # Salidas de la función: lambda óptimo, test de normalidad de los residuos,
+  # suma de cuadrados de los residuos para lambda óptimo, 
+  # gráficos de control con valores de la variable, valores de las medias ponderadas y
+  # límites de control naturales,
+  # Valores fuera de los límites de control:
+  
+  return(list(LambdaOptimo=lambdaopt,TestNormal=shapiro.test(eop),
+              Resid=sum(eop^2),
+              plot=plot(x,type="l",ylim=c(min(LCL),max(UCL)),pch=21,main="Approximate ewma procedure for correlated data")
+              ,lines(z,col="green",type="p",pch=22)
+              ,lines(UCL,type="l",col="red",pch=23)
+              ,lines(LCL,type="l",col="blue",pch=24)
+              ,outup=outu
+              ,outlow=outl
+              ,c(length(outu)-1,length(outl)-1)
+  ))
+}
+```
+Se observa que el consumo estudiado en las fechas indicadas está realmente bajo control:
+```{r}
+EWMAcorrelatedData(ConTempHRco2[,9])
+```
+
+###   Análisis de capacidad con datos autocorrelados. {#autocorr}
+
+Se ensaya una versión de los índices de capacidad cuando cuando la característica crítica de calidad está autocorrelada según un proceso AR(1), autorregresivo de orden 1.
+
+__Se ajusta un modelo AR(1) a los datos del consumo horario en horas de ocupación__
+
+
+```{r}
+library(forecast)
+myts=ts(MultivarianteOCUP[,12], start=c(1,1),frequency=11)
+library(TSA)
+fit=arimax(myts, order=c(1,0,0))
+
+```
+
+Para estimar los índices de capacidad de proceso, previamente tendría que estudiarse  si el proceso está bajo control. 
+En este caso no lo está, por lo que los índices de estimados se denominan índices de rendimiento del proceso.
+
+```{r}
+#--Media del proceso
+mu=mean(myts) 
+
+#-Varianza de los residuos:
+sigma_a=sd(fit$residuals)
+
+#-Parámetro del proceso autorregresivo:
+parametro=fit$coef[1]
+
+# La igualdad Var(proceso)=sigma_a^2/(1-parametro^2) se dará con procesos AR(1)
+
+# Sigma_r:
+
+sigma_r=sqrt((sigma_a^2)/(1-parametro^2))
+
+# Límites de especificación:
+USL=6; LSL=2.2
+
+#-- 1. Índice de rendimiento calculado :
+C_pmr=(USL-LSL)/(6*sqrt(sigma_r^2+(mu-T)^2))
+
+#--2. Índice de rendimiento calculado :
+C_pkr=min((USL-mu)/(3*sigma_r),(USL-LSL)/(3*sigma_r))
+
+ResultadoD=data.frame(c(C_pmr,C_pkr))
+colnames(ResultadoD)=c("Índices de rendimiento datos dependientes");rownames(ResultadoD)=c("C_pmr","C_pkr")
+ResultadoD
+
+# Índices de rendimiento datos dependientes
+# C_pmr                                 0.3171492
+# C_pkr                                 0.6695514
+
+# La instalación de clima no es capaz de  cumplir con las especificaciones 
+# Cpkr y Cpmr < 1.33
+```
+

@@ -1,0 +1,467 @@
+# Práctica 3 
+
+## Etapa _ANALIZAR_: Análisis de la capacidad 
+
+### Análisis de capacidad con R:  
+
+
+#### qcc {#yate}
+
+Ejemplo para entender lo que miden los índices de capacidad y poder diferenciar unos de otros
+
+ Estudio de simulacion. Espesores del casco de un yate, 5 medidas por cada pieza medida:
+
+```{r warning=FALSE,message=FALSE}
+library(qcc)
+```
+ 
+
+```{r}
+d1 = cbind(rnorm(125, mean = 50,sd=4 ),rep( 1:25,each=5) )
+d2 = cbind(rnorm(125, mean = 56,sd=2 ),rep( 1:25,each=5) )
+d3 = cbind(rnorm(125, mean = 59,sd=1 ),rep( 1:25,each=5) )
+```
+
+ Representación de sus funciones de densidad (mismo significado que el histograma):
+
+
+```{r}
+setEPS(12)
+windows(12,8)
+plot(density(d1[,1])$x,density(d1[,1])$y, ylim=c(0,0.4 ) ,xlim=c(38,62),xlab="Longitud(mm)  ",
+     ylab="Funcion de densidad",type="l",lwd=2)
+lines(density(d2[,1])$x,density(d2[,1])$y,lty=1,col=2,lwd=2 )
+lines(density(d3[,1])$x,density(d3[,1])$y,lty=1,col=3 ,lwd=2)
+legend(38,0.4,c("Muestra d.1","Muestra d.2","Muestra d.3"),col=c(1,2,3),lty=1,lwd=2)
+```
+ Se agrupan según las muestras racionales. Creo objetos qcc
+ 
+```{r}
+d.1 <- qcc.groups(d1[,1], d1[,2])
+d.2 <- qcc.groups(d2[,1], d2[,2])
+d.3 <- qcc.groups(d3[,1], d3[,2])
+```
+
+
+Se establecen los límites de control natural del proceso:
+
+* Primero con los rangos de la característica de calidad
+
+```{r}
+op=par(mfrow=c(1,3))
+q1 <- qcc(d.1, type="R", nsigmas=3, plot=TRUE,digits=4,add.stats = TRUE,
+          title="R chart d.1",restore.par=FALSE)
+```
+
+
+* Segunda muestra
+
+```{r}
+q2 <- qcc(d.2, type="R", nsigmas=3, plot=TRUE,digits=4,add.stats = TRUE,
+          title="R chart d.2",restore.par=FALSE)
+```
+
+* Tercera muestra
+
+```{r}
+q3 <- qcc(d.3, type="R", nsigmas=3, plot=TRUE,digits=4,add.stats = TRUE,
+          title="R chart d.3",restore.par=FALSE)
+par(op)
+```
+
+Se eliminan, si procede, los puntos fuera de control con el gráfico para las medias
+
+```{r}
+setEPS(12)
+windows(28,14)
+
+op=par(mfrow=c(2,3))
+```
+
+Se estima la variabilidad a partir del grafico de control de la media
+
+* Primera muestra
+
+```{r}
+par(mfrow=c(2,3))
+q1 <- qcc(d.1, type="xbar", nsigmas=3, plot=TRUE,digits=4,add.stats = FALSE,
+          title="xbar chart d.1",restore.par=FALSE)
+```
+
+* Segunda muestra
+
+```{r}
+q2 <- qcc(d.2, type="xbar", nsigmas=3, plot=TRUE,digits=4,add.stats = FALSE,
+          title="xbar chart d.2",restore.par=FALSE)
+
+```
+
+* Tercera muestra
+
+```{r}
+q3 <- qcc(d.3, type="xbar", nsigmas=3, plot=TRUE,digits=4,add.stats = FALSE,
+          title="xbar chart d.3",restore.par=FALSE)
+```
+
+No hay ningún punto fuera de control. El sistema está bajo control
+Por tanto, se realiza el análisis de la _CAPACIDAD DEL PROCESO_
+
+```{r}
+process.capability(q1, spec.limits=c(38,62), restore.par = FALSE) #, target=50)
+process.capability(q2, spec.limits=c(38,62), restore.par = FALSE) #, target=50)
+process.capability(q3, spec.limits=c(38,62), restore.par = FALSE) #, target=50)
+
+par(op)
+```
+
+Valores de 1.33, 1.50 denotan procesos capaces.
+El valor de 2 es el buscado en six sigma
+
+ Cp estima el potencial del proceso, pues NO tiene en cuenta la localización del proceso, sólo compara la tolerancia de especificanción con la variabilidad natural de la característica de calidad
+
+Cpk y Cpm describen el desempeño de la capacidad del proceso. Localización  y variabilidad
+ Cpm tiene en cuenta la distancia al valor objetivo. Cpk solo tiene en cuenta
+ la distancia a los limites de especificacion
+ 
+#### SixSigma. {#sigma} 
+
+```{r message=FALSE,warning=FALSE}
+library(SixSigma)
+```
+
+En una fábrica de refrescos, la característica de calidad del producto es el contenido por botella. Los límites de especificación son 2.01 l (USL) y 1.99 l (LSL). Se midió la cantidad real de varias muestras resultando:
+
+
+**Datos**
+```{r}
+x<-c( 1.999607, 1.998117, 1.999559, 2.001637,
+      1.999599, 2.000879, 2.001136, 2.000005,
+      1.999577, 1.999364, 2.000888, 1.998724,
+      2.000295, 1.999653, 1.997282, 1.998309,
+      2.001099, 1.999770, 2.000964, 2.002265,
+      2.001769, 2.000813, 2.000456, 1.999769,
+      2.001893, 2.000715, 1.998592, 1.999813,
+      1.997697, 1.999766)
+
+windows()
+ss.study.ca(x, LSL = 1.99, USL = 2.01,alpha = 0.05,Target =((1.99+2.01)/2),
+            f.su = "Contenido Sustancia Maravillosa")
+
+ss.ca.cp(x, LSL = 1.99, USL = 2.01,alpha = 0.05,ci = TRUE) # Proporciona el IC de cp
+
+```
+
+#### qualityTools.{#qtools}
+
+
+```{r message=FALSE,warning=FALSE}
+library(qualityTools)
+set.seed(1234)
+```
+
+Se genera una muestra perteneciente a una distribución normal de media = 20 y sd = 1
+
+```{r}
+d1 = rnorm(20, mean = 20)
+```
+
+Se genera una muestra de 20 elementos perteneciente a una distribución weibull con parámetros de forma y escala iguales a 2 y 0, respectivamente
+
+```{r}
+d2 = rweibull(20, shape = 2, scale = 8)
+```
+
+Análisis de la Capacidad de Proceso para la muestra normal
+
+```{r}
+windows()
+pcr(d1, "normal", lsl = 17, usl = 23)
+```
+
+Análisis de la Capacidad de Proceso para la muestra Weibull 
+
+```{r}
+windows()
+pcr(d2, "logistic", lsl = 1, usl = 20) # Suponiendo erróneamente dist. logística
+windows()
+pcr(d2, "normal", lsl = 1, usl = 20) # Si supongo que la muestra es normal, 
+#                                      el test no lo rechaza
+```
+
+Hay que tener cuidado con la distribución que se asume, pues llegamos a un número erróneo de muestras no conformes. Asumiendo la distribución correcta:
+
+```{r}
+pcr(d2, "weibull", lsl = 1, usl = 20)
+```
+
+Con sólo un límite de especificación:
+
+```{r}
+pcr(d1, "normal", usl = 23)
+
+pcr(d1, "normal", lsl = 17)
+```
+
+Con datos agrupados en diferentes submuestras: 
+
+```{r warring=FALSE,message=FALSE}
+library(qcc)
+
+data(pistonrings)
+attach(pistonrings)
+
+pcr(pistonrings$diameter[1:125], grouping = sample[1:125], lsl = 73.99, 
+    usl = 74.01)
+```
+
+Si lo comparamos con las utilidades de la librería qcc:
+```{r}
+diameter <- qcc.groups(diameter, sample)
+q <- qcc(diameter[1:25,], type="xbar", nsigmas=3, plot=FALSE)
+process.capability(q, spec.limits=c(73.99,74.01))
+```
+
+La diferencia está en que pcr clacula sigma=s_media/c4, mientras que qcc lo hace con sigma= R_medio/d2
+
+```{r}
+detach(pistonrings)
+```
+
+
+
+### Análisis de la capacidad con datos no normales
+
+#### Indices no paramétricos {#Altavoces}
+
+* Ejemplo
+
+```{r warning==FALSE,message=FALSE}
+library(qualityTools)
+```
+__1. Ejemplo práctico: Control componentes para altavoces__
+
+Una empresa fabricante y proveedora de componentes para altavoces, está interesada en controlar la masa de uno de ellos en particular. Si la masa de dicho componente cae fuera del intervalo de especificación, está estudiado que los consumidores no aceptarán los productos.
+Los límites superior e inferior de especificación son 8.94 y 8.46 (en gramos) y el target es el punto medio de los límites de especificación, 8.70.
+
+```{r}
+x=c(8.61, 8.81, 8.72, 8.69, 8.65, 8.64, 8.68, 8.74, 8.68, 8.67,
+    8.64, 8.68, 8.98, 8.70, 8.74, 8.75, 8.66, 9.00, 8.64, 8.70,
+    8.53, 8.74, 8.59, 8.69, 8.70, 9.03, 8.83, 8.87, 8.79, 8.68,
+    8.76, 8.71, 8.71, 8.67, 8.67, 8.68, 8.69, 8.74, 8.80, 8.59,
+    8.68, 8.55, 8.73, 8.67, 8.71, 8.73, 8.67, 8.68, 8.69, 8.74,
+    8.55, 8.71, 8.74, 8.70, 8.62, 8.61, 8.79, 8.69, 8.68, 8.77,
+    8.66, 8.72, 8.81, 8.63, 8.78, 8.64, 8.66, 8.63, 8.71, 8.99,
+    8.67, 8.71, 8.63, 8.74, 8.67, 8.69, 8.69, 8.68, 8.70, 8.81,
+    8.76, 8.64, 8.54, 8.71, 8.69, 8.80, 8.70, 8.59, 8.53, 8.74,
+    8.71, 8.81, 8.60, 8.64, 8.71, 8.75, 8.67, 8.73, 8.61, 8.84)
+
+pcr(x, "normal", lsl = 8.46, usl = 8.94)
+shapiro.test(x)
+
+Target=(8.94+8.46)/2; USL=8.94; LSL=8.46; 
+d=(USL-LSL)/( 2)      ;    m=(USL+LSL)/( 2) 
+
+F2=as.numeric(quantile(x,probs=0.99865)); F1=as.numeric(quantile(x,probs=0.00135))
+```
+
+Para calcular el índice $C_{Np}$:
+
+```{r}
+u=0;v=0
+CN_p=((USL-LSL)/2-u*abs(median(x)-(USL+LSL)/2))/(3*sqrt(((F2-F1)/6)^2+v*(median(x)-Target)^2))
+CN_p 
+```
+Para calcular el índice $C_{Npk}$:
+
+```{r}
+u=1;v=0
+CN_pk=((USL-LSL)/2-u*abs(median(x)-(USL+LSL)/2))/(3*sqrt(((F2-F1)/6)^2+v*(median(x)-Target)^2))
+CN_pk
+```
+Para calcular el índice $C_{Npm}$: 
+
+```{r}
+u=0;v=1
+CN_pm=((USL-LSL)/2-u*abs(median(x)-(USL+LSL)/2))/(3*sqrt(((F2-F1)/6)^2+v*(median(x)-Target)^2))
+CN_pm
+```
+Para calcular el índice $C_{Npmk}$
+
+```{r}
+u=1;v=1
+CN_pmk=((USL-LSL)/2-u*abs(median(x)-(USL+LSL)/2))/(3*sqrt(((F2-F1)/6)^2+v*(median(x)-Target)^2))
+CN_pmk
+```
+
+Los resultados son los siguientes: 
+
+```{r}
+Resultado=data.frame(c(CN_p,CN_pk,CN_pm,CN_pmk))
+colnames(Resultado)=c("Índices de capacidad");rownames(Resultado)=c("CN_p","CN_pk","CN_pm","CN_pmk")
+Resultado
+```
+
+Si se supusiera normalidad 
+
+Utilizando la librería qualityTools
+
+```{r}
+pcr(x, "normal", lsl = LSL, usl = USL)
+```
+
+Paso a paso:
+Para calcular el índice $C_{p}$:
+
+```{r}
+  u=0;v=0
+C_p=((USL-LSL)/2-u*abs(mean(x)-(USL+LSL)/2))/
+  (3*sqrt(((qnorm(0.99865,mean=mean(x),sd=sd(x))-qnorm(0.00135,mean=mean(x),sd=sd(x)))/6)^2+v*(mean(x)-Target)^2))
+C_p
+```
+
+Para calcular el índice $C_{pk}$:
+
+```{r}
+u=1;v=0
+C_pk=((USL-LSL)/2-u*abs(mean(x)-(USL+LSL)/2))/
+  (3*sqrt(((qnorm(0.99865,mean=mean(x),sd=sd(x))-qnorm(0.00135,mean=mean(x),sd=sd(x)))/6)^2+v*(mean(x)-Target)^2))
+C_pk
+```
+
+Para calcular el índice $C_{pm}$:
+
+```{r}
+u=0;v=1
+C_pm=((USL-LSL)/2-u*abs(mean(x)-(USL+LSL)/2))/
+  (3*sqrt(((qnorm(0.99865,mean=mean(x),sd=sd(x))-qnorm(0.00135,mean=mean(x),sd=sd(x)))/6)^2+v*(mean(x)-Target)^2))
+C_pm
+```
+
+Para calcular el índice $C_{pmk}$:
+
+```{r}
+u=1;v=1
+C_pmk=((USL-LSL)/2-u*abs(mean(x)-(USL+LSL)/2))/
+  (3*sqrt(((qnorm(0.99865,mean=mean(x),sd=sd(x))-qnorm(0.00135,mean=mean(x),sd=sd(x)))/6)^2+v*(mean(x)-Target)^2))
+C_pmk
+```
+
+Resultado
+
+```{r}
+Resultado2=data.frame(c(C_p,C_pk,C_pm,C_pmk))
+colnames(Resultado2)=c("Índices de capacidad");rownames(Resultado2)=c("C_p","C_pk","C_pm","C_pmk")
+Resultado2
+```
+
+```{r}
+dat <- data.frame(Resultado,Resultado2)
+dat
+```
+
+ Conclusión, si hubiéramos supuesto normalidad de los datos, x, habríamos estimado un mayor número de no conformes que el real. Los índices de capacidad son menores suponiendo normalidad.
+ 
+### Caso Práctico {#Piedra}
+
+__2. Ejemplo práctico: Control de dureza de la piedra artificial__
+
+ Una conocida empresa química está desarrollando la patente de una nueva variante de piedra artificial, compuesta en su mayor parte por cuarzo $(93 wt\%)$ y resina de poliéster. Esta compañía pone en marcha una planta piloto donde se comienzan a producir planchas de este material a escala industrial. Con el fin de medir el grado de homogeneidad del producto, se toman $50$ submuestras, realizándose $5$ medidas por plancha de la dureza Vickers correspondiente a distintas zonas de la piedra artificial *(Ejercicio1.r)*. ¿Qué tipo de gráficos de control serían los más adecuados para controlar el nivel y la dispersión? Hallar los límites de control natural $3 \sigma$ con una muestra de calibrado y, seguidamente, monitorizar las muestras restantes. Comentar los resultados, identificar patrones e identificar sus posibles causas. Desde la gerencia de la empresa se manda una circular según la cual la dureza ha de estar entre $195$ y $210$ $Kg/cm^2$ para poder competir con la piedra natural. Suponiendo que la dureza es una variable normal, ¿cuál sería entonces la proporción de planchas no conformes?, ¿habría que cambiar algo en el proceso de producción?  
+ 
+
+
+```{r warning=FALSE,message=FALSE}
+library(qcc)
+```
+
+ Cargar datos
+ 
+ 
+```{r} 
+
+Ejercicio1=read.table("Ejercicio1.r",header=TRUE)
+names(Ejercicio1)
+```
+
+Crear objeto qcc
+
+```{r} 
+Dureza <- qcc.groups(Ejercicio1$dureza, Ejercicio1$sample)
+```
+
+ Abrir ventana de gráficos
+ 
+```{r} 
+windows()
+```
+
+
+Controlar la variabilidad con gráfico de rangos:
+
+```{r} 
+qcc(Dureza[1:25,], type="R", newdata=Dureza[26:50,],nsigmas=3)
+```
+
+Se elimina una muestra fuera de control cuando hay causa asignable:
+
+
+```{r} 
+qcc(Dureza[c(1:10,12:25),], type="R", newdata=Dureza[26:50,],nsigmas=3)
+```
+
+Controlar la medida de posición con el gráfico de medias:
+
+```{r} 
+windows(12,7)
+qcc(Dureza[c(1:10,12:25),], type="xbar", newdata=Dureza[26:50,],nsigmas=3)
+```
+
+
+#### Aplicación del gráfico de control EWMA
+
+```{r} 
+windows(10,15)
+```
+
+ 4 paneles en un gráfico:
+ 
+```{r} 
+op<-par(mfrow=c(2,1))
+```
+
+ Se suele tomar como buena práctica el asignar el valor de 0.2 al parametro lambda
+ 
+```{r} 
+q <- ewma(Dureza[1:25,], lambda=0.2, nsigmas=3,restore.par=FALSE)
+summary(q)
+names(q); q$limits
+```
+
+
+Para la muestra a monitorizar se emplean unos límites ligeramente más exigentes
+
+```{r} 
+q2 <-  ewma(Dureza[1:25,], lambda=0.25, nsigmas=3, newdata=Dureza[26:50,], 
+            restore.par=FALSE) 
+summary(q2)
+
+par(op)
+```
+
+
+* En este caso, el gráfico de control de la media detecta antes el cambio del proceso.
+* Es un cambio grande. El gráfico EWMA detecta mejor los cambios pequeños.
+* Cambios inferiores 2*sigma: los detectan mejor los gráficos CUSUM y EWMA
+* Cambios superiores a 2*sigma: los detectan mejor los gráficos de la media y rango.
+
+
+ Análisis de capacidad
+
+ La librería qcc permite estimar la capacidad del proceso a partir de la desviación típica obtenida de un gráfico de control:
+
+```{r} 
+qfinal=qcc(Dureza[c(1:10,12:25),], type="xbar", newdata=Dureza[26:50,],nsigmas=3)
+process.capability(qfinal, spec.limits=c(195,210))
+```
+
+
+La proporción de elementos no conformes según las especificaciones del modelo sería del $78\%$

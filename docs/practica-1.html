@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Práctica 1 | Control Estadístico de la Calidad</title>
+  <meta name="description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Práctica 1 | Control Estadístico de la Calidad" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Práctica 1 | Control Estadístico de la Calidad" />
+  
+  <meta name="twitter:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+<meta name="author" content="Miguel Flores Sánchez (miguel.flores@epn.edu.ec)" />
+
+
+<meta name="date" content="2019-09-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="control-estadistico-de-la-calidad.html"/>
+<link rel="next" href="practica-2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Control Estadistico de la Calidad </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Teoria</b></span></li>
+<li class="chapter" data-level="1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html"><i class="fa fa-check"></i><b>1</b> Control Estadistico de la Calidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-y-seis-sigma-alternativas-en-r"><i class="fa fa-check"></i><b>1.1</b> CEC y seis Sigma: Alternativas en <em>R</em></a></li>
+<li class="chapter" data-level="1.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-definir"><i class="fa fa-check"></i><b>1.2</b> Etapa <strong>DEFINIR</strong></a><ul>
+<li class="chapter" data-level="1.2.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#mapa-de-procesos"><i class="fa fa-check"></i><b>1.2.1</b> Mapa de Procesos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-ishikawa-o-espina-de-pescado"><i class="fa fa-check"></i><b>1.2.2</b> Diagrama de Ishikawa o espina de pescado</a></li>
+<li class="chapter" data-level="1.2.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-pareto"><i class="fa fa-check"></i><b>1.2.3</b> Diagrama de Pareto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#epata-analizar-anova"><i class="fa fa-check"></i><b>1.3</b> Epata <strong>ANALIZAR</strong>: ANOVA</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion"><i class="fa fa-check"></i><b>1.3.1</b> Introducción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-medir"><i class="fa fa-check"></i><b>1.4</b> Etapa <strong>MEDIR</strong></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-rr"><i class="fa fa-check"></i><b>1.4.1</b> Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-control"><i class="fa fa-check"></i><b>1.5</b> Etapa <strong>CONTROL</strong>:</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control"><i class="fa fa-check"></i><b>1.5.1</b> Gráficos de control</a></li>
+<li class="chapter" data-level="1.5.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-por-variables"><i class="fa fa-check"></i><b>1.5.2</b> Graficos de control por variables</a></li>
+<li class="chapter" data-level="1.5.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-para-atributos"><i class="fa fa-check"></i><b>1.5.3</b> Gráficos de control para atributos</a></li>
+<li class="chapter" data-level="1.5.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#otros-graficos-de-control-univariante"><i class="fa fa-check"></i><b>1.5.4</b> Otros graficos de Control univariante</a></li>
+<li class="chapter" data-level="1.5.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#curvas-oc"><i class="fa fa-check"></i><b>1.5.5</b> Curvas OC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-analizar-analisis-de-capacidad"><i class="fa fa-check"></i><b>1.6</b> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-1"><i class="fa fa-check"></i><b>1.6.1</b> Introducción</a></li>
+<li class="chapter" data-level="1.6.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#indices-de-capacidad"><i class="fa fa-check"></i><b>1.6.2</b> Indices de capacidad</a></li>
+<li class="chapter" data-level="1.6.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-en-r"><i class="fa fa-check"></i><b>1.6.3</b> Analisis de capacidad en R</a></li>
+<li class="chapter" data-level="1.6.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>1.6.4</b> Análisis de capacidad con datos no normales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-controlar-y-analizar"><i class="fa fa-check"></i><b>1.7</b> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></a><ul>
+<li class="chapter" data-level="1.7.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-multivariante-reduccion-de-la-dimencion"><i class="fa fa-check"></i><b>1.7.1</b> CEC multivariante: Reducción de la Dimención</a></li>
+<li class="chapter" data-level="1.7.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-para-variables-autocorrelacionadas"><i class="fa fa-check"></i><b>1.7.2</b> CEC para variables autocorrelacionadas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-para-datos-autocorrelados"><i class="fa fa-check"></i><b>1.7.3</b> Análisis de capacidad para datos autocorrelados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-al-diseno-de-experimentos-con-r"><i class="fa fa-check"></i><b>1.8</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#ejemplos-de-contrastes-anova"><i class="fa fa-check"></i><b>1.8.1</b> Ejemplos de contrastes ANOVA</a></li>
+<li class="chapter" data-level="1.8.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factorial-2k"><i class="fa fa-check"></i><b>1.8.2</b> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factoriales-fraccionarios"><i class="fa fa-check"></i><b>1.8.3</b> Diseño de experimentos factoriales fraccionarios</a></li>
+<li class="chapter" data-level="1.8.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-interlaboratorios"><i class="fa fa-check"></i><b>1.8.4</b> Estudios Interlaboratorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Practicas</b></span></li>
+<li class="chapter" data-level="2" data-path="practica-1.html"><a href="practica-1.html"><i class="fa fa-check"></i><b>2</b> Práctica 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="practica-1.html"><a href="practica-1.html#cec-y-seis-signa-alternativas-en-r"><i class="fa fa-check"></i><b>2.1</b> CEC y Seis Signa: alternativas en R</a></li>
+<li class="chapter" data-level="2.2" data-path="practica-1.html"><a href="practica-1.html#etapa-definir-mapas-de-procesos-ishikawa-pareto"><i class="fa fa-check"></i><b>2.2</b> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-1.html"><a href="practica-1.html#pizza"><i class="fa fa-check"></i><b>2.2.1</b> Mapas de procesos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-1.html"><a href="practica-1.html#ishikawa"><i class="fa fa-check"></i><b>2.2.2</b> DIAGRAMA DE ISHIKAWA</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-1.html"><a href="practica-1.html#par"><i class="fa fa-check"></i><b>2.2.3</b> DIAGRAMA DE PARETO</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="practica-1.html"><a href="practica-1.html#anova"><i class="fa fa-check"></i><b>2.3</b> Etapa <em>ANALIZAR</em>: ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="practica-1.html"><a href="practica-1.html#RyR"><i class="fa fa-check"></i><b>2.4</b> Etapa <em>MEDIR</em>: Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="practica-2.html"><a href="practica-2.html"><i class="fa fa-check"></i><b>3</b> Práctica 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-1"><i class="fa fa-check"></i><b>3.1</b> Gráficos de Control</a></li>
+<li class="chapter" data-level="3.2" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-variables-1"><i class="fa fa-check"></i><b>3.2</b> Gráficos de Control por variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-2.html"><a href="practica-2.html#gqcc"><i class="fa fa-check"></i><b>3.2.1</b> Gráficos qcc para variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-2.html"><a href="practica-2.html#grafico-de-control-para-el-rango-y-la-media-datos-plates"><i class="fa fa-check"></i><b>3.2.2</b> Gráfico de control para el RANGO y la MEDIA: datos “plates”</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-2.html"><a href="practica-2.html#renderizado"><i class="fa fa-check"></i><b>3.2.3</b> Grafico de control para valores individuales de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-atributos"><i class="fa fa-check"></i><b>3.3</b> Gráficos de control por atributos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="practica-2.html"><a href="practica-2.html#P"><i class="fa fa-check"></i><b>3.3.1</b> Gráficos p</a></li>
+<li class="chapter" data-level="3.3.2" data-path="practica-2.html"><a href="practica-2.html#np"><i class="fa fa-check"></i><b>3.3.2</b> Gráfico tipo np</a></li>
+<li class="chapter" data-level="3.3.3" data-path="practica-2.html"><a href="practica-2.html#gc"><i class="fa fa-check"></i><b>3.3.3</b> Gráficos C</a></li>
+<li class="chapter" data-level="3.3.4" data-path="practica-2.html"><a href="practica-2.html#gu"><i class="fa fa-check"></i><b>3.3.4</b> Gráficos U</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="practica-2.html"><a href="practica-2.html#otros-graficos-de-control-cusum-y-ewma"><i class="fa fa-check"></i><b>3.4</b> Otros gráficos de Control: CUSUM y EWMA</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="practica-2.html"><a href="practica-2.html#cusum"><i class="fa fa-check"></i><b>3.4.1</b> GRÀFICOS CUSUM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="practica-2.html"><a href="practica-2.html#ewma"><i class="fa fa-check"></i><b>3.4.2</b> GRÁFICOS EWMA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="practica-2.html"><a href="practica-2.html#oc"><i class="fa fa-check"></i><b>3.5</b> CURVAS OC</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="practica-2.html"><a href="practica-2.html#curvas-oc-para-grafica-de-variables"><i class="fa fa-check"></i><b>3.5.1</b> Curvas OC para gráfica de variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practica-3.html"><a href="practica-3.html"><i class="fa fa-check"></i><b>4</b> Práctica 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="practica-3.html"><a href="practica-3.html#etapa-analizar-analisis-de-la-capacidad"><i class="fa fa-check"></i><b>4.1</b> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="practica-3.html"><a href="practica-3.html#analisis-de-capacidad-con-r"><i class="fa fa-check"></i><b>4.1.1</b> Análisis de capacidad con R:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="practica-3.html"><a href="practica-3.html#analisis-de-la-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>4.1.2</b> Análisis de la capacidad con datos no normales</a></li>
+<li class="chapter" data-level="4.1.3" data-path="practica-3.html"><a href="practica-3.html#Piedra"><i class="fa fa-check"></i><b>4.1.3</b> Caso Práctico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practica-4.html"><a href="practica-4.html"><i class="fa fa-check"></i><b>5</b> Práctica 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="practica-4.html"><a href="practica-4.html#etapa-controlar-y-analizar-1"><i class="fa fa-check"></i><b>5.1</b> Etapa Controlar y Analizar</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="practica-4.html"><a href="practica-4.html#control-estadistico-de-calidad-multivariante"><i class="fa fa-check"></i><b>5.1.1</b> Control Estadistico de Calidad Multivariante:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="practica-4.html"><a href="practica-4.html#control-de-calidad-de-variables-autocorreladas"><i class="fa fa-check"></i><b>5.1.2</b> Control de Calidad de variables autocorreladas</a></li>
+<li class="chapter" data-level="5.1.3" data-path="practica-4.html"><a href="practica-4.html#autocorr"><i class="fa fa-check"></i><b>5.1.3</b> Análisis de capacidad con datos autocorrelados.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practica-5.html"><a href="practica-5.html"><i class="fa fa-check"></i><b>6</b> Práctica 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="practica-5.html"><a href="practica-5.html#introduccion-al-diseno-de-experimentos-con-r-1"><i class="fa fa-check"></i><b>6.1</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="practica-5.html"><a href="practica-5.html#ejemplos-de-pruebas-anova"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplos de Pruebas ANOVA</a></li>
+<li class="chapter" data-level="6.1.2" data-path="practica-5.html"><a href="practica-5.html#disenos-factoriales"><i class="fa fa-check"></i><b>6.1.2</b> DISEÑOS FACTORIALES</a></li>
+<li class="chapter" data-level="6.1.3" data-path="practica-5.html"><a href="practica-5.html#disenos-de-experimentos-factoriales-fraccionados"><i class="fa fa-check"></i><b>6.1.3</b> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</a></li>
+<li class="chapter" data-level="6.1.4" data-path="practica-5.html"><a href="practica-5.html#estudios-interlaboratorio-caso-particular-de-doe-y-estudios-rr"><i class="fa fa-check"></i><b>6.1.4</b> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Control Estadístico de la Calidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practica-1" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Práctica 1</h1>
+<div id="cec-y-seis-signa-alternativas-en-r" class="section level2">
+<h2><span class="header-section-number">2.1</span> CEC y Seis Signa: alternativas en R</h2>
+</div>
+<div id="etapa-definir-mapas-de-procesos-ishikawa-pareto" class="section level2">
+<h2><span class="header-section-number">2.2</span> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</h2>
+<div id="pizza" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Mapas de procesos</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(SixSigma)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(qcc)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(qualityTools)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">library</span>(knitr)</a></code></pre></div>
+<p><strong>Ejemplo de la PIZZA</strong></p>
+<p>El gerente de un restaurante quiere estudiar el proceso de preparar y servir una pizza, por lo que se plantea hacer un mapa de procesos.</p>
+<p>Después de recoger algunos datos de su personal, determina que las entradas son los ingredientes (ingredients), el cocinero (cook), el horno (oven), y los platos (plates); las salidas o características del proceso son la temperatura (temperature), el sabor (taste), la ternura (tenderness), el peso (weight), el radio (radius) y el tiempo total para servir la pizza (time). Estas salidas son las características principales (CTQ) de la pizza.</p>
+<p>El proceso de hacer y servir una pizza se divide en las siguientes etapas:</p>
+<ul>
+<li>Preparar la masa.</li>
+<li>Añadir los ingredientes.</li>
+<li>Hornear la pizza.</li>
+<li>Entregar la pizza al cliente.</li>
+</ul>
+<p>Suponemos que las <strong>“entradas de cada etapa” son las salidas del paso anterior</strong>. Las entradas para la fase primera <strong>f</strong> son las <strong>X</strong> definidas previamente (ingredientes, cocina, horno y platos). A continuación, se describen en detalle los parámetros y los resultados correspondientes a cada paso (con la clasificación de los parámetros entre paréntesis).</p>
+<p><strong>Primera etapa</strong>. Masa:</p>
+<ul>
+<li>Parámetros: cocinero (C), la marca de la harina (C), la proporción de agua (P).</li>
+<li>Salidas: masa (densidad, dureza y grosor).</li>
+</ul>
+<p><strong>Segunda etapa</strong>. Adición de ingredientes:</p>
+<ul>
+<li>Parámetros: cocinero (C), la marca de los ingredientes (Cr), la cantidad de ingredientes (P), tiempo de preparación (Cr).</li>
+<li>Salidas: pizza cruda (diámetro, peso, espesor).</li>
+</ul>
+<p><strong>Tercer paso</strong>. Cocción u horneado:</p>
+<ul>
+<li>Parámetros: cocinero (C), colas (N), el tiempo de cocción (Cr).</li>
+<li>Salidas: pizza al horno (temperatura, ternura, sabor).</li>
+</ul>
+<p><strong>Cuarto paso</strong>. Entrega:</p>
+<ul>
+<li>Parámetros: camarero (C), colas (N).</li>
+<li>Salidas: pizza en la mesa (temperatura, sabor, ternura, peso, radio, tiempo).</li>
+</ul>
+<p>Una vez definidas las etapas con sus x e y, creamos los siguientes objetos en R para guardar, respectivamente, las entradas, salidas y etapas del proceso:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">inputs &lt;-<span class="kw">c</span> (<span class="st">&quot;Ingredients&quot;</span>, <span class="st">&quot;Cook&quot;</span>, <span class="st">&quot;Oven&quot;</span>, <span class="st">&quot;Plates&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2">outputs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;temperature&quot;</span>, <span class="st">&quot;taste&quot;</span>, <span class="st">&quot;tenderness&quot;</span>,</a>
+<a class="sourceLine" id="cb2-3" title="3">             <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;radius&quot;</span>, <span class="st">&quot;time&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">steps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;DOUGH&quot;</span>, <span class="st">&quot;TOPPINGS&quot;</span>, <span class="st">&quot;BAKE&quot;</span>, <span class="st">&quot;DELIVER&quot;</span>)</a></code></pre></div>
+<p>Seguidamente se salvan las salidas de cada etapa en el formato de listas. Las salidas de una etapa se convierten en las entradas de la siguiente:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">io &lt;-<span class="st"> </span><span class="kw">list</span>()</a></code></pre></div>
+<p>Definimos cuatro elementos de la lista donde se meten los elementos de entrada/salida (aquí no son las características, indican el proceso de la pizza):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">io[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;X&#39;s&quot;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">io[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;dough&quot;</span>, <span class="st">&quot;ingredients&quot;</span>, <span class="st">&quot;cook&quot;</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3">io[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;raw pizza&quot;</span>, <span class="st">&quot;cook&quot;</span>, <span class="st">&quot;oven plate&quot;</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">io[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;baked pizza&quot;</span>, <span class="st">&quot;plate&quot;</span>)</a></code></pre></div>
+<p>Finally, we save the names, parameter types, and features:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">param &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2">param[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;cook&quot;</span>, <span class="st">&quot;C&quot;</span>),</a>
+<a class="sourceLine" id="cb5-3" title="3">                   <span class="kw">c</span>(<span class="st">&quot;flour brand&quot;</span>, <span class="st">&quot;C&quot;</span>),</a>
+<a class="sourceLine" id="cb5-4" title="4">                   <span class="kw">c</span>(<span class="st">&quot;prop Water&quot;</span>, <span class="st">&quot;P&quot;</span>))</a>
+<a class="sourceLine" id="cb5-5" title="5">param[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;cook&quot;</span>, <span class="st">&quot;C&quot;</span>),</a>
+<a class="sourceLine" id="cb5-6" title="6">                   <span class="kw">c</span>(<span class="st">&quot;Ing.Brand&quot;</span>, <span class="st">&quot;Cr&quot;</span>),</a>
+<a class="sourceLine" id="cb5-7" title="7">                   <span class="kw">c</span>(<span class="st">&quot;amount&quot;</span>, <span class="st">&quot;P&quot;</span>),</a>
+<a class="sourceLine" id="cb5-8" title="8">                   <span class="kw">c</span>(<span class="st">&quot;prep.Time&quot;</span>, <span class="st">&quot;Cr&quot;</span>))</a>
+<a class="sourceLine" id="cb5-9" title="9">param[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;cook&quot;</span>,<span class="st">&quot;C&quot;</span>),</a>
+<a class="sourceLine" id="cb5-10" title="10">                   <span class="kw">c</span>(<span class="st">&quot;queue&quot;</span>, <span class="st">&quot;N&quot;</span>),</a>
+<a class="sourceLine" id="cb5-11" title="11">                   <span class="kw">c</span>(<span class="st">&quot;BakeTime&quot;</span>, <span class="st">&quot;Cr&quot;</span>))</a>
+<a class="sourceLine" id="cb5-12" title="12">param[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;waiter&quot;</span>,<span class="st">&quot;C&quot;</span>),</a>
+<a class="sourceLine" id="cb5-13" title="13">                   <span class="kw">c</span>(<span class="st">&quot;queue&quot;</span>, <span class="st">&quot;N&quot;</span>))</a>
+<a class="sourceLine" id="cb5-14" title="14">feat &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb5-15" title="15">feat[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;density&quot;</span>, <span class="st">&quot;toughness&quot;</span>, <span class="st">&quot;thickness&quot;</span>)</a>
+<a class="sourceLine" id="cb5-16" title="16">feat[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;diameter&quot;</span>, <span class="st">&quot;Weight&quot;</span>, <span class="st">&quot;thickness&quot;</span>)</a>
+<a class="sourceLine" id="cb5-17" title="17">feat[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;temperature&quot;</span>, <span class="st">&quot;tenderness&quot;</span>, <span class="st">&quot;taste&quot;</span>)</a>
+<a class="sourceLine" id="cb5-18" title="18">feat[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;temperature&quot;</span>, <span class="st">&quot;taste&quot;</span>, <span class="st">&quot;tenderness&quot;</span>,</a>
+<a class="sourceLine" id="cb5-19" title="19">                  <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;radius&quot;</span>, <span class="st">&quot;time&quot;</span>)</a>
+<a class="sourceLine" id="cb5-20" title="20"></a>
+<a class="sourceLine" id="cb5-21" title="21"><span class="co">#ss.pMap</span></a></code></pre></div>
+<ul>
+<li>steps: A vector of characters with the name of the ‘n’ steps*</li>
+<li>inputs.overall: vector of characters with the name of the overall inputs</li>
+<li>outputs.overall: A vector of characters with the name of the overall outputs</li>
+<li>input.output: A vector of lists with the names of the inputs of the <span class="math inline">\(i-ésimo\)</span> step, that will be the outputs of the <span class="math inline">\((i-1)-ésimo\)</span> step</li>
+<li>x.parameters: A vector of lists with a list of the x parameters of the process. The parameter is a vector with two values: the name and the type (view details)</li>
+<li>y.features: A vector of lists with a list of the y features of the step. The feature is a vector with two values: the name and the type (view details)</li>
+<li>main: The main title for the Process Map</li>
+<li>sub: Subtitle for the diagram (recommended the Six Sigma project name)</li>
+<li>ss.col: A vector of colours for a custom drawing. At least five colours, sorted by descendant intensity (see details)</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">setEPS</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">ss.pMap</span>(steps, inputs, outputs,</a>
+<a class="sourceLine" id="cb6-4" title="4">        io, param, feat,</a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="dt">sub =</span> <span class="st">&quot;Pizza Process Project&quot;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="ishikawa" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> DIAGRAMA DE ISHIKAWA</h3>
+<p>En la construcción de un edificio, una característica CTQ podría ser el cumplimiento de un plazo, de hecho el incumplimiento del mismo puede llevar al fracaso. Utilizando las técnicas como las descritas anteriormente, un equipo de Six Sigma identifica los siguientes eventos que pueden causar un retraso en el calendario: el tiempo, los errores en la planificación, la demora de los proveedores, operadores inadecuados, las especificaciones del cliente/retrasos, defectos en los materiales y permisos.</p>
+<p>Un diagrama de causa y efecto nos permitirá organizar la información de tal manera como que la información obtenida sea más fácil de interpretar.</p>
+<p><strong>Con SixSigma</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">b.effect &lt;-<span class="st"> &quot;Retraso&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">b.groups &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Trabajadores&quot;</span>, <span class="st">&quot;Instrumental&quot;</span>,</a>
+<a class="sourceLine" id="cb7-5" title="5">                <span class="st">&quot;Suministradores&quot;</span>, <span class="st">&quot;Planificación y Metodología&quot;</span>)</a>
+<a class="sourceLine" id="cb7-6" title="6">b.causes &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;list&quot;</span>,</a>
+<a class="sourceLine" id="cb7-7" title="7">                     <span class="dt">length =</span> <span class="kw">length</span>(b.groups))</a>
+<a class="sourceLine" id="cb7-8" title="8">b.causes[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Entrenamiento&quot;</span>, <span class="st">&quot;Inadecuados&quot;</span>))</a>
+<a class="sourceLine" id="cb7-9" title="9">b.causes[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Tipo de instrumentos&quot;</span>, <span class="st">&quot;Mantenimiento&quot;</span>, <span class="st">&quot;Calibración&quot;,&quot;</span>Fallos en la instalación&quot;))</a>
+<a class="sourceLine" id="cb7-10" title="10">b.causes[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Materiales&quot;</span>, <span class="st">&quot;Retrasos entrega&quot;</span>))</a>
+<a class="sourceLine" id="cb7-11" title="11">b.causes[<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Requerimientos clientes&quot;</span>, <span class="st">&quot;Tipo de ensayos&quot;</span>, <span class="st">&quot;No dispon. instrument.&quot;</span>,</a>
+<a class="sourceLine" id="cb7-12" title="12">                        <span class="st">&quot;Errores de procedim.&quot;</span>,<span class="st">&quot;Replanificación&quot;))</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="st">ss.ceDiag(b.effect, b.groups, b.causes, sub = &quot;</span>Ejemplo Laboratorio<span class="st">&quot;,main=&quot;</span>Diagrama de ISHIKAWA<span class="st">&quot;)</span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><strong>Con qcc</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">cause.and.effect</span>(</a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="dt">cause=</span><span class="kw">list</span>(<span class="dt">Trabajadores=</span><span class="kw">c</span>(<span class="st">&quot;Entrenamiento&quot;</span>, <span class="st">&quot;Inadecuados&quot;</span>),</a>
+<a class="sourceLine" id="cb8-5" title="5">             <span class="dt">Instrumental=</span><span class="kw">c</span>(<span class="st">&quot;Tipo de instrumentos&quot;</span>, <span class="st">&quot;Mantenimiento&quot;</span>, <span class="st">&quot;Calibración&quot;,&quot;</span>fallos en la instalación&quot;),</a>
+<a class="sourceLine" id="cb8-6" title="6">             <span class="dt">Suministradores=</span><span class="kw">c</span>(<span class="st">&quot;Materiales&quot;</span>, <span class="st">&quot;Retrasos entrega&quot;</span>),</a>
+<a class="sourceLine" id="cb8-7" title="7">             <span class="dt">Planificacion=</span><span class="kw">c</span>(<span class="st">&quot;Requerimientos clientes&quot;</span>, <span class="st">&quot;Tipo de ensayos&quot;</span>, <span class="st">&quot;No disponibilidad de instrumentos&quot;</span>,</a>
+<a class="sourceLine" id="cb8-8" title="8">                                           <span class="st">&quot;Errores de procedimiento&quot;</span>,<span class="st">&quot;Replanificación&quot;)),</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="st">             effect=c(&quot;</span>Retrasos<span class="st">&quot;),</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="st">  title = &quot;</span>Diagrama Causa<span class="op">-</span>Efecto<span class="st">&quot;, </span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="st">  cex = c(1.5, 1.2, 1), font = c(1, 3, 2))  # Se puede modificar el tamaño y la fuente</span></a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="par" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> DIAGRAMA DE PARETO</h3>
+<p>Datos</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">b.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">cause=</span><span class="kw">factor</span>(<span class="kw">unlist</span>(b.causes)),</a>
+<a class="sourceLine" id="cb9-2" title="2">                     <span class="dt">count =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">12</span>,<span class="dv">18</span>,<span class="dv">1</span>,<span class="dv">2</span>) ,</a>
+<a class="sourceLine" id="cb9-3" title="3">                     <span class="dt">cost =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">150</span>,<span class="dv">50</span>,<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">300</span>,<span class="dv">50</span>,<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">50</span>,<span class="dv">150</span>))</a></code></pre></div>
+<p>Sin emplear ninguna función específica</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2">pChart &lt;-<span class="st"> </span><span class="kw">barplot</span>(<span class="kw">rev</span>(<span class="kw">sort</span>(b.data<span class="op">$</span>count)),</a>
+<a class="sourceLine" id="cb10-3" title="3">                  <span class="dt">names.arg =</span> b.data<span class="op">$</span>cause[<span class="kw">order</span>(b.data<span class="op">$</span>count,</a>
+<a class="sourceLine" id="cb10-4" title="4">                                                 <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)])</a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="kw">text</span>(pChart,<span class="kw">rep</span>(<span class="fl">0.5</span>,<span class="dv">13</span>),</a>
+<a class="sourceLine" id="cb10-7" title="7">     <span class="kw">sort</span>(<span class="kw">round</span>(<span class="kw">cumsum</span>(<span class="dv">100</span> <span class="op">*</span><span class="st"> </span>(b.data<span class="op">$</span>count<span class="op">/</span><span class="kw">sum</span>(b.data<span class="op">$</span>count))[</a>
+<a class="sourceLine" id="cb10-8" title="8">         <span class="kw">order</span>(b.data<span class="op">$</span>count, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)]), <span class="dv">1</span>)))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Con el paquete qcc</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"> <span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">library</span>(qcc)</a>
+<a class="sourceLine" id="cb11-3" title="3">b.vector &lt;-<span class="st"> </span>b.data<span class="op">$</span>count</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">names</span>(b.vector) &lt;-<span class="st"> </span>b.data<span class="op">$</span>cause</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">pareto.chart</span>(b.vector, <span class="dt">cumperc =</span> <span class="kw">c</span>(<span class="dv">80</span>),<span class="dt">ylab=</span><span class="st">&quot;Nº de retrasos&quot;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre><code>##                           
+## Pareto chart analysis for b.vector
+##                             Frequency  Cum.Freq. Percentage Cum.Percent.
+##   No dispon. instrument.    18.000000  18.000000  26.086957    26.086957
+##   Requerimientos clientes   15.000000  33.000000  21.739130    47.826087
+##   Tipo de ensayos           12.000000  45.000000  17.391304    65.217391
+##   Tipo de instrumentos       8.000000  53.000000  11.594203    76.811594
+##   Retrasos entrega           3.000000  56.000000   4.347826    81.159420
+##   Entrenamiento              2.000000  58.000000   2.898551    84.057971
+##   Calibración                2.000000  60.000000   2.898551    86.956522
+##   Fallos en la instalación   2.000000  62.000000   2.898551    89.855072
+##   Materiales                 2.000000  64.000000   2.898551    92.753623
+##   Replanificación            2.000000  66.000000   2.898551    95.652174
+##   Inadecuados                1.000000  67.000000   1.449275    97.101449
+##   Mantenimiento              1.000000  68.000000   1.449275    98.550725
+##   Errores de procedim.       1.000000  69.000000   1.449275   100.000000</code></pre>
+<p>Teniendo en cuenta el coste:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">windows</span>(<span class="dv">12</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw">library</span>(qcc)</a>
+<a class="sourceLine" id="cb13-3" title="3">b.vector &lt;-<span class="st"> </span>b.data<span class="op">$</span>cost<span class="op">*</span>b.data<span class="op">$</span>count</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="kw">names</span>(b.vector) &lt;-<span class="st"> </span>b.data<span class="op">$</span>cause</a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="kw">pareto.chart</span>(b.vector, <span class="dt">cumperc =</span> <span class="kw">c</span>(<span class="dv">80</span>),<span class="dt">ylab=</span><span class="st">&quot;Coste&quot;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre><code>##                           
+## Pareto chart analysis for b.vector
+##                              Frequency   Cum.Freq.  Percentage
+##   No dispon. instrument.    900.000000  900.000000   30.874786
+##   Fallos en la instalación  600.000000 1500.000000   20.583190
+##   Tipo de instrumentos      400.000000 1900.000000   13.722127
+##   Replanificación           300.000000 2200.000000   10.291595
+##   Inadecuados               150.000000 2350.000000    5.145798
+##   Tipo de ensayos           120.000000 2470.000000    4.116638
+##   Entrenamiento             100.000000 2570.000000    3.430532
+##   Materiales                100.000000 2670.000000    3.430532
+##   Requerimientos clientes    75.000000 2745.000000    2.572899
+##   Mantenimiento              50.000000 2795.000000    1.715266
+##   Errores de procedim.       50.000000 2845.000000    1.715266
+##   Calibración                40.000000 2885.000000    1.372213
+##   Retrasos entrega           30.000000 2915.000000    1.029160
+##                           
+## Pareto chart analysis for b.vector
+##                            Cum.Percent.
+##   No dispon. instrument.      30.874786
+##   Fallos en la instalación    51.457976
+##   Tipo de instrumentos        65.180103
+##   Replanificación             75.471698
+##   Inadecuados                 80.617496
+##   Tipo de ensayos             84.734134
+##   Entrenamiento               88.164666
+##   Materiales                  91.595197
+##   Requerimientos clientes     94.168096
+##   Mantenimiento               95.883362
+##   Errores de procedim.        97.598628
+##   Calibración                 98.970840
+##   Retrasos entrega           100.000000</code></pre>
+<p>El paquete qualityTools incluye la funcion paretoChart</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb15-2" title="2"></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="kw">paretoChart</span>(b.vector,</a>
+<a class="sourceLine" id="cb15-4" title="4">              <span class="dt">las =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb15-5" title="5">              <span class="dt">percentVec =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.80</span>, <span class="dv">1</span>)<span class="co"># se sitúan las marcas ene el eje x</span></a>
+<a class="sourceLine" id="cb15-6" title="6">            )</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre><code>##                                                                      
+## Frequency         900   600   400   300   150   120   100   100    75
+## Cum. Frequency    900  1500  1900  2200  2350  2470  2570  2670  2745
+## Percentage      30.9% 20.6% 13.7% 10.3%  5.1%  4.1%  3.4%  3.4%  2.6%
+## Cum. Percentage 30.9% 51.5% 65.2% 75.5% 80.6% 84.7% 88.2% 91.6% 94.2%
+##                                         
+## Frequency          50    50    40     30
+## Cum. Frequency   2795  2845  2885   2915
+## Percentage       1.7%  1.7%  1.4%   1.0%
+## Cum. Percentage 95.9% 97.6% 99.0% 100.0%</code></pre>
+<pre><code>##                                                                      
+## Frequency       900.00000  600.00000  400.00000  300.0000  150.000000
+## Cum. Frequency  900.00000 1500.00000 1900.00000 2200.0000 2350.000000
+## Percentage       30.87479   20.58319   13.72213   10.2916    5.145798
+## Cum. Percentage  30.87479   51.45798   65.18010   75.4717   80.617496
+##                                                                
+## Frequency        120.000000  100.000000  100.000000   75.000000
+## Cum. Frequency  2470.000000 2570.000000 2670.000000 2745.000000
+## Percentage         4.116638    3.430532    3.430532    2.572899
+## Cum. Percentage   84.734134   88.164666   91.595197   94.168096
+##                                                               
+## Frequency         50.000000   50.000000   40.000000   30.00000
+## Cum. Frequency  2795.000000 2845.000000 2885.000000 2915.00000
+## Percentage         1.715266    1.715266    1.372213    1.02916
+## Cum. Percentage   95.883362   97.598628   98.970840  100.00000</code></pre>
+</div>
+</div>
+<div id="anova" class="section level2">
+<h2><span class="header-section-number">2.3</span> Etapa <em>ANALIZAR</em>: ANOVA</h2>
+<ul>
+<li>La directora gerente de una empresa industrial quiere determinar si tres programas de formación ejercen efectos distintos en la productividad de los empleados de dicha empresa. Para ello selecciona aleatoriamente muestras de empleados que han seguido cada uno de los tres programas y los somete a un examen para evaluar su competencia, anotando las puntuaciones (de 0 – 100) obtenidas por cada uno de ellos en la tabla siguiente:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Programa 1</th>
+<th>85 72 83 80 76 78</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Programa 2</td>
+<td>80 84 81 78 82 86 90 88 85</td>
+</tr>
+<tr class="even">
+<td>Programa 3</td>
+<td>82 80 85 90 88 94 92 89 87 91</td>
+</tr>
+</tbody>
+</table>
+<p>Contrastar La hipótesis de que el tipo de progarma de formación no tiene infuencia en la puntuación que sacan los trabajadores en el examen de competencia (a un nivel de significación de <span class="math inline">\(\alpha = 5\%\)</span> )</p>
+<ul>
+<li><p><strong>Y</strong>: puntuación que sacan los trabajadores</p></li>
+<li><p><strong>X</strong>: factor “programa de formación” a tres niveles (programa 1, 2 y 3)</p></li>
+<li><p><strong><span class="math inline">\(H_0\)</span></strong>: <span class="math inline">\(\mu_1=\mu_2=\mu_3=\mu\)</span></p></li>
+<li><p>Si se cumple <span class="math inline">\(H_0\)</span>, <span class="math inline">\(F= \frac{sc_{entre}/(k-1)}{sc_{dentro}/(n-k)}~ F_{k-1,n-k}\)</span></p></li>
+</ul>
+<p>Contruir la base de Datos</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">library</span>(<span class="st">&quot;RcmdrMisc&quot;</span>)</a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="kw">library</span>(<span class="st">&quot;multcomp&quot;</span>)</a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">library</span>(<span class="st">&quot;SixSigma&quot;</span>)</a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">library</span>(<span class="st">&quot;qcc&quot;</span>)</a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="kw">library</span>(<span class="st">&quot;qualityTools&quot;</span>)</a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="kw">library</span>(<span class="st">&quot;Rsolnp&quot;</span>)</a>
+<a class="sourceLine" id="cb18-7" title="7"></a>
+<a class="sourceLine" id="cb18-8" title="8"></a>
+<a class="sourceLine" id="cb18-9" title="9">Puntuacion&lt;-<span class="kw">c</span>(<span class="dv">85</span>,<span class="dv">72</span>,<span class="dv">83</span>,<span class="dv">80</span>,<span class="dv">76</span>,<span class="dv">78</span>,<span class="dv">80</span>,<span class="dv">84</span>,<span class="dv">81</span>,<span class="dv">78</span>,<span class="dv">82</span>,<span class="dv">86</span>,<span class="dv">90</span>,<span class="dv">88</span>,<span class="dv">85</span>,<span class="dv">82</span>,<span class="dv">80</span>,<span class="dv">85</span>,</a>
+<a class="sourceLine" id="cb18-10" title="10">  <span class="dv">90</span>,<span class="dv">88</span>,<span class="dv">94</span>,<span class="dv">92</span>,<span class="dv">89</span>,<span class="dv">87</span>,<span class="dv">91</span>)</a>
+<a class="sourceLine" id="cb18-11" title="11"></a>
+<a class="sourceLine" id="cb18-12" title="12">Programas&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;PROGRAMA1&quot;</span>,<span class="dv">6</span>),<span class="kw">rep</span>(<span class="st">&quot;PROGRAMA2&quot;</span>,<span class="dv">9</span>), <span class="kw">rep</span>(<span class="st">&quot;PROGRAMA3&quot;</span>,<span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb18-13" title="13">           </a>
+<a class="sourceLine" id="cb18-14" title="14">Programa &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Puntuacion =</span> Puntuacion, <span class="dt">Programas =</span> Programas)</a></code></pre></div>
+<p><strong>Anova</strong></p>
+<p>Variable Explicada (Puntuación) con (Programas)</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">AnovaModel<span class="fl">.1</span>&lt;-<span class="st"> </span><span class="kw">aov</span>(Puntuacion <span class="op">~</span><span class="st"> </span>Programas, <span class="dt">data =</span> Programa)</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">summary</span>(AnovaModel<span class="fl">.1</span>)</a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Programas    2  293.4   146.7   7.888 0.00261 **
+## Residuals   22  409.2    18.6                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Como el <span class="math inline">\(p-valor&lt; \alpha\)</span>, es decir, <span class="math inline">\(0.0026&lt;0.05\)</span>, Rechazo <span class="math inline">\(H_0\)</span>, la puntuación depende del tipo de programa de formación</p>
+<p>¿Cuáles son los programa que realmente generan esas diferencias? Hay que aplicar un contraste de hipótesis para comparaciones dos a dos: (Contraste de Tukey)</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">numSummary</span>(Programa<span class="op">$</span>Puntuacion,<span class="dt">groups=</span>Programa<span class="op">$</span>Programas,<span class="dt">statistics=</span><span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>))</a></code></pre></div>
+<pre><code>##               mean       sd data:n
+## PROGRAMA1 79.00000 4.732864      6
+## PROGRAMA2 83.77778 3.898005      9
+## PROGRAMA3 87.80000 4.417138     10</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">Pairs &lt;-<span class="st"> </span><span class="kw">glht</span>(AnovaModel<span class="fl">.1</span>, <span class="dt">linfct=</span><span class="kw">mcp</span>(<span class="dt">Programas=</span><span class="st">&quot;Tukey&quot;</span>))</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="kw">summary</span>(Pairs)</a></code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: aov(formula = Puntuacion ~ Programas, data = Programa)
+## 
+## Linear Hypotheses:
+##                            Estimate Std. Error t value Pr(&gt;|t|)   
+## PROGRAMA2 - PROGRAMA1 == 0    4.778      2.273   2.102  0.11204   
+## PROGRAMA3 - PROGRAMA1 == 0    8.800      2.227   3.952  0.00188 **
+## PROGRAMA3 - PROGRAMA2 == 0    4.022      1.981   2.030  0.12797   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+<p>Programa3-Programa1 es significativamente distinto de cero
+<span class="math inline">\(p-valor=0.00193&lt;0.05\)</span></p>
+<ul>
+<li>Se ha extraído una muestra aleatoria de los salarios por hora (en euros) de los trabajadores del sector de hostelería de una CCAA española. Se cree que dos factores pueden tener influencia en la heterogeneidad de dichos salarios: A, situación y B, procedencia:</li>
+</ul>
+<p><img src="Hosteleria.png" /></p>
+<p>Se pide, a un <span class="math inline">\(\alpha = 0.05\)</span>:
+a) Comprobar si el salario es el mismo para los diferentes niveles de situación personal.
+b) Comprobar si el salario es el mismo para los diferentes lugares de procedencia.
+c) Comprobar si existe interacción.</p>
+<p>Se crea el data-frame</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">library</span>(<span class="st">&quot;RcmdrMisc&quot;</span>)</a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="kw">library</span>(<span class="st">&quot;multcomp&quot;</span>)</a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="kw">library</span>(<span class="st">&quot;Rsolnp&quot;</span>)</a>
+<a class="sourceLine" id="cb25-4" title="4"></a>
+<a class="sourceLine" id="cb25-5" title="5">Salario&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb25-6" title="6"></a>
+<a class="sourceLine" id="cb25-7" title="7">Procedencia&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;B1&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B2&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B3&quot;</span>,<span class="dv">3</span>), </a>
+<a class="sourceLine" id="cb25-8" title="8">      <span class="kw">rep</span>(<span class="st">&quot;B1&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B2&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;B3&quot;</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb25-9" title="9"></a>
+<a class="sourceLine" id="cb25-10" title="10">SituacionLabor&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A1&quot;</span>,<span class="dv">9</span>),<span class="kw">rep</span>(<span class="st">&quot;A2&quot;</span>,<span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb25-11" title="11"></a>
+<a class="sourceLine" id="cb25-12" title="12">Hosteleria &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Salario =</span> Salario, <span class="dt">Procedencia =</span> Procedencia, <span class="dt">SituacionLabor=</span>SituacionLabor)  </a></code></pre></div>
+<p>Para realizar el Análisis de la Varianza con dos factores y su interacción:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">AnovaModel<span class="fl">.3</span> &lt;-<span class="st"> </span>(<span class="kw">lm</span>(Salario<span class="op">~</span><span class="st"> </span>Procedencia<span class="op">*</span>SituacionLabor,<span class="dt">data =</span> Hosteleria))</a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">Anova</span>(AnovaModel<span class="fl">.3</span>)</a></code></pre></div>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: Salario
+##                             Sum Sq Df F value    Pr(&gt;F)    
+## Procedencia                 12.444  2    11.2  0.001802 ** 
+## SituacionLabor             112.500  1   202.5 7.088e-09 ***
+## Procedencia:SituacionLabor   1.333  2     1.2  0.334898    
+## Residuals                    6.667 12                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">tapply</span>(Hosteleria<span class="op">$</span>Salario,</a>
+<a class="sourceLine" id="cb28-2" title="2">       <span class="kw">list</span>(<span class="dt">Procedencia=</span>Hosteleria<span class="op">$</span>Procedencia,<span class="dt">SituacionLabor=</span>Hosteleria<span class="op">$</span>SituacionLabor), </a>
+<a class="sourceLine" id="cb28-3" title="3">       mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>##            SituacionLabor
+## Procedencia       A1       A2
+##          B1 2.000000 6.333333
+##          B2 2.333333 7.333333
+##          B3 3.333333 9.000000</code></pre>
+<p>Las desviaciones típicas del salario dentro de cada combinación de niveles:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">tapply</span>(Hosteleria<span class="op">$</span>Salario,</a>
+<a class="sourceLine" id="cb30-2" title="2">       <span class="kw">list</span>(<span class="dt">Procedencia=</span>Hosteleria<span class="op">$</span>Procedencia,<span class="dt">SituacionLabor=</span>Hosteleria<span class="op">$</span>SituacionLabor), </a>
+<a class="sourceLine" id="cb30-3" title="3">       sd, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>##            SituacionLabor
+## Procedencia        A1        A2
+##          B1 1.0000000 0.5773503
+##          B2 0.5773503 0.5773503
+##          B3 0.5773503 1.0000000</code></pre>
+<p>El número de observaciones en cada celda:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">tapply</span>(Hosteleria<span class="op">$</span>Salario,<span class="kw">list</span>(<span class="dt">Procedencia=</span>Hosteleria<span class="op">$</span>Procedencia,<span class="dt">SituacionLabor=</span>Hosteleria<span class="op">$</span>SituacionLabor), <span class="cf">function</span>(x) <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x)))</a></code></pre></div>
+<pre><code>##            SituacionLabor
+## Procedencia A1 A2
+##          B1  3  3
+##          B2  3  3
+##          B3  3  3</code></pre>
+</div>
+<div id="RyR" class="section level2">
+<h2><span class="header-section-number">2.4</span> Etapa <em>MEDIR</em>: Estudios R&amp;R</h2>
+<p>Un fabricante de juntas tóricas para piezas metálicas instala un nuevo sistema de medición digital. El cinturón negro encargado de la mejora de un proyecto de aumento de beneficios quiere determinar con cuánta efectividad se ha aplicado el sistema de medida y si los operarios se han adaptado a él. Para ello se lleva a cabo un estudio R &amp; R donde 3 operarios diferentes miden 10 piezas distintas 2 veces cada una.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">Operario &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">20</span>))</a>
+<a class="sourceLine" id="cb34-2" title="2">Pieza &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">each =</span> <span class="dv">2</span>), <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb34-3" title="3">run &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">30</span>))</a>
+<a class="sourceLine" id="cb34-4" title="4">Diametro &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.65</span>, <span class="fl">0.6</span>, <span class="dv">1</span>,<span class="dv">1</span>,   <span class="fl">0.85</span>, <span class="fl">0.8</span>,  <span class="fl">0.85</span>, <span class="fl">0.95</span>, <span class="fl">0.55</span>, <span class="fl">0.45</span>, <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb34-5" title="5">              <span class="dv">1</span>,    <span class="fl">0.95</span>,<span class="fl">0.95</span>, <span class="fl">0.8</span>, <span class="fl">0.85</span>,   <span class="dv">1</span>, <span class="dv">1</span>,   <span class="fl">0.6</span>,<span class="fl">0.7</span>,    </a>
+<a class="sourceLine" id="cb34-6" title="6">                                            </a>
+<a class="sourceLine" id="cb34-7" title="7"><span class="fl">0.55</span>,   <span class="fl">0.55</span>,<span class="fl">1.05</span>,<span class="fl">0.95</span>, <span class="fl">0.8</span>,<span class="fl">0.75</span>,   <span class="fl">0.8</span>,<span class="fl">0.75</span>,   <span class="fl">0.4</span>,<span class="fl">0.4</span>,    </a>
+<a class="sourceLine" id="cb34-8" title="8">              <span class="dv">1</span>,<span class="fl">1.05</span>,   <span class="fl">0.95</span>,<span class="fl">0.9</span>,   <span class="fl">0.75</span>,<span class="fl">0.7</span>,   <span class="dv">1</span>,<span class="fl">0.95</span>, <span class="fl">0.55</span>,<span class="fl">0.5</span>,   </a>
+<a class="sourceLine" id="cb34-9" title="9">                                                    </a>
+<a class="sourceLine" id="cb34-10" title="10"><span class="fl">0.5</span>,<span class="fl">0.5</span>,    <span class="fl">1.05</span>,<span class="dv">1</span>, <span class="fl">0.8</span>,<span class="fl">0.8</span>,    <span class="fl">0.8</span>,  <span class="fl">0.8</span>,  <span class="fl">0.45</span>,<span class="fl">0.5</span>,   <span class="dv">1</span>,<span class="fl">1.05</span>, <span class="fl">0.95</span>,<span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb34-11" title="11">              <span class="fl">0.8</span>,<span class="fl">0.8</span>,  <span class="fl">1.05</span>,<span class="fl">1.05</span>,<span class="fl">0.8</span>,  <span class="fl">0.85</span>)</a>
+<a class="sourceLine" id="cb34-12" title="12"></a>
+<a class="sourceLine" id="cb34-13" title="13">Tubos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Operario, Pieza,</a>
+<a class="sourceLine" id="cb34-14" title="14">                        run, Diametro)</a></code></pre></div>
+<p>Paquete qualityTols
+create a gage RnR design</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">design =<span class="st"> </span><span class="kw">gageRRDesign</span>(<span class="dt">Operators=</span><span class="dv">3</span>, <span class="dt">Parts=</span><span class="dv">10</span>, <span class="dt">Measurements=</span><span class="dv">2</span>,<span class="dt">method=</span><span class="st">&quot;nested&quot;</span>, <span class="dt">randomize=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p>set the response</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">response</span>(design) =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.65</span>,  <span class="fl">0.6</span>, <span class="dv">1</span>,<span class="dv">1</span>,   <span class="fl">0.85</span>, <span class="fl">0.8</span>,  <span class="fl">0.85</span>, <span class="fl">0.95</span>, <span class="fl">0.55</span>, <span class="fl">0.45</span>, <span class="dv">1</span>,  <span class="dv">1</span>,  <span class="fl">0.95</span>,<span class="fl">0.95</span>, <span class="fl">0.8</span>, <span class="fl">0.85</span>,   <span class="dv">1</span>, <span class="dv">1</span>,   <span class="fl">0.6</span>,<span class="fl">0.7</span>,    </a>
+<a class="sourceLine" id="cb36-2" title="2">                     </a>
+<a class="sourceLine" id="cb36-3" title="3">                     <span class="fl">0.55</span>,  <span class="fl">0.55</span>,<span class="fl">1.05</span>,<span class="fl">0.95</span>, <span class="fl">0.8</span>,<span class="fl">0.75</span>,   <span class="fl">0.8</span>,<span class="fl">0.75</span>,   <span class="fl">0.4</span>,<span class="fl">0.4</span>,    <span class="dv">1</span>,<span class="fl">1.05</span>, <span class="fl">0.95</span>,<span class="fl">0.9</span>,   <span class="fl">0.75</span>,<span class="fl">0.7</span>,   <span class="dv">1</span>,<span class="fl">0.95</span>, <span class="fl">0.55</span>,<span class="fl">0.5</span>,   </a>
+<a class="sourceLine" id="cb36-4" title="4">                     </a>
+<a class="sourceLine" id="cb36-5" title="5">                     <span class="fl">0.5</span>,<span class="fl">0.5</span>,   <span class="fl">1.05</span>,<span class="dv">1</span>, <span class="fl">0.8</span>,<span class="fl">0.8</span>,    <span class="fl">0.8</span>,  <span class="fl">0.8</span>,  <span class="fl">0.45</span>,<span class="fl">0.5</span>,   <span class="dv">1</span>,<span class="fl">1.05</span>, <span class="fl">0.95</span>,<span class="fl">0.95</span>,  <span class="fl">0.8</span>,<span class="fl">0.8</span>,    <span class="fl">1.05</span>,<span class="fl">1.05</span>,<span class="fl">0.8</span>,  <span class="fl">0.85</span> )  </a></code></pre></div>
+<p>perform Gage RnR</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">gdo =<span class="st"> </span><span class="kw">gageRR</span>(design,<span class="dt">sigma=</span><span class="dv">6</span>)</a></code></pre></div>
+<pre><code>## 
+## AnOVa Table -  crossed Design
+##               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Operator       2 0.0461 0.02304  18.433 6.01e-06 ***
+## Part           9 2.0832 0.23146 185.170  &lt; 2e-16 ***
+## Operator:Part 18 0.1106 0.00614   4.915 6.41e-05 ***
+## Residuals     30 0.0375 0.00125                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ----------
+## 
+## Gage R&amp;R
+##                   VarComp VarCompContrib  Stdev StudyVar StudyVarContrib
+## totalRR          0.004542         0.1079 0.0674    0.404           0.328
+##  repeatability   0.001250         0.0297 0.0354    0.212           0.172
+##  reproducibility 0.003292         0.0782 0.0574    0.344           0.280
+##    Operator      0.000845         0.0201 0.0291    0.174           0.142
+##    Operator:Part 0.002447         0.0581 0.0495    0.297           0.241
+## Part to Part     0.037553         0.8921 0.1938    1.163           0.945
+## totalVar         0.042095         1.0000 0.2052    1.231           1.000
+## 
+## ---
+##  * Contrib equals Contribution in %
+##  **Number of Distinct Categories (truncated signal-to-noise-ratio) = 4</code></pre>
+<p>La tabla R&amp;R consta de las siguientes columnas: VarComp (varianza),
+* VarCompContrib (tanto por uno con respecto a la varianza total de las medidas),
+* Stdev (desviación estándar), StudyVar (6·Stdev),
+* StudyVarContrib (6·Stdev/Stdev total ·100).</p>
+<p>Como la contribución de la sigma a la varianza total es StudyVarContrib(totalRR) = 0.328 &gt; 0.3, el método de medida no es adecuado, debería buscarse cómo mejorar el proceso de medida.</p>
+<p>El número de categorías distintas debe ser mayor que o igual a cuatro. Este valor mide la relación entre la variabilidad debida al sistema de medición y la variabilidad inherente. En el caso presente es igual a 4, en el límite de la idoneidad del sistema.</p>
+<p>visualization of Gage RnR</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">windows</span>(<span class="dv">15</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="kw">plot</span>(gdo)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>Y con el Paquete SixSigma (sigma=6 por defecto):</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">windows</span>(<span class="dv">15</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb40-2" title="2">my.rr &lt;-<span class="st"> </span><span class="kw">ss.rr</span>(<span class="dt">var =</span> Diametro, <span class="dt">part =</span> Pieza,</a>
+<a class="sourceLine" id="cb40-3" title="3">               <span class="dt">appr =</span> Operario,</a>
+<a class="sourceLine" id="cb40-4" title="4">               <span class="dt">data =</span> Tubos,</a>
+<a class="sourceLine" id="cb40-5" title="5">               <span class="dt">main =</span> <span class="st">&quot;Six Sigma Gage R&amp;R Measure&quot;</span>,</a>
+<a class="sourceLine" id="cb40-6" title="6">               <span class="dt">sub =</span> <span class="st">&quot;Estudio R &amp; R para Juntas Tóricas&quot;)</span></a></code></pre></div>
+<pre><code>## Complete model (with interaction):
+## 
+##                Df Sum Sq Mean Sq F value   Pr(&gt;F)
+## Pieza           9 2.0832 0.23146  37.676 7.24e-10
+## Operario        2 0.0461 0.02304   3.751   0.0435
+## Pieza:Operario 18 0.1106 0.00614   4.915 6.41e-05
+## Repeatability  30 0.0375 0.00125                 
+## Total          59 2.2773                         
+## 
+## alpha for removing interaction: 0.05 
+## 
+## Gage R&amp;R
+## 
+##                        VarComp %Contrib
+## Total Gage R&amp;R    0.0045416667    10.79
+##   Repeatability   0.0012500000     2.97
+##   Reproducibility 0.0032916667     7.82
+##     Operario      0.0008449074     2.01
+## Pieza:Operario    0.0024467593     5.81
+## Part-To-Part      0.0375532407    89.21
+## Total Variation   0.0420949074   100.00
+## 
+##                       StdDev  StudyVar %StudyVar
+## Total Gage R&amp;R    0.06739189 0.4043513     32.85
+##   Repeatability   0.03535534 0.2121320     17.23
+##   Reproducibility 0.05737305 0.3442383     27.96
+##     Operario      0.02906729 0.1744037     14.17
+## Pieza:Operario    0.04946473 0.2967884     24.11
+## Part-To-Part      0.19378659 1.1627195     94.45
+## Total Variation   0.20517044 1.2310226    100.00
+## 
+## Number of Distinct Categories = 4</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="control-estadistico-de-la-calidad.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practica-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Control_book.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

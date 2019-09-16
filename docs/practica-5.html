@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Práctica 5 | Control Estadístico de la Calidad</title>
+  <meta name="description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Práctica 5 | Control Estadístico de la Calidad" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Práctica 5 | Control Estadístico de la Calidad" />
+  
+  <meta name="twitter:description" content="Prácticas de la asignatura de Control Estadistico de la Calidad." />
+  
+
+<meta name="author" content="Miguel Flores Sánchez (miguel.flores@epn.edu.ec)" />
+
+
+<meta name="date" content="2019-09-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="practica-4.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Control Estadistico de la Calidad </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Teoria</b></span></li>
+<li class="chapter" data-level="1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html"><i class="fa fa-check"></i><b>1</b> Control Estadistico de la Calidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-y-seis-sigma-alternativas-en-r"><i class="fa fa-check"></i><b>1.1</b> CEC y seis Sigma: Alternativas en <em>R</em></a></li>
+<li class="chapter" data-level="1.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-definir"><i class="fa fa-check"></i><b>1.2</b> Etapa <strong>DEFINIR</strong></a><ul>
+<li class="chapter" data-level="1.2.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#mapa-de-procesos"><i class="fa fa-check"></i><b>1.2.1</b> Mapa de Procesos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-ishikawa-o-espina-de-pescado"><i class="fa fa-check"></i><b>1.2.2</b> Diagrama de Ishikawa o espina de pescado</a></li>
+<li class="chapter" data-level="1.2.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diagrama-de-pareto"><i class="fa fa-check"></i><b>1.2.3</b> Diagrama de Pareto</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#epata-analizar-anova"><i class="fa fa-check"></i><b>1.3</b> Epata <strong>ANALIZAR</strong>: ANOVA</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion"><i class="fa fa-check"></i><b>1.3.1</b> Introducción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-medir"><i class="fa fa-check"></i><b>1.4</b> Etapa <strong>MEDIR</strong></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-rr"><i class="fa fa-check"></i><b>1.4.1</b> Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-control"><i class="fa fa-check"></i><b>1.5</b> Etapa <strong>CONTROL</strong>:</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control"><i class="fa fa-check"></i><b>1.5.1</b> Gráficos de control</a></li>
+<li class="chapter" data-level="1.5.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-por-variables"><i class="fa fa-check"></i><b>1.5.2</b> Graficos de control por variables</a></li>
+<li class="chapter" data-level="1.5.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#graficos-de-control-para-atributos"><i class="fa fa-check"></i><b>1.5.3</b> Gráficos de control para atributos</a></li>
+<li class="chapter" data-level="1.5.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#otros-graficos-de-control-univariante"><i class="fa fa-check"></i><b>1.5.4</b> Otros graficos de Control univariante</a></li>
+<li class="chapter" data-level="1.5.5" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#curvas-oc"><i class="fa fa-check"></i><b>1.5.5</b> Curvas OC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-analizar-analisis-de-capacidad"><i class="fa fa-check"></i><b>1.6</b> Etapa <strong>ANALIZAR</strong>: Analisis de capacidad</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-1"><i class="fa fa-check"></i><b>1.6.1</b> Introducción</a></li>
+<li class="chapter" data-level="1.6.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#indices-de-capacidad"><i class="fa fa-check"></i><b>1.6.2</b> Indices de capacidad</a></li>
+<li class="chapter" data-level="1.6.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-en-r"><i class="fa fa-check"></i><b>1.6.3</b> Analisis de capacidad en R</a></li>
+<li class="chapter" data-level="1.6.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>1.6.4</b> Análisis de capacidad con datos no normales</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#etapa-controlar-y-analizar"><i class="fa fa-check"></i><b>1.7</b> Etapa <strong>CONTROLAR</strong> y <strong>ANALIZAR</strong></a><ul>
+<li class="chapter" data-level="1.7.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-multivariante-reduccion-de-la-dimencion"><i class="fa fa-check"></i><b>1.7.1</b> CEC multivariante: Reducción de la Dimención</a></li>
+<li class="chapter" data-level="1.7.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#cec-para-variables-autocorrelacionadas"><i class="fa fa-check"></i><b>1.7.2</b> CEC para variables autocorrelacionadas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#analisis-de-capacidad-para-datos-autocorrelados"><i class="fa fa-check"></i><b>1.7.3</b> Análisis de capacidad para datos autocorrelados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#introduccion-al-diseno-de-experimentos-con-r"><i class="fa fa-check"></i><b>1.8</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#ejemplos-de-contrastes-anova"><i class="fa fa-check"></i><b>1.8.1</b> Ejemplos de contrastes ANOVA</a></li>
+<li class="chapter" data-level="1.8.2" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factorial-2k"><i class="fa fa-check"></i><b>1.8.2</b> Diseño de experimentos factorial <span class="math inline">\(2^k\)</span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#diseno-de-experimentos-factoriales-fraccionarios"><i class="fa fa-check"></i><b>1.8.3</b> Diseño de experimentos factoriales fraccionarios</a></li>
+<li class="chapter" data-level="1.8.4" data-path="control-estadistico-de-la-calidad.html"><a href="control-estadistico-de-la-calidad.html#estudios-interlaboratorios"><i class="fa fa-check"></i><b>1.8.4</b> Estudios Interlaboratorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Practicas</b></span></li>
+<li class="chapter" data-level="2" data-path="practica-1.html"><a href="practica-1.html"><i class="fa fa-check"></i><b>2</b> Práctica 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="practica-1.html"><a href="practica-1.html#cec-y-seis-signa-alternativas-en-r"><i class="fa fa-check"></i><b>2.1</b> CEC y Seis Signa: alternativas en R</a></li>
+<li class="chapter" data-level="2.2" data-path="practica-1.html"><a href="practica-1.html#etapa-definir-mapas-de-procesos-ishikawa-pareto"><i class="fa fa-check"></i><b>2.2</b> Etapa <em>DEFINIR</em>: Mapas de procesos, Ishikawa, Pareto</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-1.html"><a href="practica-1.html#pizza"><i class="fa fa-check"></i><b>2.2.1</b> Mapas de procesos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-1.html"><a href="practica-1.html#ishikawa"><i class="fa fa-check"></i><b>2.2.2</b> DIAGRAMA DE ISHIKAWA</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-1.html"><a href="practica-1.html#par"><i class="fa fa-check"></i><b>2.2.3</b> DIAGRAMA DE PARETO</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="practica-1.html"><a href="practica-1.html#anova"><i class="fa fa-check"></i><b>2.3</b> Etapa <em>ANALIZAR</em>: ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="practica-1.html"><a href="practica-1.html#RyR"><i class="fa fa-check"></i><b>2.4</b> Etapa <em>MEDIR</em>: Estudios R&amp;R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="practica-2.html"><a href="practica-2.html"><i class="fa fa-check"></i><b>3</b> Práctica 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-1"><i class="fa fa-check"></i><b>3.1</b> Gráficos de Control</a></li>
+<li class="chapter" data-level="3.2" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-variables-1"><i class="fa fa-check"></i><b>3.2</b> Gráficos de Control por variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-2.html"><a href="practica-2.html#gqcc"><i class="fa fa-check"></i><b>3.2.1</b> Gráficos qcc para variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-2.html"><a href="practica-2.html#grafico-de-control-para-el-rango-y-la-media-datos-plates"><i class="fa fa-check"></i><b>3.2.2</b> Gráfico de control para el RANGO y la MEDIA: datos “plates”</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-2.html"><a href="practica-2.html#renderizado"><i class="fa fa-check"></i><b>3.2.3</b> Grafico de control para valores individuales de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="practica-2.html"><a href="practica-2.html#graficos-de-control-por-atributos"><i class="fa fa-check"></i><b>3.3</b> Gráficos de control por atributos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="practica-2.html"><a href="practica-2.html#P"><i class="fa fa-check"></i><b>3.3.1</b> Gráficos p</a></li>
+<li class="chapter" data-level="3.3.2" data-path="practica-2.html"><a href="practica-2.html#np"><i class="fa fa-check"></i><b>3.3.2</b> Gráfico tipo np</a></li>
+<li class="chapter" data-level="3.3.3" data-path="practica-2.html"><a href="practica-2.html#gc"><i class="fa fa-check"></i><b>3.3.3</b> Gráficos C</a></li>
+<li class="chapter" data-level="3.3.4" data-path="practica-2.html"><a href="practica-2.html#gu"><i class="fa fa-check"></i><b>3.3.4</b> Gráficos U</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="practica-2.html"><a href="practica-2.html#otros-graficos-de-control-cusum-y-ewma"><i class="fa fa-check"></i><b>3.4</b> Otros gráficos de Control: CUSUM y EWMA</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="practica-2.html"><a href="practica-2.html#cusum"><i class="fa fa-check"></i><b>3.4.1</b> GRÀFICOS CUSUM</a></li>
+<li class="chapter" data-level="3.4.2" data-path="practica-2.html"><a href="practica-2.html#ewma"><i class="fa fa-check"></i><b>3.4.2</b> GRÁFICOS EWMA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="practica-2.html"><a href="practica-2.html#oc"><i class="fa fa-check"></i><b>3.5</b> CURVAS OC</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="practica-2.html"><a href="practica-2.html#curvas-oc-para-grafica-de-variables"><i class="fa fa-check"></i><b>3.5.1</b> Curvas OC para gráfica de variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practica-3.html"><a href="practica-3.html"><i class="fa fa-check"></i><b>4</b> Práctica 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="practica-3.html"><a href="practica-3.html#etapa-analizar-analisis-de-la-capacidad"><i class="fa fa-check"></i><b>4.1</b> Etapa <em>ANALIZAR</em>: Análisis de la capacidad</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="practica-3.html"><a href="practica-3.html#analisis-de-capacidad-con-r"><i class="fa fa-check"></i><b>4.1.1</b> Análisis de capacidad con R:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="practica-3.html"><a href="practica-3.html#analisis-de-la-capacidad-con-datos-no-normales"><i class="fa fa-check"></i><b>4.1.2</b> Análisis de la capacidad con datos no normales</a></li>
+<li class="chapter" data-level="4.1.3" data-path="practica-3.html"><a href="practica-3.html#Piedra"><i class="fa fa-check"></i><b>4.1.3</b> Caso Práctico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practica-4.html"><a href="practica-4.html"><i class="fa fa-check"></i><b>5</b> Práctica 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="practica-4.html"><a href="practica-4.html#etapa-controlar-y-analizar-1"><i class="fa fa-check"></i><b>5.1</b> Etapa Controlar y Analizar</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="practica-4.html"><a href="practica-4.html#control-estadistico-de-calidad-multivariante"><i class="fa fa-check"></i><b>5.1.1</b> Control Estadistico de Calidad Multivariante:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="practica-4.html"><a href="practica-4.html#control-de-calidad-de-variables-autocorreladas"><i class="fa fa-check"></i><b>5.1.2</b> Control de Calidad de variables autocorreladas</a></li>
+<li class="chapter" data-level="5.1.3" data-path="practica-4.html"><a href="practica-4.html#autocorr"><i class="fa fa-check"></i><b>5.1.3</b> Análisis de capacidad con datos autocorrelados.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practica-5.html"><a href="practica-5.html"><i class="fa fa-check"></i><b>6</b> Práctica 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="practica-5.html"><a href="practica-5.html#introduccion-al-diseno-de-experimentos-con-r-1"><i class="fa fa-check"></i><b>6.1</b> Introducción al diseño de experimentos con R</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="practica-5.html"><a href="practica-5.html#ejemplos-de-pruebas-anova"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplos de Pruebas ANOVA</a></li>
+<li class="chapter" data-level="6.1.2" data-path="practica-5.html"><a href="practica-5.html#disenos-factoriales"><i class="fa fa-check"></i><b>6.1.2</b> DISEÑOS FACTORIALES</a></li>
+<li class="chapter" data-level="6.1.3" data-path="practica-5.html"><a href="practica-5.html#disenos-de-experimentos-factoriales-fraccionados"><i class="fa fa-check"></i><b>6.1.3</b> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</a></li>
+<li class="chapter" data-level="6.1.4" data-path="practica-5.html"><a href="practica-5.html#ilab"><i class="fa fa-check"></i><b>6.1.4</b> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Control Estadístico de la Calidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practica-5" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Práctica 5</h1>
+<div id="introduccion-al-diseno-de-experimentos-con-r-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introducción al diseño de experimentos con R</h2>
+<div id="ejemplos-de-pruebas-anova" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Ejemplos de Pruebas ANOVA</h3>
+<div id="aceros" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> Ejemplo de la resistencia a la tracción de aceros</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"> traccion=<span class="kw">c</span>(<span class="dv">39</span>, <span class="dv">33</span>, <span class="dv">39</span>, <span class="dv">35</span>, <span class="dv">32</span>,</a>
+<a class="sourceLine" id="cb1-2" title="2">            <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">29</span>,</a>
+<a class="sourceLine" id="cb1-3" title="3">            <span class="dv">33</span>, <span class="dv">33</span>, <span class="dv">36</span>, <span class="dv">26</span>, <span class="dv">35</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4"> </a>
+<a class="sourceLine" id="cb1-5" title="5"> Hormigon=<span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">5</span>)))</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"> <span class="kw">boxplot</span>(<span class="kw">split</span>(traccion,Hormigon),<span class="dt">xlab=</span><span class="st">&#39;Tipo de hormigón&#39;,</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="st">         ylab=&#39;</span>Resistencia a la tracción&#39;,<span class="dt">col=</span><span class="kw">terrain.colors</span>(<span class="dv">3</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"> anovatraccion&lt;-<span class="kw">aov</span>(traccion<span class="op">~</span>Hormigon)</a>
+<a class="sourceLine" id="cb2-2" title="2"> <span class="kw">summary</span>(<span class="kw">aov</span>(anovatraccion))              <span class="co"># Construye la tabla ANOVA</span></a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Hormigon     2  22.53   11.27   0.725  0.504
+## Residuals   12 186.40   15.53</code></pre>
+<p><strong>Diagnósis de las hipótesis del modelo:</strong>
+Independencia, normalidad, homocedasticidad</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"> res&lt;-<span class="kw">residuals</span>(anovatraccion)  <span class="co"># Se calculan los residuos.</span></a>
+<a class="sourceLine" id="cb4-2" title="2"> yh&lt;-<span class="kw">fitted</span>(anovatraccion)</a>
+<a class="sourceLine" id="cb4-3" title="3"> <span class="kw">plot</span>(yh,res)</a>
+<a class="sourceLine" id="cb4-4" title="4"> <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"> <span class="kw">shapiro.test</span>(res)       <span class="co"># Prueba de normalidad, los residuos son normales</span></a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  res
+## W = 0.95736, p-value = 0.6466</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"> <span class="kw">qqnorm</span>(res)</a>
+<a class="sourceLine" id="cb7-2" title="2"> <span class="kw">qqline</span>(res)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">library</span>(car)                  <span class="co">#Para poder hacer la prueba de LEVENE se necesita</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"> <span class="kw">leveneTest</span>(traccion,Hormigon)    <span class="co"># Prueba de Levene para homogeneidad de varianzas</span></a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  0.2283 0.7993
+##       12</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">                                  <span class="co"># Residuos homocedásticos.</span></a>
+<a class="sourceLine" id="cb11-2" title="2"> <span class="kw">bartlett.test</span>(traccion,Hormigon) <span class="co"># Prueba de Bartlett para homogeneidad de varianzas</span></a></code></pre></div>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  traccion and Hormigon
+## Bartlett&#39;s K-squared = 0.36411, df = 2, p-value = 0.8336</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">                                  <span class="co"># Residuos homocedásticos.   </span></a>
+<a class="sourceLine" id="cb13-2" title="2"> <span class="co"># Diagnósis gráfica del modelo:</span></a>
+<a class="sourceLine" id="cb13-3" title="3"> <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb13-4" title="4"> <span class="kw">plot</span>(anovatraccion)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>se cumplen las hipótesis del modelo <em>ANOVA</em>, por lo que es factible la aplicación del test <em>F</em></p>
+</div>
+<div id="estaño" class="section level4">
+<h4><span class="header-section-number">6.1.1.2</span> Ejemplo de los laboratorios que miden el peso de muestras de estaño. Respuesta: peso</h4>
+<p>Se presenta el caso práctico en el que se pretende medir la cantidad de recubrimiento de estaño que tienen las latas de un determinado fabricante. Para ellos de hace un pequeño diseño de experimentos por lo que 4 laboratorios, mediante en tratamiento químico, miden el contenido en estaño de 12 muestras, cada uno. ¿Habra que descartar los resultados de alguno de los laboratorios? Esta es una primera aproximación a los estudios interlaboratorio.</p>
+<p>Primeramente se cargan los datos</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">laboratorio&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>),<span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">12</span>),<span class="kw">rep</span>(<span class="dv">3</span>,<span class="dv">12</span>),<span class="kw">rep</span>(<span class="dv">4</span>,<span class="dv">12</span>))</a>
+<a class="sourceLine" id="cb14-2" title="2">laboratorio&lt;-<span class="kw">as.factor</span>(laboratorio)</a>
+<a class="sourceLine" id="cb14-3" title="3">peso&lt;-<span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.27</span>, <span class="fl">0.22</span>, <span class="fl">0.30</span>, <span class="fl">0.27</span>, <span class="fl">0.28</span>, <span class="fl">0.32</span>, <span class="fl">0.24</span>, <span class="fl">0.31</span>, <span class="fl">0.26</span>, <span class="fl">0.21</span>, <span class="fl">0.28</span>,</a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="fl">0.19</span>, <span class="fl">0.25</span>, <span class="fl">0.27</span>, <span class="fl">0.24</span>, <span class="fl">0.18</span>, <span class="fl">0.26</span>, <span class="fl">0.28</span>, <span class="fl">0.24</span>, <span class="fl">0.25</span>, <span class="fl">0.20</span>, <span class="fl">0.21</span>, <span class="fl">0.19</span>,</a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="fl">0.18</span>, <span class="fl">0.28</span>, <span class="fl">0.21</span>, <span class="fl">0.23</span>, <span class="fl">0.25</span>, <span class="fl">0.20</span>, <span class="fl">0.27</span>, <span class="fl">0.19</span>, <span class="fl">0.24</span>, <span class="fl">0.22</span>, <span class="fl">0.29</span>, <span class="fl">0.16</span>,</a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="fl">0.23</span>, <span class="fl">0.30</span>, <span class="fl">0.28</span>, <span class="fl">0.28</span>, <span class="fl">0.24</span>, <span class="fl">0.34</span>, <span class="fl">0.20</span>, <span class="fl">0.18</span>, <span class="fl">0.24</span>, <span class="fl">0.28</span>, <span class="fl">0.22</span>, <span class="fl">0.21</span>)</a></code></pre></div>
+<p>Se Realiza un <strong>ANOVA</strong> gráfico</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">boxplot</span>(<span class="kw">split</span>(peso,laboratorio),<span class="dt">xlab=</span><span class="st">&#39;Laboratorios&#39;</span>,<span class="dt">ylab=</span><span class="st">&#39;Peso de estado&#39;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Se contruye la tabla <strong>ANOVA</strong> y se realiza el test de la <strong>F</strong>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">anovapeso&lt;-<span class="kw">aov</span>(peso<span class="op">~</span><span class="st"> </span>laboratorio)</a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">summary</span>(<span class="kw">aov</span>(peso<span class="op">~</span>laboratorio))  <span class="co"># Construye la tabla ANOVA</span></a></code></pre></div>
+<pre><code>##             Df  Sum Sq  Mean Sq F value Pr(&gt;F)  
+## laboratorio  3 0.01301 0.004335    2.81 0.0504 .
+## Residuals   44 0.06789 0.001543                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Diagnosis del modelo</strong></p>
+<p>¿Son los residuos independientes?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">res&lt;-<span class="kw">residuals</span>(anovapeso)            <span class="co"># Se calculan los residuals.</span></a>
+<a class="sourceLine" id="cb18-2" title="2">yh&lt;-<span class="kw">fitted</span>(anovapeso)</a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">plot</span>(yh,res)</a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>¿Son los residuos normales?</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">shapiro.test</span>(res)                            <span class="co"># Prueba de normalidad</span></a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  res
+## W = 0.97947, p-value = 0.5566</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">qqnorm</span>(res)</a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">qqline</span>(res)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>¿Son los residuos homocedásticos?</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">library</span>(car)                   <span class="co">#Para poder hacer la prueba de LEVENE se necesita</span></a>
+<a class="sourceLine" id="cb22-2" title="2">                               <span class="co">#la librerÃ?a CAR que se descarga de la pÃ¡gina del R.</span></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="kw">leveneTest</span>(peso,laboratorio)         <span class="co"># Prueba de Levene para homogeneidad de varianzas</span></a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  3  0.5392  0.658
+##       44</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">bartlett.test</span>(peso,laboratorio)        <span class="co"># Prueba de Bartlett para homogeneidad de varianzas</span></a></code></pre></div>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  peso and laboratorio
+## Bartlett&#39;s K-squared = 1.4859, df = 3, p-value = 0.6855</code></pre>
+<p>Se cumplen las hipótesis del modelo.</p>
+</div>
+<div id="luz" class="section level4">
+<h4><span class="header-section-number">6.1.1.3</span> Exprerimento para medir la velocidad de la luz ideado por Morley</h4>
+<p>Datos clásicos de Michelson sobre mediciones hechas en 1879 para estimar la velocidad de la luz. Los datos constan de cinco experimentos, cada uno de los cuales consta de 20 réplicas consecutivas. La respuesta es la velocidad de medición de la luz, adecuadamente codificada (medida en km/s, habiendo sustraído 299000 km/h en todas las mediciones).</p>
+<p>Los datos se ven aquí como un experimento de bloques aleatorizados con “Experimento” y “Réplica” como los factores. “Réplica” también se puede considerar una variable cuantitativa para tener en cuenta los cambios lineales (o polinomiales) en la medición en el transcurso de un solo experimento.</p>
+<p>Se tiene, por tanto, una variable respuesta, velocidad de la luz, y dos factores tratamiento, el experimento realizado, con cinco niveles (se realizan 5 experimentos), y la réplica (con 20 niveles).</p>
+<p>Se cargan los datos:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">luz&lt;-morley</a>
+<a class="sourceLine" id="cb26-2" title="2">luz<span class="op">$</span>Expt &lt;-<span class="st"> </span><span class="kw">factor</span>(luz<span class="op">$</span>Expt)</a>
+<a class="sourceLine" id="cb26-3" title="3">luz<span class="op">$</span>Run &lt;-<span class="st"> </span><span class="kw">factor</span>(luz<span class="op">$</span>Run)</a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="kw">summary</span>(luz)</a></code></pre></div>
+<pre><code>##  Expt        Run         Speed       
+##  1:20   1      : 5   Min.   : 620.0  
+##  2:20   2      : 5   1st Qu.: 807.5  
+##  3:20   3      : 5   Median : 850.0  
+##  4:20   4      : 5   Mean   : 852.4  
+##  5:20   5      : 5   3rd Qu.: 892.5  
+##         6      : 5   Max.   :1070.0  
+##         (Other):70</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">attach</span>(luz)</a></code></pre></div>
+<p><strong>ANOVA</strong> gráfico:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">plot</span>(Expt, Speed, <span class="dt">main=</span><span class="st">&quot;Velocidad de la luz&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Experimento NÃºmero&quot;</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Tabla <strong>ANOVA</strong> y test <strong>F</strong>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">fm &lt;-<span class="st"> </span><span class="kw">aov</span>(Speed <span class="op">~</span><span class="st"> </span>Run <span class="op">+</span><span class="st"> </span>Expt, <span class="dt">data=</span>luz)</a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">summary</span>(fm)</a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Run         19 113344    5965   1.105 0.36321   
+## Expt         4  94514   23629   4.378 0.00307 **
+## Residuals   76 410166    5397                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">names</span>(fm)</a></code></pre></div>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;contrasts&quot;     &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;        
+## [13] &quot;model&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">fm<span class="op">$</span>coef</a></code></pre></div>
+<pre><code>##   (Intercept)          Run2          Run3          Run4          Run5 
+##  9.506000e+02 -5.200000e+01 -2.800000e+01  6.000000e+00 -7.600000e+01 
+##          Run6          Run7          Run8          Run9         Run10 
+## -1.040000e+02 -1.000000e+02 -4.000000e+01 -1.000000e+01 -3.800000e+01 
+##         Run11         Run12         Run13         Run14         Run15 
+##  4.000000e+00 -1.222579e-13 -3.600000e+01 -9.400000e+01 -6.000000e+01 
+##         Run16         Run17         Run18         Run19         Run20 
+## -6.600000e+01 -6.000000e+00 -3.800000e+01 -5.000000e+01 -4.400000e+01 
+##         Expt2         Expt3         Expt4         Expt5 
+## -5.300000e+01 -6.400000e+01 -8.850000e+01 -7.750000e+01</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">summary</span>(fm)</a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Run         19 113344    5965   1.105 0.36321   
+## Expt         4  94514   23629   4.378 0.00307 **
+## Residuals   76 410166    5397                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">names</span>(fm)</a></code></pre></div>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;contrasts&quot;     &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;        
+## [13] &quot;model&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">fm<span class="op">$</span>coef</a></code></pre></div>
+<pre><code>##   (Intercept)          Run2          Run3          Run4          Run5 
+##  9.506000e+02 -5.200000e+01 -2.800000e+01  6.000000e+00 -7.600000e+01 
+##          Run6          Run7          Run8          Run9         Run10 
+## -1.040000e+02 -1.000000e+02 -4.000000e+01 -1.000000e+01 -3.800000e+01 
+##         Run11         Run12         Run13         Run14         Run15 
+##  4.000000e+00 -1.222579e-13 -3.600000e+01 -9.400000e+01 -6.000000e+01 
+##         Run16         Run17         Run18         Run19         Run20 
+## -6.600000e+01 -6.000000e+00 -3.800000e+01 -5.000000e+01 -4.400000e+01 
+##         Expt2         Expt3         Expt4         Expt5 
+## -5.300000e+01 -6.400000e+01 -8.850000e+01 -7.750000e+01</code></pre>
+<p>Se observa que el factor Experimento afecta significativamente (0.00307&lt;0.05) a la respuesta (velocidad de la luz) en al menos un nivel. Viendo el ANOVA gráfico, bien podría ser el Experimento 1 el diferente. Habría que ver cuál es la razón a tales diferencias. En todo caso, la velocidad debería estimarse con el resto de experimentos.</p>
+<p><strong>Diagnosis del modelo</strong>:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb42-2" title="2"><span class="kw">plot</span>(fm)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="kw">rm</span>(fm)</a></code></pre></div>
+</div>
+<div id="lana" class="section level4">
+<h4><span class="header-section-number">6.1.1.4</span> Diseño que incluye el test de Tuckey para la resistencia a la rotura de la lana (con dos tipos diferentes) en un telar</h4>
+<p>Este conjunto de datos proporciona el número de roturas de urdimbre por telar, donde un telar corresponde a una longitud fija de hilo. Se tienen 54 observaciones correspondientes a 3 telares, con dos tipos de lana (medida de roturas)</p>
+<p><strong>Variable respuesta</strong>: número de roturas de las fibras de lana. Factores tratamiento: tipo de lana (A o B) y tensión que soporta (Low, Medium, High). Por tanto, hay <span class="math inline">\(2*3=6\)</span> tratamientos.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">data</span>(warpbreaks)</a></code></pre></div>
+<p>Tabla <em>ANOVA</em> y test de la <em>F</em>:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">summary</span>(fm1 &lt;-<span class="st"> </span><span class="kw">aov</span>(breaks <span class="op">~</span><span class="st"> </span>wool <span class="op">+</span><span class="st"> </span>tension, <span class="dt">data =</span> warpbreaks))</a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## wool         1    451   450.7   3.339 0.07361 . 
+## tension      2   2034  1017.1   7.537 0.00138 **
+## Residuals   50   6748   135.0                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Si sólo se suponen efectos aditivos, variaciones en el factor tensión originan cambios significativamente distintos de cero (0.00138&lt;0.05) en el número de roturas (variable respuesta).</p>
+<p>Además, el test de <strong>Tukey</strong> puede indicar qué niveles de tensión producen cambios significativos en el número de roturas.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">TukeyHSD</span>(fm1, <span class="st">&quot;tension&quot;</span>, <span class="dt">ordered =</span> <span class="ot">TRUE</span>)            </a></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+##     factor levels have been ordered
+## 
+## Fit: aov(formula = breaks ~ wool + tension, data = warpbreaks)
+## 
+## $tension
+##          diff        lwr      upr     p adj
+## M-H  4.722222 -4.6311985 14.07564 0.4474210
+## L-H 14.722222  5.3688015 24.07564 0.0011218
+## L-M 10.000000  0.6465793 19.35342 0.0336262</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(fm1, <span class="st">&quot;tension&quot;</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>La alta (H) y media (M) tensión inducen un número de roturas similar y signficativamente más bajo que el correspondiente a un nivel de tensión bajo (L).</p>
+<p>Si se analiza un modelo con interacción, se ve, al igual que se intuía en el ANOVA gráfico (diferente efecto de la tensión según el tipo de lana), que la interacción entre tensión y tipo de lana es significativa <span class="math inline">\((0.021044&lt;0.05)\)</span>.</p>
+</div>
+</div>
+<div id="disenos-factoriales" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> DISEÑOS FACTORIALES</h3>
+<div id="resina" class="section level4">
+<h4><span class="header-section-number">6.1.2.1</span> Fiabilidad de una resina epoxy (polímero) con fibras de carbono</h4>
+<p>Base de datos y construcción del esquema:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">Inclinacion=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb50-2" title="2">Grosor=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb50-3" title="3">Postcurado=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb50-4" title="4">Compresiones=<span class="kw">c</span>(<span class="dv">79</span>,<span class="dv">97</span>,<span class="dv">75</span>,<span class="dv">92</span>,<span class="dv">64</span>,<span class="dv">84</span>,<span class="dv">73</span>,<span class="dv">90</span>)</a></code></pre></div>
+<p>El esquema del diseño factorial se define usando la librería <strong>qualityTools</strong>, asignando <span class="math inline">\(-1\)</span> a los niveles <span class="math inline">\(0\)</span> y <span class="math inline">\(+1\)</span> a los niveles <span class="math inline">\(1\)</span>.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">library</span>(qualityTools)</a></code></pre></div>
+<pre><code>## Warning: package &#39;qualityTools&#39; was built under R version 3.6.1</code></pre>
+<pre><code>## Loading required package: Rsolnp</code></pre>
+<pre><code>## Warning: package &#39;Rsolnp&#39; was built under R version 3.6.1</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## 
+## Attaching package: &#39;qualityTools&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:car&#39;:
+## 
+##     qqPlot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     sigma</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">diseno.frac =<span class="st"> </span><span class="kw">fracDesign</span>(<span class="dt">k =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated</code></pre>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated
+
+## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">names</span>(diseno.frac)=<span class="kw">c</span>(<span class="st">&quot;Inclinacion&quot;</span>,<span class="st">&quot;Grosor&quot;</span>,<span class="st">&quot;Postcurado&quot;</span>)</a>
+<a class="sourceLine" id="cb62-2" title="2">diseno.frac</a></code></pre></div>
+<pre><code>##   StandOrder RunOrder Block  A  B  C  y
+## 7          7        1     1 -1  1  1 NA
+## 3          3        2     1 -1  1 -1 NA
+## 8          8        3     1  1  1  1 NA
+## 6          6        4     1  1 -1  1 NA
+## 4          4        5     1  1  1 -1 NA
+## 2          2        6     1  1 -1 -1 NA
+## 5          5        7     1 -1 -1  1 NA
+## 1          1        8     1 -1 -1 -1 NA</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">Compresiones_b=<span class="kw">c</span>(<span class="dv">92</span>,<span class="dv">75</span>,<span class="dv">97</span>,<span class="dv">64</span>,<span class="dv">84</span>,<span class="dv">73</span>,<span class="dv">90</span>,<span class="dv">79</span>)</a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="kw">response</span>(diseno.frac)=</a>
+<a class="sourceLine" id="cb64-3" title="3"><span class="st">  </span><span class="kw">data.frame</span>(<span class="dt">Compresiones=</span>Compresiones_b)</a>
+<a class="sourceLine" id="cb64-4" title="4"><span class="kw">summary</span>(diseno.frac)</a></code></pre></div>
+<pre><code>## Information about the factors:
+## 
+##                A       B          C
+## low           -1      -1         -1
+## high           1       1          1
+## name Inclinacion  Grosor Postcurado
+## unit                               
+## type     numeric numeric    numeric
+## -----------
+##   StandOrder RunOrder Block  A  B  C Compresiones
+## 7          7        1     1 -1  1  1           92
+## 3          3        2     1 -1  1 -1           75
+## 8          8        3     1  1  1  1           97
+## 6          6        4     1  1 -1  1           64
+## 4          4        5     1  1  1 -1           84
+## 2          2        6     1  1 -1 -1           73
+## 5          5        7     1 -1 -1  1           90
+## 1          1        8     1 -1 -1 -1           79</code></pre>
+<p>Efectos principales:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">effectPlot</span>(diseno.frac, <span class="dt">classic =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Alternativa:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb67-2" title="2"></a>
+<a class="sourceLine" id="cb67-3" title="3">Efecto.I=<span class="kw">data.frame</span>(Inclinacion,Compresiones)</a>
+<a class="sourceLine" id="cb67-4" title="4"><span class="kw">plot.design</span>(Efecto.I,<span class="dt">fun=</span><span class="st">&quot;mean&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Inclinacion&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,</a>
+<a class="sourceLine" id="cb67-5" title="5">            <span class="dt">ylab=</span><span class="kw">list</span>(<span class="st">&quot;Compresiones&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb67-6" title="6">Efecto.G=<span class="kw">data.frame</span>(Grosor,Compresiones)</a>
+<a class="sourceLine" id="cb67-7" title="7"><span class="kw">plot.design</span>(Efecto.G,<span class="dt">fun=</span><span class="st">&quot;mean&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Grosor&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,</a>
+<a class="sourceLine" id="cb67-8" title="8">            <span class="dt">ylab=</span><span class="kw">list</span>(<span class="st">&quot;Compresiones&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb67-9" title="9">Efecto.P=<span class="kw">data.frame</span>(Postcurado,Compresiones)</a>
+<a class="sourceLine" id="cb67-10" title="10"><span class="kw">plot.design</span>(Efecto.P,<span class="dt">fun=</span><span class="st">&quot;mean&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Postcuarado&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,</a>
+<a class="sourceLine" id="cb67-11" title="11">            <span class="dt">ylab=</span><span class="kw">list</span>(<span class="st">&quot;Compresiones&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Efectos de las interacciones:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="kw">interactionPlot</span>(diseno.frac)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Alternativa</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="kw">interaction.plot</span>(Inclinacion,Grosor,Compresiones,<span class="dt">main=</span><span class="st">&quot;Interacci?n I - G&quot;</span>,</a>
+<a class="sourceLine" id="cb69-3" title="3">                 <span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;I&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb69-4" title="4"></a>
+<a class="sourceLine" id="cb69-5" title="5"><span class="kw">interaction.plot</span>(Inclinacion,Postcurado,Compresiones,<span class="dt">main=</span><span class="st">&quot;Interacci?n I - P&quot;</span>,</a>
+<a class="sourceLine" id="cb69-6" title="6">                 <span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;I&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb69-7" title="7"></a>
+<a class="sourceLine" id="cb69-8" title="8"><span class="kw">interaction.plot</span>(Grosor,Postcurado,Compresiones,<span class="dt">main=</span><span class="st">&quot;Interacci?n G - P&quot;</span>,</a>
+<a class="sourceLine" id="cb69-9" title="9">                 <span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;G&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb69-10" title="10"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Hay interacción entre el grosor y el postcurado</p>
+<p><strong>Gráfico de Pareto</strong>:</p>
+<p>[El gráfico de Pareto muestra los valores absolutos de los efectos estandarizados desde el efecto más grande hasta el efecto más
+pequeño. Los efectos estandarizados son estadísticos que se distribuyen como una t-student. Así se contrasta la hipótesis nula de que el efecto es 0. El gráfico también traza una línea de referencia para indicar qué efectos son estadísticamente significativos.]</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">windows</span>()</a>
+<a class="sourceLine" id="cb70-2" title="2"><span class="kw">paretoPlot</span>(diseno.frac,<span class="dt">main=</span><span class="st">&quot;Diagrama de Pareto de los efectos&quot;</span>,<span class="dt">abs=</span>T,</a>
+<a class="sourceLine" id="cb70-3" title="3">           <span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;Factores&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>),</a>
+<a class="sourceLine" id="cb70-4" title="4">           <span class="dt">las=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="dv">2</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">alpha=</span><span class="fl">0.05</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Interpretación: Se usa el diagrama de Pareto para determinar la magnitud y la importancia de los efectos. En el gráfico de Pareto, las barras que cruzan la línea de referencia hacen referencia a efectos estadísticamente significativos. Los efectos de inclinación, postcurado e interacción grosor postcurado son susceptibles de ser significativos, si atendemos al ME (margin error) del método de Lenth.</p>
+<p><strong>Análisis del diseño factorial mediante la tabla ANOVA</strong></p>
+<p>Esta es otra alternativa para detectar aquellos factores que inducen cambios significativamente distintos de cero en la respuesta (efectos significativos sobre la respuesta, resistencia a la rotura del material).</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">analisis.disen=<span class="kw">aov</span>(Compresiones<span class="op">~</span>(Inclinacion <span class="op">+</span><span class="st"> </span>Grosor <span class="op">+</span><span class="st"> </span>Postcurado))</a>
+<a class="sourceLine" id="cb71-2" title="2"><span class="kw">summary</span>(analisis.disen)</a></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Inclinacion  1  648.0   648.0  34.560 0.00418 **
+## Grosor       1    4.5     4.5   0.240 0.64986   
+## Postcurado   1  128.0   128.0   6.827 0.05925 . 
+## Residuals    4   75.0    18.7                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Inclinación es el factor significativo cuando sólo se tienen en cuenta efectos principales.</p>
+<p>Si se incluye la interacción de grosos y postcurado, se observa que es significativa.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">analisis.disen=<span class="kw">aov</span>(Compresiones<span class="op">~</span>Inclinacion <span class="op">+</span><span class="st"> </span>Grosor <span class="op">*</span><span class="st"> </span>Postcurado)</a>
+<a class="sourceLine" id="cb73-2" title="2"><span class="kw">summary</span>(analisis.disen)</a></code></pre></div>
+<pre><code>##                   Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Inclinacion        1  648.0   648.0   648.0 0.000133 ***
+## Grosor             1    4.5     4.5     4.5 0.124027    
+## Postcurado         1  128.0   128.0   128.0 0.001481 ** 
+## Grosor:Postcurado  1   72.0    72.0    72.0 0.003437 ** 
+## Residuals          3    3.0     1.0                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Gráfica de probabilidad normal:</strong></p>
+<p>Debido a que el gráfico de Pareto muestra el valor absoluto de los efectos, puede determinar qué efectos
+son grandes, pero no puede determinar qué efectos aumentan o disminuyen la respuesta. Úsese la gráfica de probabilidad normal de los efectos estandarizados para examinar la magnitud y dirección de los efectos.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="co"># *La gráfica de probabilidad normal de los efectos muestra</span></a>
+<a class="sourceLine" id="cb75-2" title="2"><span class="co"># los efectos estandarizados relativos a una línea de </span></a>
+<a class="sourceLine" id="cb75-3" title="3"><span class="co"># ajuste de distribución para el caso en el que todos los </span></a>
+<a class="sourceLine" id="cb75-4" title="4"><span class="co"># efectos son 0. Los efectos estandarizados son </span></a>
+<a class="sourceLine" id="cb75-5" title="5"><span class="co"># t-estadísticos que contrastan la hipótesis nula de que </span></a>
+<a class="sourceLine" id="cb75-6" title="6"><span class="co"># el efecto es 0. </span></a>
+<a class="sourceLine" id="cb75-7" title="7"><span class="co"># *Los efectos positivos aumentan la respuesta cuando la </span></a>
+<a class="sourceLine" id="cb75-8" title="8"><span class="co"># configuración cambia del valor bajo del factor al valor </span></a>
+<a class="sourceLine" id="cb75-9" title="9"><span class="co"># alto. </span></a>
+<a class="sourceLine" id="cb75-10" title="10"><span class="co"># *Los efectos negativos disminuyen la respuesta cuando su </span></a>
+<a class="sourceLine" id="cb75-11" title="11"><span class="co"># configuración cambia del valor bajo del factor al alto </span></a>
+<a class="sourceLine" id="cb75-12" title="12"><span class="co"># *Los efectos más allá de 0 en el eje x tienen mayor </span></a>
+<a class="sourceLine" id="cb75-13" title="13"><span class="co"># magnitud. Los efectos más allá de 0 son estadísticamente</span></a>
+<a class="sourceLine" id="cb75-14" title="14"><span class="co"># más significativos.</span></a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">normalPlot</span>(diseno.frac)</a></code></pre></div>
+<pre><code>##     A     B     C   A:B   A:C   B:C A:B:C 
+##   NaN   NaN   NaN   NaN   NaN   NaN   NaN</code></pre>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Inclinación y la interacción Inclinación:Postcurado tienen efecto positivo sobre la respuesta.</p>
+<p>El postcurado tiene efecto negativo.</p>
+<p><strong>Superficie de respuesta para ver la relación entre inclinación y postcurado</strong></p>
+<p>Visualización con un mapa de contorno y una superficie de respuesta:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb78-2" title="2"><span class="kw">wirePlot</span>(A, C, Compresiones, <span class="dt">data =</span> diseno.frac)</a>
+<a class="sourceLine" id="cb78-3" title="3"><span class="kw">contourPlot</span>(A, C, Compresiones, <span class="dt">data =</span> diseno.frac)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+</div>
+<div id="disenos-de-experimentos-factoriales-fraccionados" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> DISEÑOS DE EXPERIMENTOS FACTORIALES FRACCIONADOS</h3>
+<p>Se ajusta el modelo paramétrico de Paris, dependiente de los parámetros C y m para estimar la longitud de grietas en un material en función del número de ciclos de esfuerzos a fatiga. Se trataría de ver si unos parámetros de un modelo de fiabilidad (prueba de fatiga tipo Paris) son significativos a la par que se analiza el posible efecto de la interacción.</p>
+<div id="f1" class="section level4">
+<h4><span class="header-section-number">6.1.3.1</span> EJEMPLO de DISEÑO FRACCIONADO 1/4</h4>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"> <span class="kw">library</span>(qualityTools)</a></code></pre></div>
+<p>MATRIZ DE BASE DE DATOS: valores ajustados</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">S2m=<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb80-2" title="2">SCm=<span class="kw">c</span>(<span class="op">-</span><span class="fl">0.09</span>,<span class="op">-</span><span class="fl">0.09</span>,<span class="op">-</span><span class="fl">0.02</span>,<span class="op">-</span><span class="fl">0.02</span>,<span class="op">-</span><span class="fl">0.09</span>,<span class="op">-</span><span class="fl">0.09</span>,<span class="op">-</span><span class="fl">0.02</span>,<span class="op">-</span><span class="fl">0.02</span>)</a>
+<a class="sourceLine" id="cb80-3" title="3">S2C=<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb80-4" title="4">m=<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb80-5" title="5">C=<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb80-6" title="6"></a>
+<a class="sourceLine" id="cb80-7" title="7">S2_m=<span class="kw">factor</span>(S2m); S_Cm=<span class="kw">factor</span>(SCm);S2_C=<span class="kw">factor</span>(S2C);m=<span class="kw">factor</span>(m);C=<span class="kw">factor</span>(C)</a></code></pre></div>
+<p>RESPUESTA DE LAS DISTANCIAS L2 DE LAS OCHO COMBINACIONES</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">resp.lme.L2=<span class="kw">c</span>(<span class="fl">0.001326</span>,<span class="fl">0.001648</span>,<span class="fl">0.000626</span>,<span class="fl">0.002624</span>,<span class="fl">0.005023</span>,<span class="fl">0.002590</span>,<span class="fl">0.003786</span>, <span class="fl">0.003949</span>)</a></code></pre></div>
+<p>DIAGRAMA DE PARETO DE LOS EFECTOS SIGNIFICATIVOS</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">diseno.frac =<span class="st"> </span><span class="kw">fracDesign</span>(<span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">gen =</span> <span class="kw">c</span>(<span class="st">&quot;D=AB&quot;</span>,<span class="st">&quot;E=AC&quot;</span>))</a></code></pre></div>
+<pre><code>## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated
+
+## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated
+
+## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated
+
+## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated
+
+## Warning in `[&lt;-`(`*tmp*`, i, value = new(&quot;doeFactor&quot;)): implicit list
+## embedding of S4 objects is deprecated</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">names</span>(diseno.frac)=<span class="kw">c</span>(<span class="st">&quot;var(m)&quot;</span>,<span class="st">&quot;cov(C,m)&quot;</span>,<span class="st">&quot;var(C)&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;C&quot;</span>)</a>
+<a class="sourceLine" id="cb84-2" title="2"><span class="kw">response</span>(diseno.frac)=<span class="kw">data.frame</span>(<span class="dt">resp.L2=</span><span class="kw">c</span>(<span class="fl">0.002624</span>,<span class="fl">0.000626</span>,<span class="fl">0.001648</span>,<span class="fl">0.005023</span>, <span class="fl">0.002590</span>,   <span class="fl">0.003786</span>,<span class="fl">0.003949</span>,<span class="fl">0.001326</span>))</a></code></pre></div>
+<p>Gráfico de pareto del los efectos estadarizados de los factores</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">paretoPlot</span>(diseno.frac,<span class="dt">main=</span><span class="st">&quot;Diagrama de Pareto de los efectos&quot;</span>,<span class="dt">abs=</span>T,</a>
+<a class="sourceLine" id="cb85-2" title="2">           <span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;Efectos&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>),<span class="dt">ylab=</span><span class="kw">list</span>(<span class="kw">expression</span>(L[<span class="dv">2</span>]),<span class="dt">cex=</span><span class="fl">1.2</span>),</a>
+<a class="sourceLine" id="cb85-3" title="3">           <span class="dt">las=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="dv">2</span><span class="op">:</span><span class="dv">6</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>ANALISIS DEL DISEÃO CON LA TABLA <strong>ANOVA</strong></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">analisis.disen=<span class="kw">aov</span>(resp.lme.L2<span class="op">~</span>(S2_m <span class="op">+</span><span class="st"> </span>S_Cm <span class="op">+</span><span class="st"> </span>S2_C <span class="op">+</span><span class="st"> </span>m <span class="op">+</span><span class="st"> </span>C))</a>
+<a class="sourceLine" id="cb86-2" title="2"><span class="kw">summary</span>(analisis.disen)</a></code></pre></div>
+<pre><code>##             Df    Sum Sq   Mean Sq F value  Pr(&gt;F)   
+## S2_m         1 0.000e+00 0.000e+00   0.006 0.94647   
+## S_Cm         1 2.000e-08 2.000e-08   0.364 0.60756   
+## S2_C         1 1.041e-05 1.041e-05 191.348 0.00519 **
+## m            1 2.281e-06 2.281e-06  41.948 0.02302 * 
+## C            1 2.634e-06 2.634e-06  48.426 0.02003 * 
+## Residuals    2 1.090e-07 5.400e-08                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><em>ESTRUCTURA DE ALIAS</em></p>
+<p>A=S2_m ; B=S_Cm ; C=S2_C ; D=m ; E= C</p>
+<p>I + ABD + ACE + BCDE</p>
+<p>A + BD + CE + ABCDE</p>
+<p>B + AD + CDE + ABCE</p>
+<p>C + AE + BDE + ABCD * EFECTO
+SIGNIFICATIVO C</p>
+<p>D + AB + BCE + ACDE * EFECTO SIGNIFICATIVO D</p>
+<p>E + AC + BCD + ABDE * EFECTO SIGNIFICATIVO E</p>
+<p>BC + DE + ABE + ACD</p>
+<p>BE + CD + ABC + ADE</p>
+<p>GRÁFICOS DE EFECTOS PRINCIPALES SIGNIFICATIVOS</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb88-2" title="2"><span class="kw">interaction.plot</span>(S2_m,C,resp.lme.L2,<span class="dt">main=</span><span class="st">&quot;Interacci?n var(m) - C&quot;</span>,</a>
+<a class="sourceLine" id="cb88-3" title="3">                 <span class="dt">ylab=</span><span class="kw">expression</span>(L[<span class="dv">2</span>]),<span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;var(m)&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb88-4" title="4"></a>
+<a class="sourceLine" id="cb88-5" title="5"><span class="kw">interaction.plot</span>(S2_m,S_Cm,resp.lme.L2,<span class="dt">main=</span><span class="st">&quot;Interacci?n var(m) - cov(C,m)&quot;</span>,</a>
+<a class="sourceLine" id="cb88-6" title="6">                 <span class="dt">ylab=</span><span class="kw">expression</span>(L[<span class="dv">2</span>]),<span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;var(m)&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb88-7" title="7"></a>
+<a class="sourceLine" id="cb88-8" title="8"><span class="kw">interaction.plot</span>(S2_m,S2_C,resp.lme.L2,<span class="dt">main=</span><span class="st">&quot;Interacci?n var(m) - var(C)&quot;</span>,</a>
+<a class="sourceLine" id="cb88-9" title="9">                 <span class="dt">ylab=</span><span class="kw">expression</span>(L[<span class="dv">2</span>]),<span class="dt">xlab=</span><span class="kw">list</span>(<span class="st">&quot;var(m)&quot;</span>,<span class="dt">cex=</span><span class="fl">1.4</span>))</a>
+<a class="sourceLine" id="cb88-10" title="10"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><strong>MODELO LINEAL</strong></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">model.lm=<span class="kw">lm</span>(resp.lme.L2<span class="op">~</span>(S2_m <span class="op">+</span>S_Cm <span class="op">+</span>S2_C <span class="op">+</span>m <span class="op">+</span><span class="st"> </span>C))</a>
+<a class="sourceLine" id="cb89-2" title="2"><span class="kw">anova</span>(model.lm) <span class="co"># Es el mismo resumen de la tabla ANOVA</span></a></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: resp.lme.L2
+##           Df     Sum Sq    Mean Sq  F value   Pr(&gt;F)   
+## S2_m       1 3.0000e-10 3.0000e-10   0.0057 0.946475   
+## S_Cm       1 1.9800e-08 1.9800e-08   0.3641 0.607557   
+## S2_C       1 1.0406e-05 1.0406e-05 191.3478 0.005185 **
+## m          1 2.2812e-06 2.2812e-06  41.9484 0.023019 * 
+## C          1 2.6335e-06 2.6335e-06  48.4260 0.020032 * 
+## Residuals  2 1.0880e-07 5.4400e-08                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">summary</span>(model.lm)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = resp.lme.L2 ~ (S2_m + S_Cm + S2_C + m + C))
+## 
+## Residuals:
+##          1          2          3          4          5          6 
+## -1.343e-04  9.575e-05  1.343e-04 -9.575e-05  1.343e-04 -9.575e-05 
+##          7          8 
+## -1.343e-04  9.575e-05 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  0.0015398  0.0002020   7.624  0.01677 * 
+## S2_m0.5      0.0000125  0.0001649   0.076  0.94647   
+## S_Cm-0.02    0.0000995  0.0001649   0.603  0.60756   
+## S2_C0.5      0.0022810  0.0001649  13.833  0.00519 **
+## m4           0.0010680  0.0001649   6.477  0.02302 * 
+## C6          -0.0011475  0.0001649  -6.959  0.02003 * 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.0002332 on 2 degrees of freedom
+## Multiple R-squared:  0.993,  Adjusted R-squared:  0.9754 
+## F-statistic: 56.42 on 5 and 2 DF,  p-value: 0.01751</code></pre>
+<p><span class="math inline">\(p-value=0.01751\)</span> es significativo el modelo al <span class="math inline">\(95\%\)</span> y los coeficientes significativos del modelo coinciden con los de latabla ANOVA</p>
+<p>RESIDUOS DEL MODELO</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">plot</span>(<span class="kw">rstandard</span>(model.lm),<span class="dt">main=</span><span class="st">&quot;Comportamiento de los residuos estÃ¡ndar&quot;</span>,</a>
+<a class="sourceLine" id="cb93-2" title="2">     <span class="dt">ylab=</span><span class="kw">list</span>(<span class="st">&quot;Residuos est?ndar&quot;</span>,<span class="dt">cex=</span><span class="fl">1.2</span>),<span class="dt">xlab=</span><span class="st">&quot;?ndice&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">pch=</span><span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb93-3" title="3">     <span class="dt">cex=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="dv">4</span>)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>Están dentro del intervalo de -2 a 2</p>
+<p>PREDICCIONES DEL MODELO PARA IDENTIFICAR EL NIVEL ÓPTIMO DE <span class="math inline">\(var(m)\)</span></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">factorA=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.5</span>)) ; factorB=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="op">-</span><span class="fl">0.02</span>,<span class="op">-</span><span class="fl">0.02</span>))</a>
+<a class="sourceLine" id="cb94-2" title="2">factorC=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>)) ; factorD=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb94-3" title="3">factorE=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb94-4" title="4"></a>
+<a class="sourceLine" id="cb94-5" title="5">pred.model=<span class="kw">predict</span>(model.lm,<span class="dt">newdata=</span><span class="kw">data.frame</span>(<span class="dt">S2_m=</span>factorA,<span class="dt">S_Cm=</span>factorB,</a>
+<a class="sourceLine" id="cb94-6" title="6">                                               <span class="dt">S2_C=</span>factorC, <span class="dt">m=</span>factorD,</a>
+<a class="sourceLine" id="cb94-7" title="7">                                               <span class="dt">C=</span>factorE),<span class="dt">level=</span><span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb94-8" title="8">                   <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>)</a>
+<a class="sourceLine" id="cb94-9" title="9">pred.model</a></code></pre></div>
+<pre><code>##          fit           lwr         upr
+## 1 0.00049175 -0.0003772015 0.001360701
+## 2 0.00050425 -0.0003647015 0.001373201</code></pre>
+</div>
+</div>
+<div id="ilab" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> ESTUDIOS INTERLABORATORIO (CASO PARTICULAR DE DOE Y ESTUDIOS R&amp;R)</h3>
+<p>Conjunto de datos de grucosa. El contenido de glucosa se mide en diferentes 5 muestras diferentes de sangre (5 tipos de material diferentes) por 8 diferentes laboratorios.</p>
+<p><strong>Gráficos para el estadístico h de Mandel:</strong></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">library</span>(ILS)</a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="kw">data</span>(Glucose)</a>
+<a class="sourceLine" id="cb96-3" title="3">Glucose.qcdata &lt;-<span class="st"> </span><span class="kw">lab.qcdata</span>(Glucose)</a>
+<a class="sourceLine" id="cb96-4" title="4"><span class="kw">str</span>(Glucose.qcdata)</a></code></pre></div>
+<pre><code>## Classes &#39;lab.qcdata&#39; and &#39;data.frame&#39;:   120 obs. of  4 variables:
+##  $ x         : num  41 41.5 41.4 41.2 42 ...
+##  $ replicate : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 2 3 1 2 3 1 2 3 1 ...
+##  $ material  : Factor w/ 5 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ laboratory: Factor w/ 8 levels &quot;Lab1&quot;,&quot;Lab2&quot;,..: 1 1 1 2 2 2 3 3 3 4 ...
+##  - attr(*, &quot;data.name&quot;)= chr &quot;Glucose&quot;</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1">h&lt;-<span class="st"> </span><span class="kw">h.qcs</span>(Glucose.qcdata, <span class="dt">alpha =</span> <span class="fl">0.005</span>)</a>
+<a class="sourceLine" id="cb98-2" title="2"><span class="kw">summary</span>(h)</a></code></pre></div>
+<pre><code>## 
+## Number of laboratories:  8
+## Number of materials:  5
+## Number of replicate:  3
+## Critical value:  2.152492
+## Beyond limits of control: 
+##         A    B     C     D    E
+## Lab1 TRUE TRUE  TRUE  TRUE TRUE
+## Lab2 TRUE TRUE  TRUE  TRUE TRUE
+## Lab3 TRUE TRUE  TRUE  TRUE TRUE
+## Lab4 TRUE TRUE FALSE  TRUE TRUE
+## Lab5 TRUE TRUE  TRUE  TRUE TRUE
+## Lab6 TRUE TRUE  TRUE  TRUE TRUE
+## Lab7 TRUE TRUE  TRUE FALSE TRUE
+## Lab8 TRUE TRUE  TRUE FALSE TRUE</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">plot</span>(h)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><strong>Gráficos para el estadístico k de Mandel:</strong></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">library</span>(ILS)</a>
+<a class="sourceLine" id="cb101-2" title="2"><span class="kw">data</span>(Glucose)</a>
+<a class="sourceLine" id="cb101-3" title="3">Glucose.qcdata &lt;-<span class="st"> </span><span class="kw">lab.qcdata</span>(Glucose)</a>
+<a class="sourceLine" id="cb101-4" title="4"><span class="kw">str</span>(Glucose.qcdata)</a></code></pre></div>
+<pre><code>## Classes &#39;lab.qcdata&#39; and &#39;data.frame&#39;:   120 obs. of  4 variables:
+##  $ x         : num  41 41.5 41.4 41.2 42 ...
+##  $ replicate : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 2 3 1 2 3 1 2 3 1 ...
+##  $ material  : Factor w/ 5 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ laboratory: Factor w/ 8 levels &quot;Lab1&quot;,&quot;Lab2&quot;,..: 1 1 1 2 2 2 3 3 3 4 ...
+##  - attr(*, &quot;data.name&quot;)= chr &quot;Glucose&quot;</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">k&lt;-<span class="st"> </span><span class="kw">k.qcs</span>(Glucose.qcdata, <span class="dt">alpha =</span> <span class="fl">0.005</span>)</a>
+<a class="sourceLine" id="cb103-2" title="2"><span class="kw">summary</span>(k)</a></code></pre></div>
+<pre><code>## 
+## Number of laboratories:  8
+## Number of materials:  5
+## Number of replicate:  3
+## Critical value:  2.06084
+## Beyond limits of control: 
+##         A    B     C    D     E
+## Lab1 TRUE TRUE  TRUE TRUE  TRUE
+## Lab2 TRUE TRUE  TRUE TRUE FALSE
+## Lab3 TRUE TRUE  TRUE TRUE  TRUE
+## Lab4 TRUE TRUE FALSE TRUE  TRUE
+## Lab5 TRUE TRUE  TRUE TRUE  TRUE
+## Lab6 TRUE TRUE  TRUE TRUE  TRUE
+## Lab7 TRUE TRUE  TRUE TRUE  TRUE
+## Lab8 TRUE TRUE  TRUE TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">plot</span>(k)</a></code></pre></div>
+<p><img src="Control_book_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="practica-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Control_book.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

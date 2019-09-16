@@ -1,0 +1,707 @@
+# Práctica 2 
+
+```{r warning=FALSE,message=FALSE, include =FALSE} 
+#librerias
+library(qcc)
+library(qcr)
+library(qualityTools)
+library(knitr)
+library(SixSigma)
+```
+## Epata CONTROL: 
+
+### Gráficos de control
+
+En esta práctica se obtendrán gráficos de control para variables y atributos utilizando dos paquetes: "qcc" y "qcr".
+
+Para trabajar con casi todas las funciones y aplicaciones que existen dentro de este paquete estadástico, debemos crear un objeto `qcc`.
+
+Necesitamos básicamente dos cosas:
+Unos datos (un data frame, una matriz, un vector,..) y un "string value" especificando el tipo de control que deseamos hacer (por Atributos o por variables).
+
+También, opcionalmente, se pueden modificar el tamaño (sizes), el centro del grupo (center), la desviación estándar (std.dev), los limites de control (limits), el valor objetivo del proceso(target).
+
+La única diferencia que existe a la hora de trabajar con variables o con atributos, radica en "type". Para variables podemos optar por elegir entre "xbar","xbar.one", "R"  o "S" y para atributos tenemos "p", "np","c","u" o "g".
+ 
+### Gráficos de control por variables 
+
+ __Libreria qcc__
+
+__Libreria qcr__
+
+Para cargar los datos "plates" hay dos alternativas:
+
+Importándolo a R a partir del archivo `Ejercicio1.r`
+
+
+
+
+__CASO PRÁCTICO__ a resolver con la base de datos "plates":
+
+Una conocida empresa química está desarrollando la patente de una  nueva variante de piedra artificial, compuesta en su mayor parte por cuarzo (93 wt%) y resina de poliéster. Esta compañía pone en marcha una planta piloto donde se comienzan a producir planchas de este material a escala industrial. Con el fin de medir el grado de homogeneidad del producto, se toman 50 submuestras, realizándose 5 medidas por plancha de la dureza Vickers correspondiente a distintas zonas de la piedra artificial (Ejercicio1.r). ¿Qué tipo de gráficos de control serían los más adecuados para controlar el nivel y la dispersión? Hallar los límites de control natural $3\sigma$? con una muestra de calibrado y, seguidamente, monitorizar las muestras restantes. Comentar los resultados, identificar patrones e identificar sus posibles causas.
+
+```{r}
+Ejercicio1=read.table("Ejercicio1.r",header=TRUE)
+names(Ejercicio1)
+dim(Ejercicio1)
+# Acto seguido se define el objeto qcc.groups:
+Dureza <- qcc.groups(Ejercicio1$dureza, Ejercicio1$sample)
+
+# O cargandolo desde el paquete qcr (que ya lleva incorporado el dataframe)
+
+library(qcr)
+data(plates)
+str(plates) # Variables de las que se compone plates
+```
+##### Graficos de Control R y S
+
+```{r}
+Dureza <- qcc.groups(Ejercicio1$dureza, Ejercicio1$sample)
+
+Dureza 
+dim(Dureza)
+```
+__Procedimiento estandar: Etapas I y II__
+
+
+
+IMPORTANTE. Para construir un gráfico de control de la media, primero hay que observar los diagramas de rangos o desviaciones tipicas (antes que los diagramas de la media).
+Es debido a que los rangos o desviaciones tipicas estimados se emplean luego para calcular los UCL y LCL en el gráfico de control de la media.
+
+
+Procedimiento estándar para la construcción de gráficos de control para el rango y la media: etapas I y II
+
+Se estiman los límites naturales del gráfico de control.
+Primero se estima la variabilidad del proceso con el gráfico de rangos. Se sigue el siguiente proceso:
+
+1. Gráfico con 4 paneles
+
+```{r}
+windows(15,10)
+op<-par(mfrow=c(2,2))
+```
+
+Se estiman los límites naturales de control del gráfico  de rangos mediante las 25 primeras muestras:
+
+```{r}
+qcc(Dureza[1:25,],type="R",nsigmas=3,restore.par=FALSE)  # type indica gráfico de rangos, R-para variables
+
+```
+
+Se ha creado un objeto qcc, el primer gráfico de control
+
+Los parámetros de la funcion qcc son los siguientes:
+
+```{r}
+
+```
+
+El gráfico proporciona además un resumen incluyendo estadástica descriptiva referida a los grupos,
+tamaño de la submuestra, num de grupos, media del estadístico del gráfico de control, desviación típica resultado de dividir el rango medio entre d2 (tabulado)
+
+```{r}
+summary(qcc(Dureza[1:25,], type="R",plot=FALSE))
+
+#Proceso de control continuo: se aumñaden las muestras restantes:
+qcc(Dureza[c(1:10,12:25),], type="R", newdata=Dureza[26:50,],restore.par=FALSE)
+```
+
+__Grafico x barra__:
+ 
+  1. Con la estimación de la desviación típica obtenida ateriormente con el grumñáfico R, se determinan los lumñáímites de control naturales con las primeras 24 muestras (es recomendable utilizar al menos 20 muestras para ello).
+
+```{r}
+qcc(Dureza[c(1:10,12:25),], type="xbar",nsigmas=3,restore.par=FALSE)
+```
+
+  2. Seguidamente se incluyen las 25 restantes (sin afectar al cálculo de los límites de control), con el objeto de 
+monitorizar de forma continua el proceso.
+
+```{r}
+qcc(Dureza[c(1:10,12:24),], type="xbar", newdata=Dureza[26:50,],nsigmas=3,restore.par=FALSE)
+par(op)
+```
+
+__Gráfico S__ (desviaciones típicas)-para variables. 
+
+También podríamos haber calculado el gráfico S en lugar del de rangos. Para muestras pequeñas ses usual usar el R, entre otras cosas por su sencillez. Para submuestras con tamaños muestrales n > 10, debería utilizarse preferiblemente el gráfico S:
+```{r}
+qcc(Dureza[1:25,], type="S")
+qcc(Dureza[1:25,], type="S", newdata=Dureza[26:50,])
+```
+
+__Algunas utilidades de la función qcc__
+
+* Diversas maneras de representación de los gráficos de control:
+
+```{r}
+q<-qcc(Dureza[1:25,],type="xbar",
+       newdata=Dureza[26:50,], plot=FALSE)
+```
+
+Se pueden mostrar sólo aquellas muestras que no han sido utilizadas para obtener los límites naturales de control 
+fijando el parámetro chart.all=FALSE (sólo muestra de monitorizado).
+
+```{r}
+plot(q, chart.all=FALSE)
+```
+
+con `nsigmas` es el número de sigmas que se van a usar para construir los límites # de control, sumando y restando dicha cantidad al valor central.
+
+```{r}
+qcc(Dureza[1:25,],type="xbar",newdata=Dureza[26:50,], nsigmas=2)
+```
+confidence.level es el nivel de confianza. El parámetro nsigmas queda anulado cuando se define confidence.level
+
+```{r}
+qcc(Dureza[1:25,],type="xbar",newdata=Dureza[26:50,],confidence.level=0.99)
+par(op)
+
+```
+#### Resolucion con la librería qcr
+
+```{r}
+library(qcr)
+data(plates)
+str(plates) # Variables de las que se compone plates
+calibrado <- droplevels(plates[1:125,])
+monitorizado <- droplevels(plates[126:250,])
+
+windows(15,10)
+
+op<-par(mfrow=c(2,2))
+plates.qcd <- qcd(calibrado)
+class(plates.qcd)
+res.qcs <- qcs.R(plates.qcd)
+summary(res.qcs) 
+
+calibrado_b <- res.qcs$qcd[-c(51:55),]
+
+plot(res.qcs, title="Grafico de control para la dureza I")
+
+
+res.qcd <- state.control(res.qcs)
+res.qcs <- qcs.R(res.qcd,std.dev = "UWAVE-R")
+summary(res.qcs)
+
+center=res.qcs$center
+res.qcs <- qcs.add(x = res.qcs,center=res.qcs$center, value = monitorizado[,c(1,2)])
+plot(res.qcs, center.nominal=center, title="Gr?ficos de control R para Dureza II")
+summary(res.qcs)
+```
+
+#### Gráficos de control para medidas individuales
+
+ __Ejemplo__: tiempos de renderizado
+
+```{r}
+muestra1=rnorm(50,33.52,0.34) # Operador 1
+muestra2=rnorm(50,32,0.37) # Operador 2
+muestra3=rnorm(10,40,0.5) # Operador 3
+muestra=c(muestra1,muestra2,muestra3)
+
+sample <- 1:length(muestra)
+datos <- data.frame(muestra,sample)
+# datos.qcc <- qcd(datos)
+
+tiempo <- qcc.groups(muestra, sample)
+
+windows(12,7)
+qcc(tiempo[1:30], type="xbar.one", newdata=tiempo[31:110],nsigmas=3)
+```
+### Gráficos qcc para atributos:  
+
+
+#### Gráficos p 
+
+
+Al igual que en el caso anterior, lo mejor para ver cómo trabajar con qcc, es con un ejemplo.
+
+ Usaremos los datos de orangejuice, sacados también del MONTGOMERY y que estudian el sellado de las juntas de los botes de zumo de naranja concentrado.
+
+Consta de 54 muestras de tamaño 50 cada una de ellas.D es el número de disconformidades trial es la prueba (V-F).
+
+La forma más simple para trabajar con los datos es:
+
+```{r}
+data(orangejuice)
+attach(orangejuice)
+orangejuice
+```
+
+ Se emplean las 30 primeras muestras para el calibrado, para la obtención de los límites de los graficos de control.
+
+Hago el diagrama de atributos tipo p (proporción de disconformidades) para Trial ==TRUE
+
+```{r}
+windows(15,8)
+qcc.atributos <- qcc(D[trial], sizes=size[trial], type="p")
+```
+
+Se realiza una modificación, ya que encontramos que los puntos 15 y 23 están fuera de los límites de control.
+
+Se pueden eliminar puntos que no me interesan con la función "setdiff":
+
+```{r}  
+nuevos <- setdiff(which(trial), c(15,23))
+nuevos
+```
+
+ Y ahora realizo el control por atributos pero de mis nuevos datos
+
+```{r}
+windows(15,8)
+qcc.nuev.atributos <- qcc(D[nuevos], sizes=size[nuevos],type="p")
+qcc.nuev.atributos
+```
+
+
+Todavía hay una submuestra fuera de control
+Aunque ahora es la 20, antes de la primera tanda de eliminación, en la muestra original, era la 21. Se procede a su eliminación:
+
+```{r}
+nuevos2 <- setdiff(which(trial), c(15,21,23)) 
+nuevos2
+qcc.nuev.atributos <- qcc(D[nuevos2], sizes=size[nuevos2],type="p")
+```
+
+ El proceso esta bajo control: ahora incluyo las demás muestras
+
+```{r}
+b=qcc(D[nuevos2], sizes=size[nuevos2], type="p",newdata=D[!trial], 
+      newsizes=size[!trial])
+summary(b)
+```
+
+
+#### Gráfico tipo np 
+
+
+número de disconformidades a partir de la aprox. norma a la distribución binomial
+
+Hago el diagrama de atributos tipo np (nº de disconformidades) para Trial ==TRUE
+
+```{r}
+windows(15,8)
+qcc.atributos <- qcc(D[trial], sizes=size[trial], type="np")
+```
+
+
+Se realiza una modificación, ya que los puntos que se "salen" son el 15 y el 23 Se pueden quitar puntos que no me interesan con la función "setdiff":
+```{r}
+nuevos <- setdiff(which(trial), c(15,23))
+nuevos
+
+# y ahora hago el control por atributos pero a partir de mis nuevos datos
+
+
+qcc.nuev.atributos <- qcc(D[nuevos], sizes=size[nuevos],type="np")
+qcc.nuev.atributos # Todavía hay dos fuera de control
+
+nuevos2 <- setdiff(which(trial), c(15,21,23)) # Aunque ahora es el 20, antes
+# de la primera tanda de eliminación era el 21
+nuevos2
+qcc.nuev.atributos <- qcc(D[nuevos2], sizes=size[nuevos2],type="np")
+
+# Ahora incluyo las demás muestras
+b=qcc(D[nuevos2], sizes=size[nuevos2], type="np",newdata=D[!trial], newsizes=size[!trial])
+summary(b)
+
+detach(orangejuice)
+```
+
+
+#### Gráficos C 
+
+
+ __$Nº$ de no conformidades__ 
+
+```{r}
+# Se cargan los datos:
+data(circuit)
+attach(circuit)
+# Hago el diagrama de atributos tipo c (nº de disconformidades) para Trial ==TRUE
+windows(15,8)
+qcc.atributos <- qcc(x[trial], sizes=size[circuit$trial], type="c")
+
+# Se pueden quitar puntos que no me interesan con la función "setdiff" (el 6 y el 20):
+
+nuevos <- setdiff(which(trial), c(6,20))
+nuevos
+
+#y ahora hago el control por atributos pero de mis nuevos datos
+
+
+qcc.nuev.atributos <- qcc(x[nuevos], sizes=size[nuevos],type="c",title="Gráfico c 
+                          para el nº de unidades defectuosas por muestra",xlab="muestra",
+                          ylab="No conformidades por muestra inspeccionada")
+
+qcc.nuev.atributos <- qcc(x[nuevos], sizes=size[nuevos],newdata=x[!trial],type="c",title="Gráfico c 
+                          para el nº de unidades defectuosas por muestra",xlab="muestra",
+                          ylab="No conformidades por muestra inspeccionada")
+detach(circuit)
+```
+
+
+#### Gráficos U 
+
+__$Nº$ medio de no conformidades por muestra__ 
+Se cargan los datos:
+
+```{r}
+data(pcmanufact)
+attach(pcmanufact)
+```
+
+Hago el diagrama de atributos tipo c (nº de disconformidades) para Trial == TRUE
+
+```{r}
+windows(15,8)
+qcc.atributos <- qcc(x, sizes=size, type="u",title="Gráfico 
+             u para el nº medio de unidades defectuosas por 
+             muestra",xlab="muestra",
+                     ylab="Nº no conformidades medias por muestra")
+detach(pcmanufact)
+```
+
+### Otros gráficos de control: CUSUM y EWMA
+
+#### 3.1. GRÁFICOS CUSUM 
+
+Se cargan los datos y se agrupan para poder realizar el gráfico de control
+
+```{r}
+library(qcc)
+data(pistonrings) # Se carga la base de datos
+pistonrings
+attach(pistonrings) # Se toman las columnas de la base de datos como variables
+dim(pistonrings) # 200 datos, 3 variables
+
+# Creacion del objeto qcc.groups o grupos qcc:
+diameter <- qcc.groups(diameter, sample)
+
+# Se agrupan los valores de los di?metros seg?n el valor de la columna "Sample"
+# Como hay 200 valores en 40 muestras, el resultado es una matriz 40x5 (200/5=40)
+
+diameter
+dim(diameter)
+
+# se.shif: es el valor K que nos da la sensibilidad del gráfico,
+# detectará cambios, desplazamientos de la media mayores que k veces
+# la desviación típica estimada
+# decision.interval: es el parámetro h, a partir de cual se construyen
+# los límites de control: H = h·sigma. Suele valer 4 o 5.
+
+windows(15,10)
+# 4 paneles en un gráfico:
+op<-par(mfrow=c(2,2))
+q <- cusum(diameter[1:25,], decision.interval = 4, se.shift = 1
+           ,restore.par=FALSE)
+summary(q)
+
+q1 <- cusum(diameter[1:25,], newdata=diameter[26:40,], decision.interval = 4, 
+            se.shift = 1,restore.par=FALSE)
+q2 <- cusum(diameter[1:25,], newdata=diameter[26:40,], decision.interval = 5, 
+            se.shift = 1,restore.par=FALSE)
+summary(q2)
+
+plot(q2, chart.all=FALSE,restore.par=FALSE)
+par(op)
+
+# Con una mayor sensibilidad, detectando cambios de magnitud 0.6 sigma:
+
+windows(15,10)
+# 4 paneles en un gráfico:
+op<-par(mfrow=c(2,2))
+q <- cusum(diameter[1:25,], decision.interval = 4, se.shift = 0.6
+           ,restore.par=FALSE)
+
+# Elimino un punto, el 14
+q1 <- cusum(diameter[c(1:13,15:25),], decision.interval = 4, se.shift = 0.6
+            ,restore.par=FALSE)
+summary(q1)
+
+q2 <- cusum(diameter[c(1:13,15:25),], newdata=diameter[26:40,], se.shift = 0.6
+           , decision.interval = 4,restore.par=FALSE)
+summary(q)
+plot(q2, chart.all=FALSE,restore.par=FALSE)
+
+par(op)
+
+detach(pistonrings)
+```
+
+
+Aplicación del gráfico de control CUSUM a los datos "Dureza" o "plates":
+
+```{r}
+windows(10,15)
+
+op<-par(mfrow=c(2,1))
+# Se suele tomar como buena práctica el asignar el valor de h = 5 cuando se pretende 
+# identificar un cambio en la media de una desviación típica:
+q <- cusum(Ejercicio1$Dureza[1:25,], decision.interval = 5, se.shift = 1,restore.par=FALSE)
+summary(q)
+names(q); q$limits
+
+# Para la muestra a monitoriza:
+q2 <-  cusum(Dureza[1:25,], decision.interval = 5, se.shift = 1, newdata=Dureza[26:50,], 
+            restore.par=FALSE) 
+summary(q2)
+
+par(op)
+
+# En este caso, el gráfico de control de la media detecta antes el cambio del proceso.
+# Es un cambio grande. El gráfico CUSUM detecta mejor los cambios pequeños.
+# Cambios inferiores 2*sigma: los detectan mejor los gráficos CUSUM y EWMA
+# Cambios superiores a 2*sigma: los detectan mejor los gráficos de la media y rango.
+
+
+# Alternativamente se podría haber utilizado la librería qcr:
+library(qcr)
+
+res.qcd <- qcd(plates, type.data = "dependence")
+res.qcs <- qcs.cusum(res.qcd, type = "cusum")
+plot(res.qcs)
+```
+
+
+#### 3.2. GRÁFICOS EWMA 
+
+
+
+```{r}
+data(pistonrings)
+attach(pistonrings)
+diameter <- qcc.groups(diameter, sample)
+
+windows(15,8)
+# 4 paneles en un gráfico:
+op<-par(mfrow=c(1,2))
+# Se suele tomar como buena práctica el asignar el valor de 0.2 al parametro lambda
+q <- ewma(diameter[1:25,], lambda=0.2, nsigmas=3,restore.par=FALSE)
+summary(q)
+names(q); q$limits
+
+# Para la muestra a monitorizar se emplean unos límites ligeramente más exigentes
+q2 <-  ewma(diameter[1:25,], lambda=0.2, nsigmas=3, newdata=diameter[26:40,], 
+            plot = FALSE,restore.par=FALSE) 
+summary(q2)
+plot(q2)
+
+par(op)
+
+detach(pistonrings)
+
+names(q2)
+q2$limits
+##
+## En el caso de observaciones individuales:
+##
+x <- c(33.75, 33.05, 34, 33.81, 33.46, 34.02, 33.68, 33.27, 33.49, 33.20,
+       33.62, 33.00, 33.54, 33.12, 33.84) # viscosity data (Montgomery, pag. 242)
+q <-  ewma(x, lambda=0.2, nsigmas=2.7)
+summary(q)
+
+#---------------------------------------------------------------------------------------#
+# Aplicación del gráfico de control EWMA a los datos "Dureza" o "plates":
+
+windows(10,15)
+# 4 paneles en un gráfico:
+op<-par(mfrow=c(2,1))
+# Se suele tomar como buena práctica el asignar el valor de 0.2 al parametro lambda
+q <- ewma(Dureza[1:25,], lambda=0.2, nsigmas=3,restore.par=FALSE)
+summary(q)
+names(q); q$limits
+
+# Para la muestra a monitorizar se emplean unos límites ligeramente más exigentes
+q2 <-  ewma(Dureza[1:25,], lambda=0.25, nsigmas=3, newdata=Dureza[26:50,], 
+            restore.par=FALSE) 
+summary(q2)
+
+par(op)
+
+# En este caso, el gráfico de control de la media detecta antes el cambio del proceso.
+# Es un cambio grande. El gráfico EWMA detecta mejor los cambios pequeños.
+# Cambios inferiores 2*sigma: los detectan mejor los gráficos CUSUM y EWMA
+# Cambios superiores a 2*sigma: los detectan mejor los gráficos de la media y rango.
+
+
+# Alternativamente se podría haber utilizado la librería qcr:
+library(qcr)
+
+res.qcd <- qcd(plates, type.data = "dependence")
+res.qcs <- qcs.ewma(res.qcd, type = "ewma")
+plot(res.qcs)
+```
+
+### Curvas OC 
+
+Tenemos dos opciones:La más sencilla es crear un objeto qcc (por variables o por atributos) y despu?s ejecutar.
+  
+
+#### CurvasOC para graficas de variables 
+
+```{r warning=FALSE,warning=FALSE}
+library(qcc)
+```
+```{r}
+#Curvas OC para el grafico de la media 
+  
+data(pistonrings)
+pistonrings
+attach(pistonrings)
+dim(pistonrings)
+#200 datos 3 variables
+
+#creacion de los grupos qcc
+diameter <- qcc.groups(diameter, sample)
+
+#hace grupos por diametro y muestra; lo que me da una matriz 40x5
+#Como hay 5 observaciones por submuestra, hay 200/5=40 submuestras
+diameter
+dim(diameter)
+
+# Se crea el objeto qcc y luego se utiliza como argumento de la funci?n
+# oc.curves. 
+windows()
+
+qcc.variables <- qcc(diameter, type="xbar")
+oc.curves(qcc.variables) # Representa las curvas caracter?sticas de 
+# operaci?n para el gr?fico, variando en tama?o de muestra
+
+# Y otra forma es crearlo todo junto, del siguiente modo:
+
+beta1 <- oc.curves(qcc(diameter, type="xbar", nsigmas=3,
+                         plot=FALSE),n=c(1,5,10,15,20,25)) 
+# Puedo elegir los tama?os muestrales variando "n".
+
+beta1
+
+# Average run length (ARL): muestras necesarias hasta la primera 
+# fuera de los l?mites de control
+
+ARL=1/(1-beta1)
+
+ARL
+
+matplot(seq(0,5,length=101),ARL,col=c(1,2,3,4,5,6),type="l",
+        lty=1,xlab="Desviaciones de la media medidas en n? desv. tipicas")
+legend(2,300,c("n=1","n=5","n=10","n=15","n=20","n=25"),
+       col=c(1,2,3,4,5,6),lty=1,lwd=2)
+
+detach(pistonrings)
+```
+
+
+#### Si es por atributos: 
+
+```{r}
+# Curvas caracterasticas para un grafico p 
+
+data(orangejuice)
+attach(orangejuice)
+
+# Primero se realiza el gr?fico de control:
+qcc(D[trial], sizes=size[trial], type="p", plot=TRUE)
+
+# Se eliminan los puntos fuera de control y se recalculan los l?mites
+nuevos2 <- setdiff(which(trial), c(15,21,23)) 
+windows(15,10)
+qcc.nuev.atributos <- qcc(D[nuevos2], sizes=size[nuevos2],type="p")
+
+# Curva OC a partir de los resultados del grafico de control:
+beta <- oc.curves(qcc(D[nuevos2], sizes=size[nuevos2], type="p", plot=FALSE))
+print(round(beta, digits=4))
+
+windows(15,10)
+op<-par(mfrow=c(1,2))
+oc.curves(qcc(D[nuevos2], sizes=size[nuevos2], type="p", plot=FALSE))
+
+# Curva ARL:
+plot(seq(0,1,length=101),as.numeric(1/(1-beta)),type="l", 
+ylab="Average Run Length to detect shift, ARL",xlab="p" )
+par(op)
+```
+
+
+ NOTA: debido a que la funci?n oc.curves utiliza distribuci?n binomial en lugar de
+la aproximaci?n normal, se obtiene un valor de la proporci?n media diferente a la que proporciona el gr?fico de control y, adem?s, el  ARL obenido para esa media no se corresponde con 1/0.0027=370 para una distancia de 3*sigma. SEGUIDAMENTE SE MUESTRA UN SCRIPT QUE UTILIZA LA APROXIMACI?N NORMAL:
+
+
+```{r}
+# grafico de control:
+obj.qcc <- qcc(D[nuevos2], sizes=size[nuevos2], type="p", plot=TRUE) 
+
+# p.hat: la proporci?n de errores media por muestra
+# LI, LS: l?mites de control naturales
+# sd: desviaci?n t?pica de la aproximaci?n normal
+
+p.hat <- obj.qcc$center
+n <-mean(size)
+varianza.hat <- ((p.hat)*(1-p.hat))/n
+sd <- sqrt(varianza.hat)
+nsigma=3
+
+LI <- p.hat-nsigma*sd
+
+LS <- p.hat+nsigma*sd
+
+# Diferentes valores de la proporci?n de errores:
+
+p <- seq(0,1,0.01)
+
+
+#Definimos una funci?n para calcular los beta (ERROR TIPO II) con el TCL
+
+beta.norm <- function(p.hat,sd,LI,LS){
+  b <- round(pnorm(LS, mean = p.hat,sd = sd )-pnorm(LI, mean = p.hat,sd = sd )
+       ,3)
+  return(b)
+}
+  
+beta <- apply(as.matrix(p),1,beta.norm,sd,LI,LS)
+
+windows(19,10)
+op=par(mfrow=c(1,2))
+#Realizamos el gr?fico
+plot(p, beta, type = "n", ylim = c(0, 1), xlim = c(0, 1), 
+     main = "OC curves for disconformities proportion using TCL", 
+     xlab = expression(p), ylab = "Prob. type II error ")
+#rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
+#     col = qcc.options("bg.figure"))
+lines(p, beta)
+lines(rep(p[which.max(beta)], 2), c(0, max(beta)), lty = 2)
+
+
+
+# Curva ARL:
+plot(seq(0,1,length=101),as.numeric(1/(1-beta)),type="l", 
+ylab="Average Run Length to detect shift, ARL",xlab="p" )
+par(op)
+
+
+detach(orangejuice)
+
+```
+
+ __Curvas OC para un grafico de control tipo c__
+ 
+```{r}
+
+data(circuit)
+attach(circuit)
+
+
+windows(15,10)
+op<-par(mfrow=c(1,2))
+q <- qcc(x[trial], sizes=size[trial], type="c", plot=TRUE)
+
+beta <- oc.curves(q)
+print(round(beta, digits=4))
+par(op)
+
+detach(circuit)
+```
+
+NOTA: debido a a que la funcion oc.curves distribuci?n de poisson en lugar de la aproximaci?n normal, se obtiene un valor del número de disconformidades diferente a la que proporciona el gr?fico de control y, adem?s, el ARL obenido para esa media no se corresponde con 1/0.0027=370 para una distancia de 3*sigma

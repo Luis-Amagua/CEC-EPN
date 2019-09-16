@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567192885779.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1362205780",
+    "id" : "D52E6BC1",
+    "lastKnownWriteTime" : 1567193152,
+    "last_content_update" : 1567193271237,
+    "path" : "C:/Users/ADA06/Desktop/CEC/BOOKDOWN/Control_book/05-practica_2.Rmd",
+    "project_path" : "05-practica_2.Rmd",
+    "properties" : {
+        "cursorPosition" : "372,6",
+        "scrollLine" : "364"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
